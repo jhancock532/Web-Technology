@@ -1,7 +1,7 @@
 {
-  "name": "testing",
+  "name": "Bristol Creative Map",
   "version": "1.0.0",
-  "description": "",
+  "description": "A map of all the creative sites in Bristol!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jhancock532/Web-Technology#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.0"
   }
 }
