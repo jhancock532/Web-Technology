@@ -1,0 +1,7 @@
+@import 'variables';
+@import 'mixins';
+
+p {
+  color: $primary-color;
+  font-family: $font-primary;
+}

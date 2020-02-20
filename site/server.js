@@ -2,6 +2,7 @@
 
 const express = require("express");
 const nunjucks = require("nunjucks");
+const path = require("path");
 
 let app = express();
 let port = 3000;
@@ -12,11 +13,24 @@ nunjucks.configure(root, {
   express: app
 });
 
+//app.use('/css', express.static(__dirname + '/css'));
+//app.use('/img', express.static(__dirname + '/img'));
+//app.use('/static', express.static(path.join(__dirname, 'public')));
+
+//app.use(express.static(root)); - This gives access to public resources?
+
+//https://expressjs.com/en/starter/static-files.html
+//https://stackoverflow.com/questions/24582338/how-can-i-include-css-files-using-node-express-and-ejs
+
+app.use('/css', express.static(path.join(__dirname, 'public/css')));
+
 app.get('/', function(req, res) {
   res.render('index.html');
 });
 
+
 app.listen(port, () => console.log(`Website now listening on port ${port}!`))
+
 
 // // Run a node.js web server for local development of a static web site. Create a
 // // site folder, put server.js in it, create a sub-folder called "public", with
