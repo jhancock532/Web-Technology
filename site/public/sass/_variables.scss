@@ -1,7 +1,74 @@
-$primary-color: #d63939;
-$secondary-color: blue;
 
-$gutter-width: 20px;
+$grid: 20px;
+
+/**
+ * Colour Scheme
+ * Go to https://coolors.co/1a1423-372549-774c60-b75d69-eacdc2 for more colours / making modifications.
+ */
+
+$color--eerie-black: #1a1423;
+$color--black: #0d090d;
+$color--violet: #372549;
+$color--taupe: #774c60;
+$color--puce: #b75d69;
+$color--dust: #eacdc2;
+ 
+$color--white: #fdfaf9;
+$color--black: #161312;
+ 
+$primary-color: $color--violet;
+$secondary-color: $color--taupe;
+
+/** Media Query Breakpoints
+ * THESE VALUES ARE STILL TO BE CONFIRMED
+ * THE RESPONSIVENESS OF THE SITE SHOULD HAVE THREE FORMS?
+ */
+
+$media-query-breakpoints: (
+  xs: 576px, //Mobile Landscape
+  sm: 768px, //Tablet Portrait
+  md: 992px, //Tablet Landscape
+  lg: 1200px //Desktop
+);
+
+
+/** Typography Variables
+ */
 
 $font-primary: Verdana, Arial, Tahoma, Serif;
 $font-secondary: Helvetica;
+
+$font-weights: ("regular": 400, "medium": 500, "bold": 700);
+ 
+$mobile-font-sizes: (
+  xxs: 8px,
+  xs: 10px,
+  s: 12px,
+  m: 14px,
+  l: 18px,
+  xl: 22px,
+  xxl: 28px,
+  xxxl: 36px
+);
+
+$tablet-font-sizes: (
+  xxs: 8px,
+  xs: 10px,
+  s: 12px,
+  m: 14px,
+  l: 18px,
+  xl: 22px,
+  xxl: 28px,
+  xxxl: 36px
+);
+
+$desktop-font-sizes: (
+  xxs: 10px,
+  xs: 12px,
+  s: 14px,
+  m: 18px,
+  l: 22px,
+  xl: 26px,
+  xxl: 32px,
+  xxxl: 48px
+);

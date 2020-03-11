@@ -1,3 +1,91 @@
-p {
-  color: #d63939;
+/**
+ * Colour Scheme
+ * Go to https://coolors.co/1a1423-372549-774c60-b75d69-eacdc2 for more colours / making modifications.
+ */
+/** Media Query Breakpoints
+ * THESE VALUES ARE STILL TO BE CONFIRMED
+ * THE RESPONSIVENESS OF THE SITE SHOULD HAVE THREE FORMS?
+ */
+/** Typography Variables
+ */
+/** Mobile First Min-Width Media Query Mixin
+ * Accepts the values xs, sm, md, lg (see variables.scss)
+ * Use this mixin to overwrite mobile first CSS
+ * Example - ` @include media-query(sm) { ... } `
+ * Source - https://glennmccomb.com/articles/useful-sass-scss-media-query-mixins-for-bootstrap/
+ */
+/** Responsive Font Size Mixin
+ * Accepts the values xxs, xs, s, m, l, xl, xxl, xxxl (see variables.scss)
+ * Example - ` @include font-size(m); ` - Includes a medium size font
+ * Source - Inspired by https://iamsteve.me/blog/entry/atomic-font-size-management-with-sass, code mostly remixed from breakpoint mixin.
+ */
+body {
+  margin: 0;
+  background: #fdfaf9; }
+
+p, a, li, h1, h2, h3, h4, h5 {
   font-family: Verdana, Arial, Tahoma, Serif; }
+
+a {
+  color: #372549; }
+
+.bold {
+  font-weight: bold; }
+
+::-moz-selection {
+  color: #1a1423;
+  background: #b75d69; }
+
+::selection {
+  color: #1a1423;
+  background: #b75d69; }
+
+.header_menu {
+  font-size: 14px;
+  padding: 20px;
+  background-color: #eacdc2; }
+  @media (min-width: 992px) {
+    .header_menu {
+      font-size: 14px; } }
+  @media (min-width: 1200px) {
+    .header_menu {
+      font-size: 18px; } }
+
+.header_logo {
+  display: inline; }
+
+.header_link {
+  margin-left: 20px;
+  display: inline; }
+
+.card {
+  background-color: rosybrown; }
+  .card_title {
+    font-size: medium; }
+  .card_text {
+    font-size: small; }
+
+.hero {
+  background-color: #372549;
+  padding: 40px; }
+  .hero_title {
+    font-size: 28px;
+    color: #fdfaf9;
+    font-family: Verdana, Arial, Tahoma, Serif; }
+    @media (min-width: 992px) {
+      .hero_title {
+        font-size: 28px; } }
+    @media (min-width: 1200px) {
+      .hero_title {
+        font-size: 32px; } }
+  .hero_tagline {
+    font-size: 22px;
+    color: #fdfaf9;
+    margin-top: 20px;
+    font-family: Verdana, Arial, Tahoma, Serif; }
+    @media (min-width: 992px) {
+      .hero_tagline {
+        font-size: 22px; } }
+    @media (min-width: 1200px) {
+      .hero_tagline {
+        font-size: 26px; } }

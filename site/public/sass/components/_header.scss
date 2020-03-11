@@ -1,0 +1,18 @@
+.header {
+  &_menu {
+    @include font-size(m);
+    padding: $grid;
+    background-color: $color--dust;
+  }
+
+  &_logo {
+    display: inline;
+    margin-left: $grid;
+  }
+
+  &_link {
+    margin-left: $grid;
+    display: inline;
+  }
+
+}

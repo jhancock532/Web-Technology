@@ -1,0 +1,18 @@
+.hero {
+  background-color: $color--violet;
+  padding: $grid * 2;
+
+  &_title {
+    @include font-size(xxl);
+    color: $color--white;
+
+    font-family: $font-primary;
+  }
+
+  &_tagline {
+    @include font-size(xl);
+    color: $color--white;
+    margin-top: $grid;
+    font-family: $font-primary;
+  }
+}

@@ -1,0 +1,11 @@
+.card {
+  background-color: rosybrown;
+
+  &_title {
+    font-size: medium;
+  }
+
+  &_text {
+    font-size: small;
+  }
+}

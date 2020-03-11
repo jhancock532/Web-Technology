@@ -1,5 +1,16 @@
 # Documentation
 
+### Running the server
+
+Navigate to the folder with the server.js file, e.g. - `cd Desktop/Web Technology/Creative Map/site`
+Run the following command: `node server.js &`
+
+### Compiling Sass
+
+Navigate to the folder with the gulpfile, then
+Use the gulpfile with `gulp sass`
+Have the gulpfile watch the directory for changes and auto compile with `gulp sass:watch`
+
 ### Setting Up Gulp to Build the Styles
 I'm currently using Gulp to compile the Sass into css. In the future this could be expanded to all sorts of little tweaks for better website development.
 
