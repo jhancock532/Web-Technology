@@ -1,0 +1,13 @@
+.explore-map {
+  grid-column: 1 / 4;
+  display: flex;
+  justify-content: center;
+
+  &_image {
+    width: 300px;
+
+    @include media-query(md){
+      width: 500px;
+    }
+  }
+}

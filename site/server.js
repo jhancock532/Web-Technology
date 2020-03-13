@@ -23,6 +23,7 @@ nunjucks.configure(root, {
 //https://stackoverflow.com/questions/24582338/how-can-i-include-css-files-using-node-express-and-ejs
 
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 app.get('/', function(req, res) {
   res.render('index.html');

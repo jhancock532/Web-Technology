@@ -11,6 +11,10 @@ Navigate to the folder with the gulpfile, then
 Use the gulpfile with `gulp sass`
 Have the gulpfile watch the directory for changes and auto compile with `gulp sass:watch`
 
+### What is Nunjucks?
+
+Check out the documentation at 
+
 ### Setting Up Gulp to Build the Styles
 I'm currently using Gulp to compile the Sass into css. In the future this could be expanded to all sorts of little tweaks for better website development.
 
@@ -23,3 +27,15 @@ Also do `npm install gulp-sass --save-dev` if this hasn't already been installed
 
 I haven't set this up yet, but in the future we can integrate with VSCode.
 https://code.visualstudio.com/docs/languages/css#_transpiling-sass-and-less-into-css
+
+# To Do List
+
+- CSS Grid
+
+- Map of Bristol
+  - Inkscape SVG Creation
+  - HTML Component (With CSS?)
+  - JavaScript to make it trigger something
+
+- Card for Event / Location
+- Buttons for Cards

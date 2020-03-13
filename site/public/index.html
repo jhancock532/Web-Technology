@@ -2,13 +2,36 @@
 
 {% block body %}
 
+<div class="explore-map">
+  <img class="explore-map_image" src="images/united-kingdom.svg">
+</div>
+
+
 <!-- Top of the Fold Content - Splashscreen Image and Title Section -->
 <div class="hero">
   <div class="hero_title">Bristol Creative Map</div>
   <div class="hero_tagline">The vibrant city of Bristol is largely unexplored by its student population, what will convince students stuck studying to explore the city?</div>
 </div>
+
 <!-- Tagline introduction and three suggested links -->
 
 <!-- Two Cards of Relevant Content -->
+
+{% include "includes/card.html" %}
+
+
+
+
+<!-- Ideally we want to do some cool stuff with the server, like
+<h1>Posts</h1>
+<ul>
+{% for item in items %}
+  <li>{{ item.title }}</li>
+{% else %}
+  <li>This would display if the 'item' collection were empty</li>
+{% endfor %}
+</ul>
+-->
+
 
 {% endblock %}

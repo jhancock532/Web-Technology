@@ -23,6 +23,17 @@ body {
   margin: 0;
   background: #fdfaf9; }
 
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px; }
+  @media (min-width: 992px) {
+    .grid-wrapper {
+      grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1200px) {
+    .grid-wrapper {
+      grid-template-columns: 1fr 1fr 1fr; } }
+
 p, a, li, h1, h2, h3, h4, h5 {
   font-family: Verdana, Arial, Tahoma, Serif; }
 
@@ -42,6 +53,7 @@ a {
 
 .header_menu {
   font-size: 14px;
+  grid-column: 1 / 4;
   padding: 20px;
   background-color: #eacdc2; }
   @media (min-width: 992px) {
@@ -52,7 +64,8 @@ a {
       font-size: 18px; } }
 
 .header_logo {
-  display: inline; }
+  display: inline;
+  margin-left: 20px; }
 
 .header_link {
   margin-left: 20px;
@@ -89,3 +102,13 @@ a {
     @media (min-width: 1200px) {
       .hero_tagline {
         font-size: 26px; } }
+
+.explore-map {
+  grid-column: 1 / 4;
+  display: flex;
+  justify-content: center; }
+  .explore-map_image {
+    width: 300px; }
+    @media (min-width: 992px) {
+      .explore-map_image {
+        width: 500px; } }

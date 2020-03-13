@@ -3,6 +3,20 @@ body {
   background: $color--white;
 }
 
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  
+  @include media-query(md){
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include media-query(lg){
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  grid-gap: $grid;
+}
+
 p, a, li, h1, h2, h3, h4, h5 {
   font-family: $font-primary;
 }

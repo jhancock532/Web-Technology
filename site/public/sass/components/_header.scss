@@ -1,6 +1,8 @@
 .header {
+
   &_menu {
     @include font-size(m);
+    grid-column: 1 / 4;
     padding: $grid;
     background-color: $color--dust;
   }
