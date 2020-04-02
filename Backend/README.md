@@ -1,3 +1,3 @@
 # Strapi application
 
-A quick description of your strapi application
+Run `strapi develop` in the command line in this directory after installing strapi.
