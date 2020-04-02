@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "locations",
+  "info": {
+    "name": "Location"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "cafes": {
+      "via": "locations",
+      "collection": "cafes"
+    }
+  }
+}

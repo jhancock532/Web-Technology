@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "cafes",
+  "info": {
+    "name": "Cafes"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "locations": {
+      "collection": "location",
+      "via": "cafes",
+      "dominant": true
+    }
+  }
+}
