@@ -39,3 +39,9 @@ https://code.visualstudio.com/docs/languages/css#_transpiling-sass-and-less-into
 
 - Card for Event / Location
 - Buttons for Cards
+
+
+# For my MACS, 
+npm install somehow does not install [nunjucks] and [express] ... 
+- Have to run npm install nunjucks express manually.
+- Server does not close after running the command [ node server.js & ] , still running in the background 
