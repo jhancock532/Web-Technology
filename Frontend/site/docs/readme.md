@@ -45,3 +45,7 @@ https://code.visualstudio.com/docs/languages/css#_transpiling-sass-and-less-into
 npm install somehow does not install [nunjucks] and [express] ... 
 - Have to run npm install nunjucks express manually.
 - Server does not close after running the command [ node server.js & ] , still running in the background 
+# Command to print only node processes 
+- ps -ef | grep node
+# Command to kill node processes with pid 
+- kill -9 pid
