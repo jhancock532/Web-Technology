@@ -1,4 +1,4 @@
-// James's experiment with Express and Nunjucks!
+// Experimenting with Express and Nunjucks
 
 const express = require("express");
 const nunjucks = require("nunjucks");
@@ -13,14 +13,6 @@ nunjucks.configure(root, {
   express: app
 });
 
-//app.use('/css', express.static(__dirname + '/css'));
-//app.use('/img', express.static(__dirname + '/img'));
-//app.use('/static', express.static(path.join(__dirname, 'public')));
-
-//app.use(express.static(root)); - This gives access to public resources?
-
-//https://expressjs.com/en/starter/static-files.html
-//https://stackoverflow.com/questions/24582338/how-can-i-include-css-files-using-node-express-and-ejs
 
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
@@ -30,6 +22,17 @@ app.get('/', function(req, res) {
 });
 
 app.listen(port, () => console.log(`Website now listening on port ${port}!`))
+
+//app.use('/css', express.static(__dirname + '/css'));
+//app.use('/img', express.static(__dirname + '/img'));
+//app.use('/static', express.static(path.join(__dirname, 'public')));
+
+//app.use(express.static(root)); - This gives access to public resources?
+
+//https://expressjs.com/en/starter/static-files.html
+//https://stackoverflow.com/questions/24582338/how-can-i-include-css-files-using-node-express-and-ejs
+//Be careful here, this is difficult to get right.
+
 
 
 // // Run a node.js web server for local development of a static web site. Create a

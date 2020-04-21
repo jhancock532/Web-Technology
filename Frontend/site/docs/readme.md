@@ -2,7 +2,7 @@
 
 ### Running the server
 
-Navigate to the folder with the server.js file, e.g. - `cd Desktop/Web Technology/Creative Map/site`
+Navigate to the folder with the server.js file, e.g. - `cd Desktop/Web Technology/Creative Map/Frontend/site`
 Run the following command: `node server.js &`
 
 ### Compiling Sass
@@ -10,10 +10,11 @@ Run the following command: `node server.js &`
 Navigate to the folder with the gulpfile, then
 Use the gulpfile with `gulp sass`
 Have the gulpfile watch the directory for changes and auto compile with `gulp sass:watch`
+Note that this occasionally fails and needs to be restarted.
 
 ### What is Nunjucks?
 
-Check out the documentation at 
+Check out the documentation at https://mozilla.github.io/nunjucks/templating.html
 
 ### Setting Up Gulp to Build the Styles
 I'm currently using Gulp to compile the Sass into css. In the future this could be expanded to all sorts of little tweaks for better website development.
