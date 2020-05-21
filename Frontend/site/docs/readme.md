@@ -31,8 +31,6 @@ https://code.visualstudio.com/docs/languages/css#_transpiling-sass-and-less-into
 
 # To Do List
 
-- CSS Grid
-
 - Map of Bristol
   - Inkscape SVG Creation
   - HTML Component (With CSS?)
@@ -40,3 +38,7 @@ https://code.visualstudio.com/docs/languages/css#_transpiling-sass-and-less-into
 
 - Card for Event / Location
 - Buttons for Cards
+
+- Restyle the dropdown button so that it uses :after with a CSS triangle for a cleaner look.
+- Fix the dropdown hovering effect.
+- Implement the dropdown javascript so that it operates on button click. Unique ids for dropdowns may be necessary.

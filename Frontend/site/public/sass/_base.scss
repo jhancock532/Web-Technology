@@ -1,20 +1,6 @@
 body {
   margin: 0;
-  background: $color--white;
-}
-
-.grid-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  
-  @include media-query(md){
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @include media-query(lg){
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  grid-gap: $grid;
+  background: $color-white;
 }
 
 p, a, li, h1, h2, h3, h4, h5 {
@@ -22,19 +8,94 @@ p, a, li, h1, h2, h3, h4, h5 {
 }
 
 a {
-  color: $color--violet;
+  color: $color-grey;
+  &:hover {
+    color: $color-primary;
+  }
+  &:visited {
+    color: $color-dark-green;
+  }
 }
 
 .bold {
   font-weight: bold;
 }
 
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
 ::-moz-selection {
-  color: $color--eerie-black;
-  background: $color--puce;
+  color: $color-black;
+  background: $color-secondary;
 }
 
 ::selection {
-  color: $color--eerie-black;
-  background: $color--puce;
+  color: $color-black;
+  background: $color-secondary;
+}
+
+
+
+.text-primary {
+  color: $color-primary;
+}
+.text-primary-dark {
+  color: $color-primary-dark;
+}
+.text-secondary {
+  color: $color-secondary;
+}
+.text-grey {
+  color: $color-grey;
+}
+.text-danger {
+  color: $color-yellow;
+}
+.text-warning {
+  color: $color-red;
+}
+.text-info {
+  color: $color-blue;
+}
+.text-success {
+  color: $color-green;
+}
+.text-black {
+  color: $color-black;
+}
+.text-white {
+  color: $color-white;
+}
+
+.background-primary {
+  background-color: $color-primary;
+}
+.background-primary-dark {
+  background-color: $color-primary-dark;
+}
+.background-secondary {
+  background-color: $color-secondary;
+}
+.background-grey {
+  background-color: $color-grey;
+}
+.background-danger {
+  background-color: $color-red;
+}
+.background-success {
+  background-color: $color-green;
+}
+.background-warning {
+  background-color: $color-yellow;
+}
+.background-info {
+  background-color: $color-blue;
+}
+.background-black {
+  background-color: $color-black;
 }

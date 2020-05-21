@@ -1,0 +1,50 @@
+
+.button {
+
+  &--inverse-primary {
+    background-color: $color-white;
+    color: $color-primary;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $color-primary;
+    border-radius: 8px;
+    padding: 5px;
+    transition: color 0.5s, background-color 0.5s;
+    line-height: 2;
+
+    &:visited {
+      color: $color-primary;
+    }
+    
+    &:hover{
+      color: $color-white;
+      background-color: $color-primary;
+      border-color: $color-white;
+    }
+  }
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $color-primary;
+    border-radius: 8px;
+    padding: 5px;
+    transition: color 0.5s, background-color 0.5s;
+    line-height: 2;
+
+    &:visited {
+      color: $color-white;
+    }
+    
+
+    &:hover{
+      color: $color-primary;
+      background-color: $color-white;
+    }
+  }
+
+
+  
+}

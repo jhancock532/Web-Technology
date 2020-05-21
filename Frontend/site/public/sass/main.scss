@@ -6,8 +6,9 @@
 @import 'components/header';
 @import 'components/button';
 @import 'components/card';
-@import 'components/hero';
-@import 'components/explore-map';
+@import 'components/bristol-map';
+@import 'components/dropdown';
 
-
-//Hello
+//Collections
+@import 'collections/landing-hero';
+@import 'collections/style-guide';

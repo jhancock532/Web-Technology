@@ -1,0 +1,106 @@
+{% extends "_page.html" %}
+
+{% block content %}
+
+<div class="style-guide">
+
+  <div class="style-guide__menu">
+
+    <a href="#introduction">Introduction</a>
+    <a href="#colour-scheme">Colours</a>
+    <a href="#typography">Typography</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#elements">Includes</a>
+
+  </div>
+
+  <div class="style-guide__contents">
+
+    <div id="introduction">
+      <h1>Style Guide</h1>
+      <p>This style guide, or pattern library, contains all the elements that are used to build up this site.</p>
+    </div>
+
+    <hr>
+
+    <div id="colour-scheme">
+      <h1>Colour Scheme </h1>
+
+      <p>The palette can be seen here on <a href="https://coolors.co/5bc0eb-fde74c-9bc53d-4e6c1f-c3423f-fbfbfb-404e4d-060b0a">coolors.co</a>.</p>
+
+      <div class="style-guide__colour-scheme-palette">
+        <div class="background-primary"><p>Primary</p></div>
+        <div class="background-primary-dark"><p>Primary Dark</p></div>
+        <div class="background-secondary"><p>Secondary</p></div>
+        <div class="background-danger"><p>Danger</p></div>
+        <div class="background-warning"><p>Warning</p></div>
+        <div class="background-success"><p>Success</p></div>
+        <div class="background-info"><p>Info</p></div>
+        <div class="background-grey"><p class="text-white">Grey</p></div>
+        <div class="background-black"><p class="text-white">Black</p></div>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div id="typography">
+      <h1>Typography</h1>
+
+      <p>This project uses Balsamiq as its primary font. The font is availiable <a href="https://fonts.google.com/specimen/Balsamiq+Sans">on Google Fonts</a>.</p>
+
+      <h1>H1 Heading</h1>
+      <h2>H2 Heading</h2>
+      <h3>H3 Heading</h3>
+      <h4>H4 Heading</h4>
+
+      <p>Paragraph of text.</p>
+      <p class="italic">Italic text. (class="italic")</p>
+      <p class="bold">Bold text. (class="bold")</p>
+      <p class="underline">Underlined text. (class="underline")</p>
+      <p class="text-grey">text-grey</p>
+    </div>
+
+    <hr>
+
+    <div id="buttons">
+      <h1>Buttons and Links</h1>
+
+      <p><a href="#lkdfjslakdjf">This is a hyperlink.</a></p>
+
+      <p>
+      <a class="button--primary" href="#">button--primary</a>
+      <a class="button--inverse-primary" href="#">button--inverse-primary</a>
+      </p>
+
+      {% include "includes/components/dropdown.html" %}
+
+      <pre><code>
+      &lt;div class="dropdown"&gt;
+        &lt;a class="button--inverse-primary"&gt;Menu ▼&lt;/a&gt;
+        &lt;div class="dropdown__items"&gt;
+          &lt;a href="/food-and-drink"&gt;Food and Drink&lt;/a&gt;
+          &lt;a href="/heritage-and-culture"&gt;Heritage and Culture&lt;/a&gt;
+          &lt;a href="/events-and-spaces"&gt;Events and Spaces&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      </code></pre>
+
+    </div>
+
+    <hr>
+
+    <div id="elements">
+
+      <h1>Pattern Elements</h1>
+
+      {% include "includes/card.html" %}
+    
+    </div>
+
+  </div>
+
+</div>
+
+
+{% endblock %}

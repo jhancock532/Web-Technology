@@ -1,0 +1,45 @@
+.style-guide {
+  padding: $grid;
+  display: grid;
+  gap: $grid;
+
+
+  @include media-query(sm){
+    grid-template-columns: min-content auto;
+  }
+
+  hr {
+    height: 0px;
+    border-width: 2px;
+    border-color: $color-grey;
+    border-radius: 2px;
+    margin: $grid;
+  }
+
+  &__menu {
+    position: sticky;
+    @include font-size(m);
+    padding: $grid;
+  }
+
+  &__colour-scheme-palette {
+    display: grid;
+    gap: $grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include media-query(md){
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    > div {
+      height: 150px;
+      border-radius: 8px;
+      text-align: end;
+      > p {
+        padding: $grid;
+        margin-top: 0px;
+      }
+    }
+  }
+
+}

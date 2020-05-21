@@ -16,9 +16,13 @@ nunjucks.configure(root, {
 
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
+app.use('/fonts', express.static(path.join(__dirname, 'public/fonts')));
 
 app.get('/', function(req, res) {
   res.render('index.html');
+});
+app.get('/style-guide', function(req, res) {
+  res.render('style-guide.html');
 });
 
 app.listen(port, () => console.log(`Website now listening on port ${port}!`))

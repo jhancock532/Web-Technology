@@ -4,25 +4,24 @@ $grid: 20px;
 /**
  * Colour Scheme
  * Go to https://coolors.co/1a1423-372549-774c60-b75d69-eacdc2 for more colours / making modifications.
+ https://coolors.co/5bc0eb-fde74c-9bc53d-c3423f-404e4d
  */
 
-$color--eerie-black: #1a1423;
-$color--black: #0d090d;
-$color--violet: #372549;
-$color--taupe: #774c60;
-$color--puce: #b75d69;
-$color--dust: #eacdc2;
- 
-$color--white: #fdfaf9;
-$color--black: #161312;
- 
-$primary-color: $color--violet;
-$secondary-color: $color--taupe;
+$color-white: #FBFBFB;
+$color-grey: #404e4d;
+$color-black: #060B0A;
 
-/** Media Query Breakpoints
- * THESE VALUES ARE STILL TO BE CONFIRMED
- * THE RESPONSIVENESS OF THE SITE SHOULD HAVE THREE FORMS?
- */
+$color-green: #9BC53D;
+$color-dark-green: #4E6C1F;
+$color-yellow: #E9C46A;
+$color-red: #C3423F;
+$color-blue: #5BC0EB;
+ 
+$color-primary: $color-green;
+$color-primary-dark: $color-dark-green;
+$color-secondary: $color-yellow;
+
+/** Media Query Breakpoints 
 
 $media-query-breakpoints: (
   xs: 576px, //Mobile Landscape
@@ -31,11 +30,36 @@ $media-query-breakpoints: (
   lg: 1200px //Desktop
 );
 
+*/
+$media-query-breakpoints: (
+  sm: 600px, //Mobile Landscape
+  md: 900px, //Tablet Landscape
+  lg: 1200px //Desktop
+);
+
+
 
 /** Typography Variables
  */
 
-$font-primary: Verdana, Arial, Tahoma, Serif;
+@font-face {
+  font-family: Balsamiq;
+  src: url(/fonts/BalsamiqSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: Balsamiq;
+  src: url(/fonts/BalsamiqSans-Bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Balsamiq;
+  src: url(/fonts/BalsamiqSans-Italic.ttf);
+  font-style: italic;
+}
+
+$font-primary: Balsamiq, Arial, Tahoma, Serif;
 $font-secondary: Helvetica;
 
 $font-weights: ("regular": 400, "medium": 500, "bold": 700);

@@ -2,9 +2,9 @@
 
   &_menu {
     @include font-size(m);
-    grid-column: 1 / 4;
     padding: $grid;
-    background-color: $color--dust;
+    background-color: $color-primary;
+    color: $color-white;
   }
 
   &_logo {

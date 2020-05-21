@@ -1,11 +1,11 @@
 .card {
-  background-color: rosybrown;
+  background-color: $color-primary;
 
   &_title {
-    font-size: medium;
+    @include font-size(m);
   }
 
   &_text {
-    font-size: small;
+    @include font-size(s);
   }
 }
