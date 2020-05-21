@@ -25,7 +25,36 @@ app.get('/style-guide', function(req, res) {
   res.render('style-guide.html');
 });
 
-app.listen(port, () => console.log(`Website now listening on port ${port}!`))
+app.listen(port, () => console.log(`Website now listening on port ${port}!`));
+
+////////////////////////////////////////////////////////////
+// KEEP THIS AROUND TO RECALL THE UNSOLVED ISSUE
+////////////////////////////////////////////////////////////
+
+// When interrupt signal is detected at the terminal, we terminate the process 
+// - This does not work CTRL-C is has a default handler in Linux system, so it exits on terminal before getting detected by the server.
+
+process.on('SIGINT', () => {
+  console.info('SIGINT signal received.');
+  console.log('Closing http server.');
+  server.close(() => {
+    console.log('Http server closed.');
+    process.kill(process.pid, 'SIGTERM');
+    process.exit(0);    
+  });
+});
+
+// console.log( "kill" , process.pid.toString() );
+
+// process.on('SIGTERM', () => {
+//     console.info('SIGTERM signal received.');
+//     console.log('Process terminated')
+//     process.exit(0);
+//   });
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
 
 //app.use('/css', express.static(__dirname + '/css'));
 //app.use('/img', express.static(__dirname + '/img'));
