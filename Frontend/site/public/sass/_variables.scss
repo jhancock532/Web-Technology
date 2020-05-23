@@ -40,59 +40,78 @@ $media-query-breakpoints: (
 
 
 /** Typography Variables
+ * Primary font (body) - Crimson Pro
+ * Secondary font (headings) - Assistant  
  */
 
 @font-face {
-  font-family: Balsamiq;
-  src: url(/fonts/BalsamiqSans-Regular.ttf);
+  font-family: CrimsonPro;
+  src: url(/fonts/CrimsonPro-Regular.ttf);
 }
 
 @font-face {
-  font-family: Balsamiq;
-  src: url(/fonts/BalsamiqSans-Bold.ttf);
+  font-family: CrimsonPro;
+  src: url(/fonts/CrimsonPro-Bold.ttf);
   font-weight: bold;
 }
 
 @font-face {
-  font-family: Balsamiq;
-  src: url(/fonts/BalsamiqSans-Italic.ttf);
+  font-family: CrimsonPro;
+  src: url(/fonts/CrimsonPro-Italic.ttf);
   font-style: italic;
 }
 
-$font-primary: Balsamiq, Arial, Tahoma, Serif;
-$font-secondary: Helvetica;
+@font-face {
+  font-family: Assistant;
+  src: url(/fonts/Assistant-Regular.ttf);
+}
 
-$font-weights: ("regular": 400, "medium": 500, "bold": 700);
+@font-face {
+  font-family: Assistant;
+  src: url(/fonts/Assistant-SemiBold.ttf);
+  font-weight: 500;
+}
+
+
+@font-face {
+  font-family: Assistant;
+  src: url(/fonts/Assistant-Bold.ttf);
+  font-weight: 600;
+}
+
+$font-primary: CrimsonPro, Georgia, Times, serif;
+$font-secondary: Assistant, Helvetica, Arial, sans-serif;
+//Wow
  
 $mobile-font-sizes: (
   xxs: 8px,
-  xs: 10px,
-  s: 12px,
-  m: 14px,
-  l: 18px,
-  xl: 22px,
-  xxl: 28px,
+  xs: 12px,
+  s: 15px,
+  m: 18px,
+  l: 22px,
+  xl: 26px,
+  xxl: 30px,
   xxxl: 36px
 );
 
 $tablet-font-sizes: (
-  xxs: 8px,
-  xs: 10px,
-  s: 12px,
-  m: 14px,
-  l: 18px,
-  xl: 22px,
-  xxl: 28px,
+  xxs: 10px,
+  xs: 12px,
+  s: 16px,
+  m: 20px,
+  l: 24px,
+  xl: 28px,
+  xxl: 32px,
   xxxl: 36px
 );
 
 $desktop-font-sizes: (
   xxs: 10px,
   xs: 12px,
-  s: 14px,
-  m: 18px,
-  l: 22px,
-  xl: 26px,
-  xxl: 32px,
+  s: 16px,
+  m: 20px,
+  l: 24px,
+  xl: 28px,
+  xxl: 36px,
   xxxl: 48px
 );

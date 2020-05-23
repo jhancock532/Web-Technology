@@ -3,9 +3,9 @@
   display: grid;
   gap: $grid;
 
-
   @include media-query(sm){
     grid-template-columns: min-content auto;
+    padding-right: 2 * $grid;
   }
 
   hr {
@@ -13,19 +13,48 @@
     border-width: 2px;
     border-color: $color-grey;
     border-radius: 2px;
-    margin: $grid;
+    margin-top: $grid;
+    margin-bottom: $grid;
   }
 
   &__menu {
-    position: sticky;
     @include font-size(m);
-    padding: $grid;
+    margin-bottom: -$grid;
+
+    &::before{
+      font-family: $font-primary;
+      content: "Jump to section:";
+    }
+
+    @include media-query(sm){
+      padding: $grid;
+      margin-bottom: 0px;
+
+      &::before {
+        content: "";
+      }
+    }
+  }
+
+  &__menu-sticky {
+    position: sticky;
+  }
+
+  &__code-block {
+    width: 100%;
+    margin-top: $grid;
+    border-radius: 8px;
+    border-width: 1px;
   }
 
   &__colour-scheme-palette {
     display: grid;
+    grid-template-columns: 1fr;
     gap: $grid;
-    grid-template-columns: 1fr 1fr;
+
+    @include media-query(sm){
+      grid-template-columns: 1fr 1fr;
+    }
 
     @include media-query(md){
       grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -5,19 +5,19 @@
 <div class="style-guide">
 
   <div class="style-guide__menu">
-
-    <a href="#introduction">Introduction</a>
-    <a href="#colour-scheme">Colours</a>
-    <a href="#typography">Typography</a>
-    <a href="#buttons">Buttons</a>
-    <a href="#elements">Includes</a>
-
+    <div class="style-guide__menu-sticky">
+    <p><a href="#introduction">Introduction</a></p>
+    <p><a href="#colour-scheme">Colours</a></p>
+    <p><a href="#typography">Typography</a></p>
+    <p><a href="#buttons">Buttons</a></p>
+    <p><a href="#elements">Includes</a></p>
+    </div>
   </div>
 
   <div class="style-guide__contents">
 
     <div id="introduction">
-      <h1>Style Guide</h1>
+      <h1>Explore Bristol Style Guide</h1>
       <p>This style guide, or pattern library, contains all the elements that are used to build up this site.</p>
     </div>
 
@@ -47,18 +47,19 @@
     <div id="typography">
       <h1>Typography</h1>
 
-      <p>This project uses Balsamiq as its primary font. The font is availiable <a href="https://fonts.google.com/specimen/Balsamiq+Sans">on Google Fonts</a>.</p>
+      <p>This project uses <a href="https://fonts.google.com/specimen/Crimson+Pro">Crimson Pro</a> and <a href="https://fonts.google.com/specimen/Assistant">Assistant</a> for its primary and secondary fonts respectively.</p>
 
       <h1>H1 Heading</h1>
       <h2>H2 Heading</h2>
       <h3>H3 Heading</h3>
       <h4>H4 Heading</h4>
+      <h5>H5 Heading</h5>
 
       <p>Paragraph of text.</p>
       <p class="italic">Italic text. (class="italic")</p>
       <p class="bold">Bold text. (class="bold")</p>
       <p class="underline">Underlined text. (class="underline")</p>
-      <p class="text-grey">text-grey</p>
+      <p><span class="text-grey">text-grey</span></p>
     </div>
 
     <hr>
@@ -75,16 +76,15 @@
 
       {% include "includes/components/dropdown.html" %}
 
-      <pre><code>
-      &lt;div class="dropdown"&gt;
-        &lt;a class="button--inverse-primary"&gt;Menu ▼&lt;/a&gt;
-        &lt;div class="dropdown__items"&gt;
-          &lt;a href="/food-and-drink"&gt;Food and Drink&lt;/a&gt;
-          &lt;a href="/heritage-and-culture"&gt;Heritage and Culture&lt;/a&gt;
-          &lt;a href="/events-and-spaces"&gt;Events and Spaces&lt;/a&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      </code></pre>
+      <textarea class="style-guide__code-block" rows="9">
+&lt;div class="dropdown"&gt;
+  &lt;a class="button--inverse-primary"&gt;Menu ▼&lt;/a&gt;
+  &lt;div class="dropdown__items"&gt;
+    &lt;a href="/food-and-drink"&gt;Food and Drink&lt;/a&gt;
+    &lt;a href="/heritage-and-culture"&gt;Heritage and Culture&lt;/a&gt;
+    &lt;a href="/events-and-spaces"&gt;Events and Spaces&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</textarea>
 
     </div>
 
@@ -94,7 +94,7 @@
 
       <h1>Pattern Elements</h1>
 
-      {% include "includes/card.html" %}
+      {% include "includes/components/card.html" %}
     
     </div>
 

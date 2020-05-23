@@ -3,8 +3,14 @@ body {
   background: $color-white;
 }
 
-p, a, li, h1, h2, h3, h4, h5 {
+p, a, li {
   font-family: $font-primary;
+  @include font-size(m);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $font-secondary;
+  font-weight: 500; //Using semi-bold.
 }
 
 a {
