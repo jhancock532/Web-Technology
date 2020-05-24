@@ -1,9 +1,17 @@
 # Documentation
 
-### Running the server
+### Running the Server
 
 Navigate to the folder with the server.js file, e.g. - `cd Desktop/Web Technology/Creative Map/Frontend/site`
 Run the following command: `node server.js &`
+
+### Developing the Server
+
+This project uses Gulp to handle server maintence, compiling Sass and minimising JS.
+Node should install the required dependencies for you. If they aren't there, use the following command.
+
+`npm install node-sass gulp-sass gulp-develop-server gulp-concat gulp-rename gulp-uglify --save-dev`
+`npm install browser-sync --save-dev'
 
 ### Compiling Sass
 

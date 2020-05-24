@@ -17,6 +17,7 @@ nunjucks.configure(root, {
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use('/fonts', express.static(path.join(__dirname, 'public/fonts')));
+app.use('/javascript', express.static(path.join(__dirname, 'public/javascript')));
 
 app.get('/', function(req, res) {
   res.render('index.html');
@@ -37,7 +38,7 @@ app.listen(port, () => console.log(`Website now listening on port ${port}!`));
 process.on('SIGINT', () => {
   console.info('SIGINT signal received.');
   console.log('Closing http server.');
-  server.close(() => {
+  app.close(() => { //this used to be server.close but we're using app so I fixed this for you?
     console.log('Http server closed.');
     process.kill(process.pid, 'SIGTERM');
     process.exit(0);    
