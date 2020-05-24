@@ -1,20 +1,64 @@
 .header {
 
-  &_menu {
+  &__menu {
     @include font-size(m);
+    display: flex;
+    align-items: center;
     padding: $grid;
     background-color: $color-primary;
     color: $color-white;
+
+    @include media-query(md){
+      a:last-child {
+        margin-right: $grid;
+      }
+    }
   }
 
-  &_logo {
+  &__logo {
     display: inline;
-    margin-left: $grid;
+    margin-right: auto;
+    font-family: $font-secondary;
+    font-weight: 600;
+    @include font-size(xl);
+    text-decoration: none;
+    color: $color-white;
+
+    @include media-query(md){
+      margin-left: $grid;
+    }
+
+    &:visited {
+      color: $color-white;
+    }
+    
   }
 
-  &_link {
-    margin-left: $grid;
+  &__dropdown {
     display: inline;
+
+    @include media-query(md){
+      display: none;
+    }
   }
 
+  &__link {
+    display: none;
+
+    @include media-query(md){
+      display: inline;
+      color: $color-white;
+      margin-right: 2 * $grid;
+
+      &:hover {
+        color: $color-primary-dark;
+      }
+      &:visited {
+        color: $color-white;
+        &:hover {
+          color: $color-primary-dark;
+        }
+      }
+    }
+  }
 }
