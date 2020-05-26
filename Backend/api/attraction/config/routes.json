@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/cafes",
-      "handler": "cafes.find",
+      "path": "/attractions",
+      "handler": "attraction.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/cafes/count",
-      "handler": "cafes.count",
+      "path": "/attractions/count",
+      "handler": "attraction.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/cafes/:id",
-      "handler": "cafes.findOne",
+      "path": "/attractions/:id",
+      "handler": "attraction.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/cafes",
-      "handler": "cafes.create",
+      "path": "/attractions",
+      "handler": "attraction.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/cafes/:id",
-      "handler": "cafes.update",
+      "path": "/attractions/:id",
+      "handler": "attraction.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/cafes/:id",
-      "handler": "cafes.delete",
+      "path": "/attractions/:id",
+      "handler": "attraction.delete",
       "config": {
         "policies": []
       }

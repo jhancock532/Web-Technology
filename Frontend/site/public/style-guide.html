@@ -94,7 +94,27 @@
 
       <h1>Pattern Elements</h1>
 
-      {% include "includes/components/card.html" %}
+      <h2>Card</h2>
+
+      <div class="style-guide__card-container">
+        <div class="card">
+          <h3 class="card__title">Card Element</h3>
+          <p class="card__text">This is a basic card element.</p>
+        </div>
+
+        <div class="card background-black text-white">
+          <h3 class="card__title">Card Element</h3>
+          <p class="card__text">This is a basic card element with colour scheme styling.</p>
+        </div>
+
+        <div class="card card--image text-white" style="background-image: url('/images/demo-placeholder.jpg');">
+          <div class="card--image__cover">
+            <h3 class="card__title">Card Element</h3>
+            <p class="card__text">This is a basic card with a background image.</p>
+          </div>
+        </div>
+
+      </div>
     
     </div>
 

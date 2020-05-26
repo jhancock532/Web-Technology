@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Lifecycle callbacks for the `location` model.
+ * Lifecycle callbacks for the `attraction` model.
  */
 
 module.exports = {

@@ -24,7 +24,8 @@
     "nunjucks": "^3.2.1",
     "package": "^1.0.1",
     "package-lock.json": "^1.0.0",
-    "package.json": "^2.0.1"
+    "package.json": "^2.0.1",
+    "superagent": "^5.2.2"
   },
   "devDependencies": {
     "gulp-concat": "^2.6.1",

@@ -1,7 +1,7 @@
 .dropdown {
-  $root: &;
   position: relative;
   display: inline-block;
+  font-family: $font-primary;
 
   &:hover {
     .dropdown__items {

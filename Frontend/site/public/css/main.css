@@ -60,14 +60,14 @@ body {
   margin: 0;
   background: #FBFBFB; }
 
-p, a, li {
+p, li {
   font-family: CrimsonPro, Georgia, Times, serif;
   font-size: 18px; }
   @media (min-width: 900px) {
-    p, a, li {
+    p, li {
       font-size: 20px; } }
   @media (min-width: 1200px) {
-    p, a, li {
+    p, li {
       font-size: 20px; } }
 
 h1, h2, h3, h4, h5 {
@@ -97,6 +97,18 @@ a {
 ::selection {
   color: #060B0A;
   background: #E9C46A; }
+
+.link-white {
+  color: #FBFBFB; }
+  .link-white:hover {
+    color: #404e4d; }
+  .link-white:visited {
+    color: #FBFBFB; }
+    .link-white:visited:hover {
+      color: #FBFBFB; }
+
+.link-no-underline {
+  text-decoration: none; }
 
 .text-primary {
   color: #9BC53D; }
@@ -204,7 +216,8 @@ a {
     .header__link {
       display: inline;
       color: #FBFBFB;
-      margin-right: 40px; }
+      margin-right: 40px;
+      font-family: CrimsonPro, Georgia, Times, serif; }
       .header__link:hover {
         color: #4E6C1F; }
       .header__link:visited {
@@ -246,23 +259,57 @@ a {
     background-color: #FBFBFB; }
 
 .card {
-  background-color: #9BC53D; }
-  .card_title {
-    font-size: 18px; }
+  border-style: solid;
+  border-color: #BDCACA;
+  border-width: 1px;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: auto;
+  box-shadow: 0px 5px 20px #BDCACA; }
+  .card__title {
+    font-size: 22px;
+    margin-top: 0; }
     @media (min-width: 900px) {
-      .card_title {
+      .card__title {
+        font-size: 24px; } }
+    @media (min-width: 1200px) {
+      .card__title {
+        font-size: 24px; } }
+  .card__text {
+    font-size: 18px;
+    margin-bottom: 10px; }
+    @media (min-width: 900px) {
+      .card__text {
         font-size: 20px; } }
     @media (min-width: 1200px) {
-      .card_title {
+      .card__text {
         font-size: 20px; } }
-  .card_text {
-    font-size: 15px; }
+  .card--image {
+    background-color: #FBFBFB;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    min-height: 220px; }
     @media (min-width: 900px) {
-      .card_text {
-        font-size: 16px; } }
-    @media (min-width: 1200px) {
-      .card_text {
-        font-size: 16px; } }
+      .card--image {
+        min-height: 250px; } }
+  .card--image__cover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    transition: background-color 0.3s linear;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end; }
+    @media (min-width: 900px) {
+      .card--image__cover {
+        min-height: 250px; } }
+    .card--image__cover:hover {
+      background-color: rgba(255, 255, 255, 0.4); }
+    .card--image__cover > h3 {
+      margin-bottom: 0; }
 
 .bristol-map {
   height: 100%; }
@@ -271,7 +318,8 @@ a {
 
 .dropdown {
   position: relative;
-  display: inline-block; }
+  display: inline-block;
+  font-family: CrimsonPro, Georgia, Times, serif; }
   .dropdown:hover .dropdown__items {
     display: block; }
   .dropdown__items {
@@ -467,6 +515,16 @@ a {
     margin-top: 20px;
     border-radius: 8px;
     border-width: 1px; }
+  .style-guide__card-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr; }
+    @media (min-width: 600px) {
+      .style-guide__card-container {
+        grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) {
+      .style-guide__card-container {
+        grid-template-columns: 1fr 1fr 1fr; } }
   .style-guide__colour-scheme-palette {
     display: grid;
     grid-template-columns: 1fr;
@@ -555,3 +613,23 @@ a {
     @media (min-width: 900px) {
       .footer__text {
         grid-column: 3; } }
+
+.category {
+  padding: 20px 20px 0 20px; }
+  @media (min-width: 900px) {
+    .category {
+      padding: 20px 40px 0 40px; } }
+  .category__subcategories {
+    padding: 0 20px 40px 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr; }
+    @media (min-width: 900px) {
+      .category__subcategories {
+        padding: 0 40px 40px 40px; } }
+    @media (min-width: 600px) {
+      .category__subcategories {
+        grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) {
+      .category__subcategories {
+        grid-template-columns: 1fr 1fr 1fr; } }

@@ -1,0 +1,25 @@
+{% extends "_page.html" %}
+
+{% block content %}
+
+  {% block header %}
+  {% endblock %}
+
+  <div class="category__subcategories">
+    {% for subcategory in data.subcategories %}
+      {% set backgroundImageUrl = ['http://localhost:1337', subcategory.cover_image[0].url] %}
+
+      <div class="card card--image text-white" style="background-image: url('{{ backgroundImageUrl | join }}');">
+        <a class="link-white link-no-underline" href="/subcategories/{{ subcategory.id }}">
+        <div class="card--image__cover">
+          <h3 class="card__title">{{ subcategory.name }}</h3>
+          <p class="card__text">{{ subcategory.description }}</p>
+        </div>
+        </a>
+      </div>
+      
+      
+    {% endfor %}
+  </div>
+
+{% endblock %}

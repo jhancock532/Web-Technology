@@ -3,6 +3,7 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
 const path = require("path");
+const superagent = require('superagent');
 
 let app = express();
 let port = 3000;
@@ -22,8 +23,65 @@ app.use('/javascript', express.static(path.join(__dirname, 'public/javascript'))
 app.get('/', function(req, res) {
   res.render('index.html');
 });
+
 app.get('/style-guide', function(req, res) {
   res.render('style-guide.html');
+});
+
+app.get('/culture-and-heritage', function(req, res) {
+  superagent.get('http://localhost:1337/categories/4')
+    .end((err, api_res) => {
+      if (err) { return console.log(err); }
+      console.log(api_res.body);
+
+      res.render('culture-and-heritage.html', {
+        data: api_res.body,
+      })
+    });
+});
+
+app.get('/food-and-drink', function(req, res) {
+  superagent.get('http://localhost:1337/categories/3')
+    .end((err, api_res) => {
+      if (err) { return console.log(err); }
+      console.log(api_res.body);
+
+      res.render('food-and-drink.html', {
+        data: api_res.body,
+      })
+    });
+});
+
+app.get('/events-and-spaces', function(req, res) {
+  superagent.get('http://localhost:1337/categories/5')
+    .end((err, api_res) => {
+      if (err) { return console.log(err); }
+      console.log(api_res.body);
+
+      res.render('events-and-spaces.html', {
+        data: api_res.body,
+      })
+    });
+});
+
+app.get('/subcategories/:id', function(req, res) {
+
+  console.log(req.params);
+
+  let api_req = 'http://localhost:1337/subcategories/' + req.params['id'];
+
+  console.log(api_req);
+
+  superagent.get(api_req)
+    .end((err, api_res) => {
+      if (err) { return console.log(err); }
+      console.log(api_res.body);
+
+      res.render('subcategory.html', {
+        subcategory: api_res.body,
+      })
+  });
+  
 });
 
 app.listen(port, () => console.log(`Website now listening on port ${port}!`));

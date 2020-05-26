@@ -3,7 +3,7 @@ body {
   background: $color-white;
 }
 
-p, a, li {
+p, li {
   font-family: $font-primary;
   @include font-size(m);
 }
@@ -45,7 +45,22 @@ a {
   background: $color-secondary;
 }
 
+.link-white {
+  color: $color-white;
+  &:hover {
+    color: $color-grey;
+  }
+  &:visited {
+    color: $color-white;
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
 
+.link-no-underline {
+  text-decoration: none;
+}
 
 .text-primary {
   color: $color-primary;
