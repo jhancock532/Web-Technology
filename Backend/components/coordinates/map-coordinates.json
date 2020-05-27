@@ -1,0 +1,17 @@
+{
+  "connection": "default",
+  "collectionName": "components_coordinates_map_coordinates",
+  "info": {
+    "name": "Map_Coordinates",
+    "icon": "map"
+  },
+  "options": {},
+  "attributes": {
+    "north": {
+      "type": "float"
+    },
+    "west": {
+      "type": "float"
+    }
+  }
+}

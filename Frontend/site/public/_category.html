@@ -11,8 +11,8 @@
 
       <div class="card card--image text-white" style="background-image: url('{{ backgroundImageUrl | join }}');">
         <a class="link-white link-no-underline" href="/subcategories/{{ subcategory.id }}">
-        <div class="card--image__cover">
-          <h3 class="card__title">{{ subcategory.name }}</h3>
+        <div class="card--image__cover card--image__link-cover">
+          <h3 class="card__title card__title--link">{{ subcategory.name }}</h3>
           <p class="card__text">{{ subcategory.description }}</p>
         </div>
         </a>

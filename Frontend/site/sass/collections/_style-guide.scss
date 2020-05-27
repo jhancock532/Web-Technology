@@ -61,6 +61,30 @@
     }
   }
 
+  &__icon-container {
+    display: grid;
+    gap: $grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @include media-query(sm){
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  &__opening-hours-container{
+    display: grid;
+    gap: $grid;
+    grid-template-columns: 1fr;
+
+    @include media-query(sm){
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media-query(md){
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
   &__colour-scheme-palette {
     display: grid;
     grid-template-columns: 1fr;

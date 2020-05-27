@@ -1,0 +1,16 @@
+.opening-hours {
+  padding: $grid;
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: $grid;
+  }
+
+  &__days {
+    font-weight: bold;
+  }
+
+  &__times {
+    text-align: right;
+  }
+}

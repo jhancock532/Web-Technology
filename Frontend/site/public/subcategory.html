@@ -2,8 +2,31 @@
 
 {% block content %}
 
-<h1>{{ subcategory.name }}</h1>
+<div class="subcategory">
 
-<p>This is a subcategory test page.</p>
+  <div class="subcategory__header">
+    <h1>{{ data.name }}</h1>
+    <p>{{ data.description }}</p>
+  </div>
+
+  <div class="subcategory__attractions">
+    {% for attraction in data.attractions %}
+      {% set backgroundImageUrl = ['http://localhost:1337', attraction.image[0].url] %}
+
+      <div class="card--attraction">
+        <a class="link-black link-no-underline" href="/attractions/{{ attraction.id }}">
+          <div class="card--attraction__image" style="background-image: url('{{backgroundImageUrl | join}}');">
+          </div>
+          <div class="card--attraction__content">
+            <h3 class="card__title card__title--link">{{ attraction.name }}</h3>
+            <p class="card__text">{{ attraction.tagline }}</p>
+          </div>
+        </a>
+      </div>
+
+    {% endfor %}
+  </div>
+
+</div>
 
 {% endblock %}

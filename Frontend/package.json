@@ -25,6 +25,7 @@
     "package": "^1.0.1",
     "package-lock.json": "^1.0.0",
     "package.json": "^2.0.1",
+    "showdown": "^1.9.1",
     "superagent": "^5.2.2"
   },
   "devDependencies": {

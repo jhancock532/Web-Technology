@@ -1,0 +1,17 @@
+{% extends "_page.html" %}
+
+{% block content %}
+
+<div class="attraction">
+  <h1>{{ data.name }}</h1>
+  <h3>{{ data.tagline }}</h3>
+  {{ description | safe }}
+
+  <p class="attraction__location">North: <span id="attraction__latitude">{{ data.coordinates[0].north }}</span> and West: <span id="attraction__longitude">{{ data.coordinates[0].west }}</span></p> 
+
+  <div class="attraction__map map" id="map-container"></div>
+
+
+</div>
+
+{% endblock %}

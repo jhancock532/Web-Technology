@@ -28,8 +28,8 @@
       "required": true
     },
     "categories": {
-      "via": "attractions",
-      "collection": "category"
+      "collection": "category",
+      "via": "attractions"
     },
     "opening_times": {
       "type": "component",
@@ -38,8 +38,13 @@
       "required": true
     },
     "subcategories": {
-      "via": "attractions",
-      "collection": "subcategory"
+      "collection": "subcategory",
+      "via": "attractions"
+    },
+    "coordinates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "coordinates.map-coordinates"
     }
   }
 }

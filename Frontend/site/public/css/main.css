@@ -45,6 +45,16 @@ $media-query-breakpoints: (
   src: url(/fonts/Assistant-Bold.ttf);
   font-weight: 600; }
 
+/** Iconography Variables
+  * The icon file was generated on fontello.com.
+  * It includes Font Awesome down arrow and right arrow.
+  */
+@font-face {
+  font-family: 'fontello';
+  src: url(/fonts/fontello.ttf);
+  font-weight: normal;
+  font-style: normal; }
+
 /** Mobile First Min-Width Media Query Mixin
  * Accepts the values xs, sm, md, lg (see variables.scss)
  * Use this mixin to overwrite mobile first CSS
@@ -90,6 +100,9 @@ a {
 .underline {
   text-decoration: underline; }
 
+.no-underline {
+  text-decoration: none; }
+
 ::-moz-selection {
   color: #060B0A;
   background: #E9C46A; }
@@ -101,14 +114,50 @@ a {
 .link-white {
   color: #FBFBFB; }
   .link-white:hover {
-    color: #404e4d; }
+    color: #FBFBFB; }
   .link-white:visited {
     color: #FBFBFB; }
     .link-white:visited:hover {
       color: #FBFBFB; }
 
+.link-black {
+  color: #060B0A; }
+  .link-black:hover {
+    color: #060B0A; }
+  .link-black:visited {
+    color: #060B0A; }
+    .link-black:visited:hover {
+      color: #060B0A; }
+
 .link-no-underline {
   text-decoration: none; }
+
+.fontello-icon {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* You can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
 
 .text-primary {
   color: #9BC53D; }
@@ -266,6 +315,8 @@ a {
   padding: 20px;
   margin-bottom: auto;
   box-shadow: 0px 5px 20px #BDCACA; }
+  .card:hover .card__title--link::after {
+    left: 20px; }
   .card__title {
     font-size: 22px;
     margin-top: 0; }
@@ -275,6 +326,13 @@ a {
     @media (min-width: 1200px) {
       .card__title {
         font-size: 24px; } }
+    .card__title--link::after {
+      font-family: fontello;
+      content: "\e801";
+      left: 8px;
+      position: relative;
+      transition: left 0.4s;
+      font-size: 90%; }
   .card__text {
     font-size: 18px;
     margin-bottom: 10px; }
@@ -306,10 +364,35 @@ a {
     @media (min-width: 900px) {
       .card--image__cover {
         min-height: 250px; } }
-    .card--image__cover:hover {
-      background-color: rgba(255, 255, 255, 0.4); }
     .card--image__cover > h3 {
       margin-bottom: 0; }
+  .card--image__link-cover:hover {
+    background-color: rgba(255, 255, 255, 0.4); }
+  .card--attraction {
+    border-style: solid;
+    border-color: #BDCACA;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px #BDCACA;
+    margin-bottom: auto; }
+    .card--attraction:hover .card__title--link::after {
+      left: 20px; }
+  .card--attraction__image {
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 0; }
+    @media (min-width: 600px) {
+      .card--attraction__image {
+        height: 120px; } }
+    @media (min-width: 900px) {
+      .card--attraction__image {
+        height: 150px; } }
+  .card--attraction__content {
+    padding: 20px; }
 
 .bristol-map {
   height: 100%; }
@@ -360,6 +443,29 @@ a {
       .social-icons--responsive {
         width: 70px;
         height: 70px; } }
+
+.map {
+  height: 250px;
+  border-radius: 10px; }
+  @media (min-width: 600px) {
+    .map {
+      height: 300px; } }
+  @media (min-width: 900px) {
+    .map {
+      height: 350px; } }
+
+.leaflet-container a {
+  color: #4E6C1F !important; }
+
+.opening-hours {
+  padding: 20px; }
+  .opening-hours__title {
+    margin-top: 0;
+    margin-bottom: 20px; }
+  .opening-hours__days {
+    font-weight: bold; }
+  .opening-hours__times {
+    text-align: right; }
 
 .landing-hero {
   display: grid;
@@ -525,6 +631,23 @@ a {
     @media (min-width: 900px) {
       .style-guide__card-container {
         grid-template-columns: 1fr 1fr 1fr; } }
+  .style-guide__icon-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr; }
+    @media (min-width: 600px) {
+      .style-guide__icon-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; } }
+  .style-guide__opening-hours-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr; }
+    @media (min-width: 600px) {
+      .style-guide__opening-hours-container {
+        grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) {
+      .style-guide__opening-hours-container {
+        grid-template-columns: 1fr 1fr 1fr; } }
   .style-guide__colour-scheme-palette {
     display: grid;
     grid-template-columns: 1fr;
@@ -633,3 +756,33 @@ a {
     @media (min-width: 900px) {
       .category__subcategories {
         grid-template-columns: 1fr 1fr 1fr; } }
+
+.subcategory {
+  padding: 20px 20px 0 20px; }
+  @media (min-width: 900px) {
+    .subcategory {
+      padding: 20px 40px 0 40px; } }
+  .subcategory__attractions {
+    padding: 0 20px 40px 20px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr; }
+    @media (min-width: 900px) {
+      .subcategory__attractions {
+        padding: 0 40px 40px 40px; } }
+    @media (min-width: 600px) {
+      .subcategory__attractions {
+        grid-template-columns: 1fr; } }
+    @media (min-width: 900px) {
+      .subcategory__attractions {
+        grid-template-columns: 1fr 1fr; } }
+
+.attraction {
+  padding: 20px 20px 0 20px; }
+  @media (min-width: 900px) {
+    .attraction {
+      padding: 20px 40px 0 40px; } }
+  .attraction__location {
+    display: none; }
+  .attraction__map {
+    margin-bottom: 40px; }

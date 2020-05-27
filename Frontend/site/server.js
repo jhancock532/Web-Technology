@@ -4,6 +4,9 @@ const express = require("express");
 const nunjucks = require("nunjucks");
 const path = require("path");
 const superagent = require('superagent');
+const showdown  = require('showdown'),
+      markdownConverter = new showdown.Converter();
+
 
 let app = express();
 let port = 3000;
@@ -25,7 +28,9 @@ app.get('/', function(req, res) {
 });
 
 app.get('/style-guide', function(req, res) {
-  res.render('style-guide.html');
+  res.render('style-guide.html', {
+    INCLUDE_MAP: true,
+  });
 });
 
 app.get('/culture-and-heritage', function(req, res) {
@@ -36,7 +41,7 @@ app.get('/culture-and-heritage', function(req, res) {
 
       res.render('culture-and-heritage.html', {
         data: api_res.body,
-      })
+      });
     });
 });
 
@@ -66,9 +71,29 @@ app.get('/events-and-spaces', function(req, res) {
 
 app.get('/subcategories/:id', function(req, res) {
 
-  console.log(req.params);
+  //console.log(req.params);
 
   let api_req = 'http://localhost:1337/subcategories/' + req.params['id'];
+
+  //console.log(api_req);
+
+  superagent.get(api_req)
+    .end((err, api_res) => {
+      if (err) { return console.log(err); }
+      //console.log(api_res.body);
+
+      res.render('subcategory.html', {
+        data: api_res.body,
+      })
+  });
+  
+});
+
+app.get('/attractions/:id', function(req, res) {
+
+  console.log(req.params);
+
+  let api_req = 'http://localhost:1337/attractions/' + req.params['id'];
 
   console.log(api_req);
 
@@ -77,8 +102,12 @@ app.get('/subcategories/:id', function(req, res) {
       if (err) { return console.log(err); }
       console.log(api_res.body);
 
-      res.render('subcategory.html', {
-        subcategory: api_res.body,
+      descriptionHtml = markdownConverter.makeHtml(api_res.body.description);
+
+      res.render('attraction.html', {
+        data: api_res.body,
+        description: descriptionHtml,
+        INCLUDE_MAP: true
       })
   });
   

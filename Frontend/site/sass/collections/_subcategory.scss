@@ -1,0 +1,27 @@
+.subcategory {
+  padding: $grid $grid 0 $grid;
+
+  @include media-query(md){
+    padding: $grid 2 * $grid 0  2 * $grid;
+  }
+
+  &__attractions {
+    padding: 0 $grid 2 * $grid $grid;
+
+    @include media-query(md){
+      padding: 0 2 * $grid 2 * $grid 2 * $grid;
+    }
+
+    display: grid;
+    gap: $grid;
+    grid-template-columns: 1fr;
+
+    @include media-query(sm){
+      grid-template-columns: 1fr ;
+    }
+
+    @include media-query(md){
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

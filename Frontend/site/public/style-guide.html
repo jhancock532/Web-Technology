@@ -90,11 +90,33 @@
 
     <hr>
 
+    <div id="icons">
+      <h1>Icons</h1>
+
+      <p>These icons come from <a href="http://fontello.com/">fontello.com</a>, selected from the FontAwesome family.</p>
+
+      <p>Arrow Down Icon <i class="fontello-icon">&#xe800;</i></p>
+      <p>Arrow Right Icon <i class="fontello-icon">&#xe801;</i></p>
+
+      <h3> Footer Social Icons </h3>
+
+      <div class="style-guide__icon-container">
+        <div><a class="social-icons social-icons--responsive" href="www.facebook.com"><img src="/images/social/facebook.svg"></a></div>
+        <div><a class="social-icons social-icons--responsive" href="www.twitter.com"><img src="/images/social/twitter.svg"></a></div>
+        <div><a class="social-icons social-icons--responsive" href="www.whatsapp.com"><img src="/images/social/whatsapp.svg"></a></div>
+        <div><a class="social-icons social-icons--responsive" href="www.facebook.com/messenger"><img src="/images/social/messenger.svg"></a></div>
+        <div><a class="social-icons social-icons--responsive" href="www.tumblr.com"><img src="/images/social/tumblr.svg"></a></div>
+        <div><a class="social-icons social-icons--responsive" href="www.reddit.com"><img src="/images/social/reddit.svg"></a></div>
+      </div>
+    </div>
+
+    <hr>
+
     <div id="elements">
 
       <h1>Pattern Elements</h1>
 
-      <h2>Card</h2>
+      <h2>Cards</h2>
 
       <div class="style-guide__card-container">
         <div class="card">
@@ -109,17 +131,61 @@
 
         <div class="card card--image text-white" style="background-image: url('/images/demo-placeholder.jpg');">
           <div class="card--image__cover">
-            <h3 class="card__title">Card Element</h3>
+            <h3 class="card__title">Card Image Element</h3>
             <p class="card__text">This is a basic card with a background image.</p>
           </div>
         </div>
 
+        <div class="card card--image text-white" style="background-image: url('/images/demo-placeholder.jpg');">
+          <a class="link-white link-no-underline" href="#">
+            <div class="card--image__cover card--image__link-cover">
+              <h3 class="card__title card__title--link">Card Category Element</h3>
+              <p class="card__text">This is a basic card with a background image.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="card--attraction">
+          <a class="link-black link-no-underline" href="#">
+            <div class="card--attraction__image" style="background-image: url('/images/demo-placeholder.jpg');">
+            </div>
+            <div class="card--attraction__content">
+              <h3 class="card__title card__title--link">Card Attraction Element</h3>
+              <p class="card__text">This is a basic card with a seperate image above it.</p>
+            </div>
+          </a>
+        </div>
+
       </div>
-    
+
+      <h2>Maps</h2>
+
+      <p>North: <span id="attraction__latitude">51.444174</span> and West: <span id="attraction__longitude">-2.637378</span></p>
+      
+      <div class="map" id="map-container"></div>
+
+      <h2>Opening Hours</h2>
+
+      <div class="style-guide__opening-hours-container">
+        <div class="opening-hours card">
+          <h3 class="opening-hours__title">Opening Hours</h3>
+          <p class="opening-hours__days">Wednesday - Saturday</p>
+          <p class="opening-hours__times">10am - 6pm</p>
+          <p class="opening-hours__days">Sunday - Monday</p>
+          <p class="opening-hours__times">11:30am - 5:30pm</p>
+          <p class="opening-hours__days">Tuesday</p>
+          <p class="opening-hours__times">Closed</p>
+        </div>
+
+        <div class="opening-hours">
+          <h3 class="opening-hours__title">Opening Hours</h3>
+          <p class="opening-hours__days">Monday - Sunday</p>
+          <p class="opening-hours__times">10am - 6pm</p>
+        </div>
+      </div>
     </div>
 
   </div>
-
 </div>
 
 

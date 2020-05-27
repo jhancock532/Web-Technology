@@ -73,7 +73,6 @@ $media-query-breakpoints: (
   font-weight: 500;
 }
 
-
 @font-face {
   font-family: Assistant;
   src: url(/fonts/Assistant-Bold.ttf);
@@ -82,7 +81,6 @@ $media-query-breakpoints: (
 
 $font-primary: CrimsonPro, Georgia, Times, serif;
 $font-secondary: Assistant, Helvetica, Arial, sans-serif;
-//Wow
  
 $mobile-font-sizes: (
   xxs: 8px,
@@ -116,3 +114,14 @@ $desktop-font-sizes: (
   xxl: 36px,
   xxxl: 48px
 );
+
+/** Iconography Variables
+  * The icon file was generated on fontello.com.
+  * It includes Font Awesome down arrow and right arrow.
+  */
+@font-face {
+  font-family: 'fontello';
+  src: url(/fonts/fontello.ttf);
+  font-weight: normal;
+  font-style: normal;
+}

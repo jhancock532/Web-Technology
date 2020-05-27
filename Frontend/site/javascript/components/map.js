@@ -1,7 +1,3 @@
-//Hello world two!
-console.log("carousel");
-//Hello world!
-console.log("dropdown");
 
 var latitude = parseFloat(document.getElementById("attraction__latitude").textContent); 
 var longitude = parseFloat(document.getElementById("attraction__longitude").textContent); 

@@ -1,0 +1,17 @@
+.map {
+  height: 250px;
+  border-radius: $grid / 2;
+
+  @include media-query(sm){
+    height: 300px;
+  }
+
+  @include media-query(md){
+    height: 350px;
+  }
+}
+
+//CSS to overwrite Leaflet's default styling.
+.leaflet-container a {
+  color: $color-primary-dark !important;
+}

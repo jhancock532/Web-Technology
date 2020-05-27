@@ -1,0 +1,15 @@
+.attraction {
+  padding: $grid $grid 0 $grid;
+
+  @include media-query(md){
+    padding: $grid 2 * $grid 0  2 * $grid;
+  }
+
+  &__location {
+    display: none;
+  }
+
+  &__map {
+    margin-bottom: $grid * 2;
+  }
+}

@@ -15,8 +15,8 @@
       "unique": true
     },
     "attractions": {
-      "collection": "attraction",
       "via": "subcategories",
+      "collection": "attraction",
       "dominant": true
     },
     "cover_image": {
