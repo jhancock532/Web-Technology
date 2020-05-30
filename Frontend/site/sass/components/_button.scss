@@ -1,7 +1,6 @@
-
 .button {
-
   &--inverse-primary {
+    white-space: nowrap;
     background-color: $color-white;
     color: $color-primary;
     border-style: solid;
@@ -24,6 +23,7 @@
   }
 
   &--primary {
+    white-space: nowrap;
     background-color: $color-primary;
     color: $color-white;
     border-style: solid;
@@ -37,7 +37,6 @@
     &:visited {
       color: $color-white;
     }
-    
 
     &:hover{
       color: $color-primary;
@@ -45,6 +44,26 @@
     }
   }
 
+  &--tag {
+    background-color: $color-primary;
+    color: $color-white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $color-primary;
+    border-radius: 5px;
+    padding: 2px 4px 4px 4px;
+    transition: color 0.5s, background-color 0.5s;
+    line-height: 2.7;
+    white-space: nowrap;
 
+    &:visited {
+      color: $color-white;
+    }
+
+    &:hover{
+      color: $color-primary;
+      background-color: $color-white;
+    }
+  }
   
 }

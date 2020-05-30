@@ -2,11 +2,11 @@
   border-style: solid;
   border-color: $color-light-grey;
   border-width: 1px;
-  border-radius: $grid / 2;
+  border-radius: $card-border-radius;
   padding: $grid;
   margin-bottom: auto;
 
-  box-shadow: 0px 5px 20px $color-light-grey;
+  box-shadow: $card-shadow;
 
   &:hover {
     .card__title--link::after {
@@ -30,9 +30,28 @@
     }
   }
 
+  &__title--heading {
+    @include font-size(xxxl);
+    margin-top: 0;
+  }
+
   &__text {
     @include font-size(m);
     margin-bottom: $grid / 2;
+  }
+
+  &__text--heading {
+    font-family: $font-primary;
+    margin-bottom: $grid;
+    @include font-size(m);
+
+    @include media-query(sm){
+      @include font-size(l);
+    }
+
+    @include media-query(md){
+      width: 70%;
+    }
   }
 
   &--image {
@@ -53,7 +72,7 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.8));
     transition: background-color 0.3s linear;
     padding: $grid;
-    border-radius: $grid / 2;
+    border-radius: $card-border-radius;
 
     min-height: 220px;
     @include media-query(md){
@@ -69,6 +88,34 @@
     }
   }
 
+  &--heading__cover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.8));
+    padding: $grid $grid $grid $grid;
+    min-height: 280px;
+
+    @include media-query(sm){
+      min-height: 340px;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.8));
+      padding-left: $grid * 2;
+      padding-right: $grid * 2;
+    }
+    @include media-query(md){
+      min-height: 380px;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.85));
+      padding-bottom: $grid * 2;
+      padding-left: $grid * 3;
+      padding-right: $grid * 3;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    > h1 {
+      margin-bottom: 0;
+    }
+  }
+
   &--image__link-cover {
     &:hover{
       background-color: rgba(255, 255, 255, 0.4);
@@ -79,7 +126,7 @@
     border-style: solid;
     border-color: $color-light-grey;
     border-width: 1px;
-    border-radius: $grid / 2;
+    border-radius: $card-border-radius;
 
     box-shadow: 0px 5px 20px $color-light-grey;
     margin-bottom: auto;
@@ -105,8 +152,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    border-top-right-radius: $grid / 2;
-    border-top-left-radius: $grid / 2;
+    border-top-right-radius: $card-border-radius;
+    border-top-left-radius: $card-border-radius;
     padding: 0;
   }
 

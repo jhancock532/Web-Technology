@@ -22,6 +22,13 @@ $color-primary: $color-green;
 $color-primary-dark: $color-dark-green;
 $color-secondary: $color-yellow;
 
+/** Card Variables
+ * The soft border is used for the map and category link card elements?
+ */
+$card-shadow: 0px 5px 20px $color-light-grey;
+$card-border-radius: 2px;
+$card-border-radius-soft: $grid / 2; 
+
 /** Media Query Breakpoints 
 
 $media-query-breakpoints: (
@@ -108,8 +115,8 @@ $desktop-font-sizes: (
   xxs: 10px,
   xs: 12px,
   s: 16px,
-  m: 20px,
-  l: 24px,
+  m: 22px,
+  l: 25px,
   xl: 28px,
   xxl: 36px,
   xxxl: 48px

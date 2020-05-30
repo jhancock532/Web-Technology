@@ -1,12 +1,16 @@
 .subcategory {
-  padding: $grid $grid 0 $grid;
+  padding: 0 $grid;
 
   @include media-query(md){
     padding: $grid 2 * $grid 0  2 * $grid;
   }
 
   &__attractions {
-    padding: 0 $grid 2 * $grid $grid;
+    padding-bottom: 2 * $grid;
+
+    @include media-query(sm){
+      padding: 0 $grid 2 * $grid $grid;
+    }
 
     @include media-query(md){
       padding: 0 2 * $grid 2 * $grid 2 * $grid;

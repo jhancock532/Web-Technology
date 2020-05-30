@@ -7,10 +7,12 @@
     padding: $grid;
     background-color: $color-primary;
     color: $color-white;
+  }
 
+  &__links {
     @include media-query(md){
       a:last-child {
-        margin-right: $grid;
+        margin-right: $grid + $grid / 2;
       }
     }
   }
@@ -26,6 +28,7 @@
 
     @include media-query(md){
       margin-left: $grid;
+      @include font-size(xxl);
     }
 
     &:visited {
@@ -50,6 +53,7 @@
       color: $color-white;
       margin-right: 2 * $grid;
       font-family: $font-primary;
+      @include font-size(m);
 
       &:hover {
         color: $color-primary-dark;

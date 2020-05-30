@@ -13,6 +13,10 @@ h1, h2, h3, h4, h5 {
   font-weight: 500; //Using semi-bold.
 }
 
+h3 {
+  @include font-size(m);
+}
+
 a {
   color: $color-grey;
   &:hover {

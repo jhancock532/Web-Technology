@@ -1,6 +1,7 @@
 .map {
   height: 250px;
-  border-radius: $grid / 2;
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
 
   @include media-query(sm){
     height: 300px;

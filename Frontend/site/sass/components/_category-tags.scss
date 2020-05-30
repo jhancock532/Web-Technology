@@ -1,0 +1,13 @@
+.category-tags {
+  &__tag {
+    @include font-size(s);
+    font-family: $font-secondary;
+    font-weight: bold;
+    margin-right: $grid / 4;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: $grid / 2;
+  }
+}
