@@ -49,3 +49,15 @@
     }
   }
 }
+
+/** Link Tab Border 
+ * Adds a clear border to the current link that is being tabbed over.
+ */
+
+@mixin link-tab-border($color, $padding-style) {
+  &:focus {
+    border: 2px solid $color;
+    padding: $padding-style;
+    border-radius: $button-border-radius;
+  }
+}

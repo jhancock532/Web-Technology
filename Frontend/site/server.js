@@ -1,5 +1,4 @@
-// Experimenting with Express and Nunjucks
-
+//Server Libraries
 const express = require("express");
 const nunjucks = require("nunjucks");
 const path = require("path");
@@ -7,7 +6,7 @@ const superagent = require('superagent');
 const showdown  = require('showdown'),
       markdownConverter = new showdown.Converter();
 
-
+//Developed with Express
 let app = express();
 let port = 3000;
 let root = __dirname + "/public";
@@ -24,7 +23,9 @@ app.use('/fonts', express.static(path.join(__dirname, 'public/fonts')));
 app.use('/javascript', express.static(path.join(__dirname, 'public/javascript')));
 
 app.get('/', function(req, res) {
-  res.render('index.html');
+  res.render('index.html', {
+    INCLUDE_MAP: true, //INCLUDE_MAP includes the Leaflet.js JavaScript file when serving the webpage.
+  });
 });
 
 app.get('/style-guide', function(req, res) {

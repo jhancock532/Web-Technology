@@ -1,25 +1,24 @@
 <div class="landing-hero">
-  <div class="landing-hero__title"> 
-    <h1>Explore Bristol</h1>
+
+  <div class="landing-hero__map" id="landing-hero__map-container"></div>
+      
+  <div class="landing-hero__wrapper">
+    <div class="landing-hero__menu">
+      <a href="/food-and-drink">Food and Drink</a>
+      <a href="/culture-and-heritage">Culture and Heritage</a>
+      <a href="/events-and-spaces">Events and Spaces</a>
+    </div>
+
+    <div class="landing-hero__menu-dropdown">
+      {% include "includes/components/menu-dropdown.html" %}
+    </div>
+
+    <h1 class="landing-hero__explore">Explore</h1>
+    <h1 class="landing-hero__bristol">Bristol</h1>
+
+    <div class="landing-hero__journey-button">
+      <a href="#" class="button--primary">Begin Your Adventure</a>
+    </div>
   </div>
 
-  <div class="landing-hero__menu">
-    <a href="/food-and-drink">Food and Drink</a>
-    <p class="landing-hero__menu-subtitle">Restaurants, Cafes, Pubs</p>
-    <a href="/culture-and-heritage">Culture and heritage</a>
-    <p class="landing-hero__menu-subtitle">Muesuems, Galleries, Historical Buildings</p>
-    <a href="/events-and-spaces">Events and Spaces</a>
-  </div>
-
-  <div class="landing-hero__menu-dropdown">
-    {% include "includes/components/menu-dropdown.html" %}
-  </div>
-
-  <div class="landing-hero__map">
-    {% include "includes/components/bristol-map.html" %}
-  </div>
-
-  <div class="landing-hero__tagline">
-    <p>Click on a map region to discover Bristol.</p>
-  </div>
 </div>

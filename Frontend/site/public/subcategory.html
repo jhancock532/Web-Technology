@@ -14,7 +14,7 @@
       {% set backgroundImageUrl = ['http://localhost:1337', attraction.image[0].url] %}
 
       <div class="card--attraction">
-        <a class="link-black link-no-underline" href="/attractions/{{ attraction.id }}">
+        <a class="link-black link-no-underline card--attraction__link" href="/attractions/{{ attraction.id }}">
           <div class="card--attraction__image" style="background-image: url('{{backgroundImageUrl | join}}');">
           </div>
           <div class="card--attraction__content">

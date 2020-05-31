@@ -3,16 +3,20 @@
   display: inline-block;
   font-family: $font-primary;
 
-  &:hover {
-    .dropdown__items {
-      display: block;
+  &__menu-button {
+    white-space: nowrap;
+
+    &:focus {
+      background-color: $color-primary;
+      border-color: $color-white;
+      color: $color-white;
     }
   }
 
   &__items {
     display: none;
     position: absolute;
-    border-radius: 8px;
+    border-radius: 4px;
     background-color: #f9f9f9;
     box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -28,6 +32,14 @@
     a {
       padding: $grid/2;
       display: block;
+    }
+  }
+
+  &__link {
+    &:focus {
+      background-color: $color-primary;
+      color: $color-white;
+      font-weight: bold;
     }
   }
 }

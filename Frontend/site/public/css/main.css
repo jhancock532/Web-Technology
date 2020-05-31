@@ -69,6 +69,9 @@ $media-query-breakpoints: (
  * Example - ` @include font-size(m); ` - Includes a medium size font
  * Source - Inspired by https://iamsteve.me/blog/entry/atomic-font-size-management-with-sass, code mostly remixed from breakpoint mixin.
  */
+/** Link Tab Border 
+ * Adds a clear border to the current link that is being tabbed over.
+ */
 body {
   margin: 0;
   background: #FBFBFB; }
@@ -260,6 +263,10 @@ a {
   @media (min-width: 1200px) {
     .header__logo {
       font-size: 28px; } }
+  .header__logo:focus {
+    border: 2px solid #FBFBFB;
+    padding: 0px 4px;
+    border-radius: 5px; }
   @media (min-width: 900px) {
     .header__logo {
       margin-left: 20px;
@@ -295,6 +302,10 @@ a {
     .header__link {
       font-size: 22px; } }
   @media (min-width: 900px) {
+      .header__link:focus {
+        border: 2px solid #FBFBFB;
+        padding: 4px;
+        border-radius: 5px; }
       .header__link:hover {
         color: #4E6C1F; }
       .header__link:visited {
@@ -308,8 +319,8 @@ a {
   color: #9BC53D;
   border-style: solid;
   border-width: 2px;
-  border-color: #9BC53D;
-  border-radius: 8px;
+  border-color: #FBFBFB;
+  border-radius: 5px;
   padding: 5px;
   transition: color 0.5s, background-color 0.5s;
   line-height: 2; }
@@ -327,7 +338,7 @@ a {
   border-style: solid;
   border-width: 2px;
   border-color: #9BC53D;
-  border-radius: 8px;
+  border-radius: 5px;
   padding: 5px;
   transition: color 0.5s, background-color 0.5s;
   line-height: 2; }
@@ -364,6 +375,11 @@ a {
   box-shadow: 0px 5px 20px #BDCACA; }
   .card:hover .card__title--link::after {
     left: 20px; }
+  .card__link:focus > div {
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: inset 0 0 10px #060B0A; }
+    .card__link:focus > div .card__title--link::after {
+      left: 20px; }
   .card__title {
     font-size: 22px;
     margin-top: 0; }
@@ -477,6 +493,17 @@ a {
     margin-bottom: auto; }
     .card--attraction:hover .card__title--link::after {
       left: 20px; }
+  .card--attraction__link:focus .card--attraction__image {
+    box-shadow: inset 0px 0px 300px 200px rgba(0, 0, 0, 0.65);
+    border-top: 3px solid #060B0A;
+    border-left: 3px solid #060B0A;
+    border-right: 3px solid #060B0A; }
+  .card--attraction__link:focus .card--attraction__content {
+    border-bottom: 3px solid #060B0A;
+    border-left: 3px solid #060B0A;
+    border-right: 3px solid #060B0A; }
+  .card--attraction__link:focus .card__title--link::after {
+    left: 20px; }
   .card--attraction__image {
     height: 100px;
     background-position: center;
@@ -503,12 +530,16 @@ a {
   position: relative;
   display: inline-block;
   font-family: CrimsonPro, Georgia, Times, serif; }
-  .dropdown:hover .dropdown__items {
-    display: block; }
+  .dropdown__menu-button {
+    white-space: nowrap; }
+    .dropdown__menu-button:focus {
+      background-color: #9BC53D;
+      border-color: #FBFBFB;
+      color: #FBFBFB; }
   .dropdown__items {
     display: none;
     position: absolute;
-    border-radius: 8px;
+    border-radius: 4px;
     background-color: #f9f9f9;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
     z-index: 1; }
@@ -519,6 +550,10 @@ a {
     .dropdown__items a {
       padding: 10px;
       display: block; }
+  .dropdown__link:focus {
+    background-color: #9BC53D;
+    color: #FBFBFB;
+    font-weight: bold; }
 
 .social-icons {
   background-color: #FBFBFB;
@@ -591,119 +626,142 @@ a {
   margin-top: 0;
   margin-bottom: 10px; }
 
-.landing-hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: min-content min-content 1fr 1fr;
-  gap: 20px;
-  height: 100vh; }
+.landing-hero__map {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.landing-hero__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)); }
   @media (min-width: 600px) {
-    .landing-hero {
-      grid-template-rows: min-content 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr; } }
+    .landing-hero__wrapper {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)); } }
   @media (min-width: 900px) {
-    .landing-hero {
-      grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
-      grid-template-rows: 0.3fr min-content 1fr 1fr 1fr; } }
-  .landing-hero__title {
-    background-color: #9BC53D;
-    color: #FBFBFB;
-    text-align: center; }
-    @media (min-width: 600px) {
-      .landing-hero__title {
-        grid-row: 1;
-        grid-column: 1 / 6;
-        font-size: 26px; } }
-  @media (min-width: 600px) and (min-width: 900px) {
-    .landing-hero__title {
-      font-size: 28px; } }
-  @media (min-width: 600px) and (min-width: 1200px) {
-    .landing-hero__title {
-      font-size: 28px; } }
-    @media (min-width: 900px) {
-      .landing-hero__title {
-        grid-row: 2;
-        grid-column: 2 / 5;
-        font-size: 30px;
-        line-height: 0;
-        background-color: #FBFBFB;
-        color: #9BC53D;
-        text-align: left; } }
-  @media (min-width: 900px) and (min-width: 900px) {
-    .landing-hero__title {
-      font-size: 32px; } }
-  @media (min-width: 900px) and (min-width: 1200px) {
-    .landing-hero__title {
-      font-size: 36px; } }
-  .landing-hero__menu {
-    display: none; }
-    @media (min-width: 600px) {
-      .landing-hero__menu {
-        display: flex;
-        flex-direction: column;
-        grid-column: 4/6;
-        grid-row: 2/3;
-        text-align: end;
-        padding-right: 20px; }
-        .landing-hero__menu > a {
-          font-size: 26px; } }
+    .landing-hero__wrapper {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.7)); } }
+
+.landing-hero__menu {
+  display: none; }
+  @media (min-width: 600px) {
+    .landing-hero__menu {
+      display: inline;
+      margin-bottom: auto;
+      padding-top: 40px; }
+      .landing-hero__menu > a {
+        font-size: 22px;
+        font-family: CrimsonPro, Georgia, Times, serif;
+        margin-right: 20px;
+        color: #FBFBFB; } }
     @media (min-width: 600px) and (min-width: 900px) {
       .landing-hero__menu > a {
-        font-size: 28px; } }
+        font-size: 24px; } }
     @media (min-width: 600px) and (min-width: 1200px) {
       .landing-hero__menu > a {
-        font-size: 28px; } }
-    @media (min-width: 900px) {
-      .landing-hero__menu {
-        grid-column: 5 / 7;
-        grid-row: 2 / 4;
-        padding-top: 5px; } }
+        font-size: 25px; } }
   @media (min-width: 600px) {
-    .landing-hero__map {
-      grid-row: 2;
-      grid-column: 1 / 4; } }
+        .landing-hero__menu > a:focus {
+          border: 2px solid #FBFBFB;
+          padding: 0px 4px 4px 4px;
+          border-radius: 5px; }
+        .landing-hero__menu > a:hover {
+          color: #BDCACA; }
+        .landing-hero__menu > a:visited {
+          color: #FBFBFB; } }
+    @media (min-width: 600px) and (min-width: 900px) {
+      .landing-hero__menu > a {
+        margin-right: 40px; } }
+  @media (min-width: 600px) {
+        .landing-hero__menu > a:last-child {
+          margin-right: 40px; } }
   @media (min-width: 900px) {
-    .landing-hero__map {
-      grid-column: 2 / 5;
-      grid-row: 3;
-      max-height: 100px; } }
-  .landing-hero__menu-dropdown {
-    grid-row: 2;
-    text-align: center;
-    background-color: #9BC53D;
-    margin-top: -20px;
-    padding-bottom: 20px;
-    font-size: 22px; }
-    @media (min-width: 900px) {
-      .landing-hero__menu-dropdown {
-        font-size: 24px; } }
-    @media (min-width: 1200px) {
-      .landing-hero__menu-dropdown {
-        font-size: 25px; } }
-    @media (min-width: 600px) {
-      .landing-hero__menu-dropdown {
-        display: none; } }
-  .landing-hero__tagline {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: -20px;
-    font-size: 22px; }
-    @media (min-width: 900px) {
-      .landing-hero__tagline {
-        font-size: 24px; } }
-    @media (min-width: 1200px) {
-      .landing-hero__tagline {
-        font-size: 25px; } }
-    @media (min-width: 600px) {
-      .landing-hero__tagline {
-        grid-column: 1 / 5;
-        grid-row: 3 / 4; } }
-    @media (min-width: 900px) {
-      .landing-hero__tagline {
-        grid-column: 5 / 7;
-        grid-row: 4 / 5;
-        padding-left: 0;
-        align-self: end; } }
+    .landing-hero__menu {
+      padding-right: 20px; } }
+
+.landing-hero__menu-dropdown {
+  font-size: 22px;
+  margin-right: 20px;
+  margin-bottom: 20px; }
+  @media (min-width: 900px) {
+    .landing-hero__menu-dropdown {
+      font-size: 24px; } }
+  @media (min-width: 1200px) {
+    .landing-hero__menu-dropdown {
+      font-size: 25px; } }
+  @media (min-width: 600px) {
+    .landing-hero__menu-dropdown {
+      display: none; } }
+
+.landing-hero__explore {
+  font-size: 24.5vw;
+  color: #FBFBFB;
+  margin: 0;
+  margin-right: 20px;
+  line-height: 0.9; }
+  @media (min-width: 600px) {
+    .landing-hero__explore {
+      font-size: min(19vw, 135px);
+      margin-right: 40px; } }
+  @media (min-width: 900px) {
+    .landing-hero__explore {
+      font-size: min(16vw, 140px);
+      margin-right: 60px; } }
+
+.landing-hero__bristol {
+  font-size: 32.5vw;
+  color: #FBFBFB;
+  margin: 0;
+  line-height: 0.9;
+  margin-right: 20px;
+  margin-bottom: 20px; }
+  @media (min-width: 600px) {
+    .landing-hero__bristol {
+      font-size: min(26vw, 180px);
+      margin-right: 40px;
+      margin-bottom: 40px; } }
+  @media (min-width: 900px) {
+    .landing-hero__bristol {
+      font-size: min(21vw, 200px);
+      margin-right: 60px;
+      margin-bottom: 40px; } }
+
+.landing-hero__journey-button {
+  font-family: Assistant, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  margin-right: 20px;
+  font-size: 22px;
+  letter-spacing: 0.3px; }
+  @media (min-width: 900px) {
+    .landing-hero__journey-button {
+      font-size: 24px; } }
+  @media (min-width: 1200px) {
+    .landing-hero__journey-button {
+      font-size: 25px; } }
+  .landing-hero__journey-button a {
+    text-decoration: none; }
+  @media (min-width: 600px) {
+    .landing-hero__journey-button {
+      margin-right: 40px;
+      margin-bottom: 40px;
+      font-size: 26px; } }
+  @media (min-width: 600px) and (min-width: 900px) {
+    .landing-hero__journey-button {
+      font-size: 28px; } }
+  @media (min-width: 600px) and (min-width: 1200px) {
+    .landing-hero__journey-button {
+      font-size: 28px; } }
+  @media (min-width: 900px) {
+    .landing-hero__journey-button {
+      margin-bottom: 60px;
+      margin-right: 60px; } }
 
 .style-guide {
   padding: 20px;
