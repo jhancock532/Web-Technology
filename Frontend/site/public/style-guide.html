@@ -21,7 +21,7 @@
       <p>This style guide, or pattern library, contains all the elements that are used to build up this site.</p>
     </div>
 
-    <hr>
+    <hr/>
 
     <div id="colour-scheme">
       <h1>Colour Scheme </h1>
@@ -42,7 +42,7 @@
 
     </div>
 
-    <hr>
+    <hr/>
 
     <div id="typography">
       <h1>Typography</h1>
@@ -62,7 +62,7 @@
       <p><span class="text-grey">text-grey</span></p>
     </div>
 
-    <hr>
+    <hr/>
 
     <div id="buttons">
       <h1>Buttons and Links</h1>
@@ -75,20 +75,9 @@
       </p>
 
       {% include "includes/components/menu-dropdown.html" %}
-
-      <textarea class="style-guide__code-block" rows="9">
-&lt;div class="dropdown"&gt;
-  &lt;a class="button--inverse-primary"&gt;Menu ▼&lt;/a&gt;
-  &lt;div class="dropdown__items"&gt;
-    &lt;a href="/food-and-drink"&gt;Food and Drink&lt;/a&gt;
-    &lt;a href="/heritage-and-culture"&gt;Heritage and Culture&lt;/a&gt;
-    &lt;a href="/events-and-spaces"&gt;Events and Spaces&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</textarea>
-
     </div>
 
-    <hr>
+    <hr/>
 
     <div id="icons">
       <h1>Icons</h1>
@@ -101,16 +90,11 @@
       <h3> Footer Social Icons </h3>
 
       <div class="style-guide__icon-container">
-        <div><a class="social-icons social-icons--responsive" href="www.facebook.com"><img src="/images/social/facebook.svg"></a></div>
-        <div><a class="social-icons social-icons--responsive" href="www.twitter.com"><img src="/images/social/twitter.svg"></a></div>
-        <div><a class="social-icons social-icons--responsive" href="www.whatsapp.com"><img src="/images/social/whatsapp.svg"></a></div>
-        <div><a class="social-icons social-icons--responsive" href="www.facebook.com/messenger"><img src="/images/social/messenger.svg"></a></div>
-        <div><a class="social-icons social-icons--responsive" href="www.tumblr.com"><img src="/images/social/tumblr.svg"></a></div>
-        <div><a class="social-icons social-icons--responsive" href="www.reddit.com"><img src="/images/social/reddit.svg"></a></div>
+        {% include "includes/components/footer-social-icons.html" %}
       </div>
     </div>
 
-    <hr>
+    <hr/>
 
     <div id="elements">
 
@@ -203,6 +187,7 @@
     </div>
 
   </div>
+  
 </div>
 
 

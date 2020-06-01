@@ -6,7 +6,9 @@ const superagent = require('superagent');
 const showdown  = require('showdown'),
       markdownConverter = new showdown.Converter();
 
-//Developed with Express
+const VERIFY_XHTML = true;
+const DEBUG_LOG = true;
+
 let app = express();
 let port = 3000;
 let root = __dirname + "/public";
@@ -16,19 +18,22 @@ nunjucks.configure(root, {
   express: app
 });
 
-
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use('/fonts', express.static(path.join(__dirname, 'public/fonts')));
 app.use('/javascript', express.static(path.join(__dirname, 'public/javascript')));
 
+// ** Server Responses to URLs **
+
 app.get('/', function(req, res) {
+  addXHTML(res);
   res.render('index.html', {
     INCLUDE_MAP: true, //INCLUDE_MAP includes the Leaflet.js JavaScript file when serving the webpage.
   });
 });
 
 app.get('/style-guide', function(req, res) {
+  addXHTML(res);
   res.render('style-guide.html', {
     INCLUDE_MAP: true,
   });
@@ -37,9 +42,12 @@ app.get('/style-guide', function(req, res) {
 app.get('/culture-and-heritage', function(req, res) {
   superagent.get('http://localhost:1337/categories/4')
     .end((err, api_res) => {
-      if (err) { return console.log(err); }
-      console.log(api_res.body);
-
+      if (err) { 
+        return console.log(err); 
+      }
+      
+      log(api_res.body);
+      addXHTML(res);
       res.render('culture-and-heritage.html', {
         data: api_res.body,
       });
@@ -49,8 +57,12 @@ app.get('/culture-and-heritage', function(req, res) {
 app.get('/food-and-drink', function(req, res) {
   superagent.get('http://localhost:1337/categories/3')
     .end((err, api_res) => {
-      if (err) { return console.log(err); }
-      console.log(api_res.body);
+      if (err) { 
+        return console.log(err); 
+      }
+      
+      log(api_res.body);
+      addXHTML(res);
 
       res.render('food-and-drink.html', {
         data: api_res.body,
@@ -61,8 +73,12 @@ app.get('/food-and-drink', function(req, res) {
 app.get('/events-and-spaces', function(req, res) {
   superagent.get('http://localhost:1337/categories/5')
     .end((err, api_res) => {
-      if (err) { return console.log(err); }
-      console.log(api_res.body);
+      if (err) { 
+        return console.log(err); 
+      }
+      
+      log(api_res.body);
+      addXHTML(res);
 
       res.render('events-and-spaces.html', {
         data: api_res.body,
@@ -71,18 +87,16 @@ app.get('/events-and-spaces', function(req, res) {
 });
 
 app.get('/subcategories/:id', function(req, res) {
-
-  //console.log(req.params);
-
   let api_req = 'http://localhost:1337/subcategories/' + req.params['id'];
-
-  //console.log(api_req);
 
   superagent.get(api_req)
     .end((err, api_res) => {
-      if (err) { return console.log(err); }
-      //console.log(api_res.body);
+      if (err) {
+        return console.log(err); 
+      }
 
+      log(api_res.body);
+      addXHTML(res);
       res.render('subcategory.html', {
         data: api_res.body,
       })
@@ -100,10 +114,15 @@ app.get('/attractions/:id', function(req, res) {
 
   superagent.get(api_req)
     .end((err, api_res) => {
-      if (err) { return console.log(err); }
-      console.log(api_res.body);
+      if (err) { 
+        return console.log(err);
+      }
+
+      log(api_res.body);
 
       descriptionHtml = markdownConverter.makeHtml(api_res.body.description);
+
+      addXHTML(res);
 
       res.render('attraction.html', {
         data: api_res.body,
@@ -113,6 +132,28 @@ app.get('/attractions/:id', function(req, res) {
   });
   
 });
+
+//Additional Server Functions
+
+/**
+ * Conditionally adds the XHTML response tag if VERIFY_XHTML is true.
+ * @param {Server Response Object} res 
+ */
+function addXHTML(res){
+  if (VERIFY_XHTML){
+    res.set('content-type','application/xhtml+xml; charset=utf-8');
+  }
+}
+
+/**
+ * Logs text to the server logs if DEBUG_LOG is true.
+ * @param {Text to be logged} text 
+ */
+function log(text){
+  if (DEBUG_LOG){
+    console.log(text);
+  }
+}
 
 app.listen(port, () => console.log(`Website now listening on port ${port}!`));
 
