@@ -8,6 +8,7 @@ const showdown  = require('showdown'),
 
 const VERIFY_XHTML = true;
 const DEBUG_LOG = true;
+const WEBSITE_TITLE = "Explore Bristol";
 
 let app = express();
 let port = 3000;
@@ -29,6 +30,7 @@ app.get('/', function(req, res) {
   addXHTML(res);
   res.render('index.html', {
     INCLUDE_MAP: true, //INCLUDE_MAP includes the Leaflet.js JavaScript file when serving the webpage.
+    title: WEBSITE_TITLE,
   });
 });
 
@@ -36,6 +38,7 @@ app.get('/style-guide', function(req, res) {
   addXHTML(res);
   res.render('style-guide.html', {
     INCLUDE_MAP: true,
+    title: WEBSITE_TITLE + " - Style Guide",
   });
 });
 
@@ -50,6 +53,7 @@ app.get('/culture-and-heritage', function(req, res) {
       addXHTML(res);
       res.render('culture-and-heritage.html', {
         data: api_res.body,
+        title: WEBSITE_TITLE + " - Culture & Heritage",
       });
     });
 });
@@ -66,6 +70,7 @@ app.get('/food-and-drink', function(req, res) {
 
       res.render('food-and-drink.html', {
         data: api_res.body,
+        title: WEBSITE_TITLE + " - Food & Drink",
       })
     });
 });
@@ -82,6 +87,7 @@ app.get('/events-and-spaces', function(req, res) {
 
       res.render('events-and-spaces.html', {
         data: api_res.body,
+        title: WEBSITE_TITLE + " - Events & Spaces",
       })
     });
 });
@@ -99,6 +105,7 @@ app.get('/subcategories/:id', function(req, res) {
       addXHTML(res);
       res.render('subcategory.html', {
         data: api_res.body,
+        title: WEBSITE_TITLE + " - " + api_res.body.name,
       })
   });
   
@@ -127,7 +134,8 @@ app.get('/attractions/:id', function(req, res) {
       res.render('attraction.html', {
         data: api_res.body,
         description: descriptionHtml,
-        INCLUDE_MAP: true
+        INCLUDE_MAP: true,
+        title: WEBSITE_TITLE + " - " + api_res.body.name,
       })
   });
   
