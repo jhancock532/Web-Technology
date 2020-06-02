@@ -40,7 +40,7 @@
           <div class="category-tags card">
             <h3 class="category-tags__title">Category Tags</h3>
             {% for subcategory in data.subcategories %}
-              <a class="category-tags__tag button--tag" href="/subcategories/{{ subcategory.id }}">{{ subcategory.name }}</a>
+              <a class="category-tags__tag button button--tag button--primary" href="/subcategories/{{ subcategory.id }}">{{ subcategory.name }}</a>
             {% endfor %}
           </div>
         </div>

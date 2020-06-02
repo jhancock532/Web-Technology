@@ -1,10 +1,10 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  font-family: $font-primary;
+  font-family: $font-secondary;
 
-  &__menu-button {
-    white-space: nowrap;
+  &__button {
+    @include font-size(xl);
 
     &:focus {
       background-color: $color-primary;
@@ -14,28 +14,33 @@
   }
 
   &__items {
+    @include font-size(l);
+
     display: none;
     position: absolute;
     border-radius: 4px;
     background-color: #f9f9f9;
-    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+    box-shadow: $card-shadow-dark;
     z-index: 1;
-
-    &:hover {
-      .dropdown a {
-        color: $color-white;
-        background-color: $color-primary;
-        border-color: $color-white;
-      }
-    }
-
-    a {
-      padding: $grid/2;
-      display: block;
-    }
+    width: 100%;
+    top: 46px;
   }
 
   &__link {
+    padding: $grid/2;
+    display: block;
+    border-bottom: 1.5px solid $color-primary;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-primary;
+      border-color: $color-white;
+    }
+
     &:focus {
       background-color: $color-primary;
       color: $color-white;

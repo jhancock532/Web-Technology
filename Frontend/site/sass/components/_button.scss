@@ -1,15 +1,70 @@
 .button {
+  white-space: nowrap;
+  border-style: solid;
+  border-width: 2px;
+  transition: color 0.5s, background-color 0.5s;
+  border-radius: $button-border-radius;
+
+  //Button Sizes
+  &--tag {
+    padding: 2px 4px 4px 4px;
+    line-height: 2.7;
+    @include font-size(s);
+    font-family: $font-secondary;
+    font-weight: bold;
+  }
+
+  &--large {
+    padding: 0 7px 0 7px;
+    line-height: 2;
+    font-family: $font-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  &--right-arrow {
+    i {
+      font-size: 85%;
+      margin-right: -5px;
+      padding-bottom: 4px;
+    }
+  }
+
+  &--down-arrow {
+    i {
+      font-size: 85%;
+      position: relative;
+      bottom: 3px;
+      margin-right: 0;
+    }
+  }
+
+  //Button Colours
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+
+    &:visited {
+      color: $color-white;
+    }
+
+    &:hover {
+      color: $color-primary;
+      background-color: $color-white;
+    }
+
+    &:focus {
+      border-color: $color-black;
+    }
+  }
+
   &--inverse-primary {
-    white-space: nowrap;
     background-color: $color-white;
     color: $color-primary;
-    border-style: solid;
-    border-width: 2px;
-    border-color: $color-white;
-    border-radius: $button-border-radius;
-    padding: 5px;
-    transition: color 0.5s, background-color 0.5s;
-    line-height: 2;
+    border-color: $color-primary;
 
     &:visited {
       color: $color-primary;
@@ -20,50 +75,9 @@
       background-color: $color-primary;
       border-color: $color-white;
     }
-  }
 
-  &--primary {
-    white-space: nowrap;
-    background-color: $color-primary;
-    color: $color-white;
-    border-style: solid;
-    border-width: 2px;
-    border-color: $color-primary;
-    border-radius: $button-border-radius;
-    padding: 5px;
-    transition: color 0.5s, background-color 0.5s;
-    line-height: 2;
-
-    &:visited {
-      color: $color-white;
-    }
-
-    &:hover{
-      color: $color-primary;
-      background-color: $color-white;
+    &:focus {
+      border-color: $color-black;
     }
   }
-
-  &--tag {
-    background-color: $color-primary;
-    color: $color-white;
-    border-style: solid;
-    border-width: 2px;
-    border-color: $color-primary;
-    border-radius: $button-border-radius;
-    padding: 2px 4px 4px 4px;
-    transition: color 0.5s, background-color 0.5s;
-    line-height: 2.7;
-    white-space: nowrap;
-
-    &:visited {
-      color: $color-white;
-    }
-
-    &:hover{
-      color: $color-primary;
-      background-color: $color-white;
-    }
-  }
-  
 }
