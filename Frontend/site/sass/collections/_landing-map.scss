@@ -1,0 +1,11 @@
+.landing-map {
+  background-color: $color-grey;
+
+  &__description {
+    text-align: center;
+    padding: 2 * $grid;
+    margin-top: 0;
+    @include font-size(l);
+    color: $color-white;
+  }
+}

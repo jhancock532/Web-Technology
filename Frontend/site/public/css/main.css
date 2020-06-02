@@ -1047,3 +1047,18 @@ a {
 
 .attraction__location {
   display: none; }
+
+.landing-map {
+  background-color: #404e4d; }
+  .landing-map__description {
+    text-align: center;
+    padding: 40px;
+    margin-top: 0;
+    font-size: 22px;
+    color: #FBFBFB; }
+    @media (min-width: 900px) {
+      .landing-map__description {
+        font-size: 24px; } }
+    @media (min-width: 1200px) {
+      .landing-map__description {
+        font-size: 25px; } }
