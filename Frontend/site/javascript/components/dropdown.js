@@ -1,6 +1,6 @@
 var dropdownActive = false;
 
-function menuButtonToggle(){
+function toggleMenuVisibility(){
   if (dropdownActive){
     dropdownActive = false;
     dropdownMenuItems.style.display = 'none';
@@ -10,8 +10,22 @@ function menuButtonToggle(){
   }
 }
 
+function menuButtonKeydown(event){
+  if (event.keyCode != 9) {
+    toggleMenuVisibility();
+  }
+}
+
+function lastLinkButtonKeydown(event){
+  if (event.keyCode == 9){
+    toggleMenuVisibility();
+  }
+}
+
 var dropdownMenuButton = document.getElementById('dropdown-menu-button');
 var dropdownMenuItems = document.getElementById('dropdown-menu-items');
+var finalDropdownMenuLink = dropdownMenuItems.children[dropdownMenuItems.children.length-1];
 
-dropdownMenuButton.addEventListener('click', menuButtonToggle);
-dropdownMenuButton.addEventListener('keydown', menuButtonToggle);
+dropdownMenuButton.addEventListener('click', toggleMenuVisibility);
+dropdownMenuButton.addEventListener('keydown', menuButtonKeydown);
+finalDropdownMenuLink.addEventListener('keydown', lastLinkButtonKeydown);
