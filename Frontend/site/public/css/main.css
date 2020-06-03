@@ -379,14 +379,20 @@ a {
   border-radius: 2px;
   padding: 20px;
   margin-bottom: auto;
-  box-shadow: 0px 5px 20px #BDCACA; }
+  box-shadow: 0px 5px 20px #BDCACA;
+  /** ELEMENTS
+    The card elements are grouped with the standard "__" notation
+    __title, __text, __image-link, __link-list, __link-item
+    Note that __title and __text have --heading modifiers.
+    */
+  /** MODIFIERS
+    The default card styling has three main modifications.
+    image, heading, attraction
+    The .card--attraction class works without the .card class, unlike .image and .heading, which require it.
+    How individual cards are put together is seen in the style-guide.html file.
+    */ }
   .card:hover .card__title--link::after {
     left: 20px; }
-  .card__link:focus > div {
-    background-color: rgba(255, 255, 255, 0.75);
-    box-shadow: inset 0 0 10px #060B0A; }
-    .card__link:focus > div .card__title--link::after {
-      left: 20px; }
   .card__title {
     font-size: 22px;
     margin-top: 0; }
@@ -403,15 +409,15 @@ a {
       position: relative;
       transition: left 0.4s;
       font-size: 90%; }
-  .card__title--heading {
-    font-size: 36px;
-    margin-top: 0; }
-    @media (min-width: 900px) {
-      .card__title--heading {
-        font-size: 36px; } }
-    @media (min-width: 1200px) {
-      .card__title--heading {
-        font-size: 48px; } }
+    .card__title--heading {
+      font-size: 36px;
+      margin-top: 0; }
+      @media (min-width: 900px) {
+        .card__title--heading {
+          font-size: 36px; } }
+      @media (min-width: 1200px) {
+        .card__title--heading {
+          font-size: 48px; } }
   .card__text {
     font-size: 18px;
     margin-bottom: 10px; }
@@ -421,28 +427,49 @@ a {
     @media (min-width: 1200px) {
       .card__text {
         font-size: 22px; } }
-  .card__text--heading {
-    font-family: CrimsonPro, Georgia, Times, serif;
-    margin-bottom: 20px;
-    font-size: 18px; }
-    @media (min-width: 900px) {
-      .card__text--heading {
-        font-size: 20px; } }
-    @media (min-width: 1200px) {
-      .card__text--heading {
-        font-size: 22px; } }
-    @media (min-width: 600px) {
-      .card__text--heading {
-        font-size: 22px; } }
+    .card__text--heading {
+      font-family: CrimsonPro, Georgia, Times, serif;
+      margin-bottom: 20px;
+      font-size: 18px; }
+      @media (min-width: 900px) {
+        .card__text--heading {
+          font-size: 20px; } }
+      @media (min-width: 1200px) {
+        .card__text--heading {
+          font-size: 22px; } }
+      @media (min-width: 600px) {
+        .card__text--heading {
+          font-size: 22px; } }
   @media (min-width: 600px) and (min-width: 900px) {
     .card__text--heading {
       font-size: 24px; } }
   @media (min-width: 600px) and (min-width: 1200px) {
     .card__text--heading {
       font-size: 25px; } }
-    @media (min-width: 900px) {
-      .card__text--heading {
-        width: 70%; } }
+      @media (min-width: 900px) {
+        .card__text--heading {
+          width: 70%; } }
+  .card__image-link:focus > div {
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: inset 0 0 10px #060B0A; }
+    .card__image-link:focus > div .card__title--link::after {
+      left: 20px; }
+  .card__link-list {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: -20px;
+    margin-left: -20px;
+    margin-right: -20px; }
+    .card__link-list > a:hover {
+      text-decoration: none; }
+  .card__link-item {
+    padding: 10px;
+    padding-left: 20px;
+    border-top: 1px solid #BDCACA; }
+    .card__link-item:hover {
+      background-color: #9BC53D;
+      color: #FBFBFB;
+      font-weight: bold; }
   .card--image {
     background-color: #FBFBFB;
     background-position: center;
@@ -453,27 +480,29 @@ a {
     @media (min-width: 900px) {
       .card--image {
         min-height: 250px; } }
-  .card--image__cover {
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
-    transition: background-color 0.3s linear;
-    padding: 20px;
-    border-radius: 2px;
-    min-height: 220px;
+    .card--image__cover {
+      background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+      transition: background-color 0.3s linear;
+      padding: 20px;
+      border-radius: 2px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end; }
+      @media (min-width: 900px) {
+        .card--image__cover {
+          min-height: 250px; } }
+      .card--image__cover > h3 {
+        margin-bottom: 0; }
+    .card--image__link-cover:hover {
+      background-color: rgba(255, 255, 255, 0.4); }
+  .card--heading__cover {
     display: flex;
     flex-direction: column;
-    justify-content: end; }
-    @media (min-width: 900px) {
-      .card--image__cover {
-        min-height: 250px; } }
-    .card--image__cover > h3 {
-      margin-bottom: 0; }
-  .card--heading__cover {
+    justify-content: end;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
     padding: 20px 20px 20px 20px;
-    min-height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: end; }
+    min-height: 280px; }
     @media (min-width: 600px) {
       .card--heading__cover {
         min-height: 340px;
@@ -489,8 +518,6 @@ a {
         padding-right: 60px; } }
     .card--heading__cover > h1 {
       margin-bottom: 0; }
-  .card--image__link-cover:hover {
-    background-color: rgba(255, 255, 255, 0.4); }
   .card--attraction {
     border-style: solid;
     border-color: #BDCACA;
@@ -500,33 +527,33 @@ a {
     margin-bottom: auto; }
     .card--attraction:hover .card__title--link::after {
       left: 20px; }
-  .card--attraction__link:focus .card--attraction__image {
-    box-shadow: inset 0px 0px 300px 200px rgba(0, 0, 0, 0.65);
-    border-top: 3px solid #060B0A;
-    border-left: 3px solid #060B0A;
-    border-right: 3px solid #060B0A; }
-  .card--attraction__link:focus .card--attraction__content {
-    border-bottom: 3px solid #060B0A;
-    border-left: 3px solid #060B0A;
-    border-right: 3px solid #060B0A; }
-  .card--attraction__link:focus .card__title--link::after {
-    left: 20px; }
-  .card--attraction__image {
-    height: 100px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-top-right-radius: 2px;
-    border-top-left-radius: 2px;
-    padding: 0; }
-    @media (min-width: 600px) {
-      .card--attraction__image {
-        height: 120px; } }
-    @media (min-width: 900px) {
-      .card--attraction__image {
-        height: 150px; } }
-  .card--attraction__content {
-    padding: 20px; }
+    .card--attraction__link:focus .card--attraction__image {
+      box-shadow: inset 0px 0px 300px 200px rgba(0, 0, 0, 0.65);
+      border-top: 3px solid #060B0A;
+      border-left: 3px solid #060B0A;
+      border-right: 3px solid #060B0A; }
+    .card--attraction__link:focus .card--attraction__content {
+      border-bottom: 3px solid #060B0A;
+      border-left: 3px solid #060B0A;
+      border-right: 3px solid #060B0A; }
+    .card--attraction__link:focus .card__title--link::after {
+      left: 20px; }
+    .card--attraction__image {
+      height: 100px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-top-right-radius: 2px;
+      border-top-left-radius: 2px;
+      padding: 0; }
+      @media (min-width: 600px) {
+        .card--attraction__image {
+          height: 120px; } }
+      @media (min-width: 900px) {
+        .card--attraction__image {
+          height: 150px; } }
+    .card--attraction__content {
+      padding: 20px; }
 
 .bristol-map {
   height: 100%; }
@@ -1062,3 +1089,13 @@ a {
     @media (min-width: 1200px) {
       .landing-map__description {
         font-size: 25px; } }
+
+.landing-page__attractions {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; }
+  @media (min-width: 900px) {
+    .landing-page__attractions {
+      grid-template-columns: 1fr 1fr 1fr; } }
+  .landing-page__attractions--introduction-card {
+    grid-column: 2; }

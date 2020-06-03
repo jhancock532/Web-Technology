@@ -1,0 +1,17 @@
+.landing-page {
+  &__attractions {
+    display: grid;
+    gap: $grid;
+    grid-template-columns: 1fr;
+
+    @include media-query(md){
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+
+    &--introduction-card {
+      grid-column: 2;
+    }
+
+  }
+}

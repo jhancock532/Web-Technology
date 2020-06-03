@@ -10,7 +10,7 @@
       {% set backgroundImageUrl = ['http://localhost:1337', subcategory.cover_image[0].url] %}
 
       <div class="card card--image text-white" style="background-image: url('{{ backgroundImageUrl | join }}');">
-        <a class="link-white link-no-underline card__link" href="/subcategories/{{ subcategory.id }}">
+        <a class="link-white link-no-underline card__image-link" href="/subcategories/{{ subcategory.id }}">
         <div class="card--image__cover card--image__link-cover">
           <h3 class="card__title card__title--link">{{ subcategory.name }}</h3>
           <p class="card__text">{{ subcategory.description }}</p>

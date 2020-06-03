@@ -5,16 +5,69 @@
   border-radius: $card-border-radius;
   padding: $grid;
   margin-bottom: auto;
-
   box-shadow: $card-shadow;
 
-  &:hover {
+  &:hover { 
+    //Note that this hover rule applies to hovering over any part of a card.
+    //I've specifically used it here to make the arrow icon move to the left on link cards.
     .card__title--link::after {
       left: 20px;
     }
   }
 
-  &__link {
+  /** ELEMENTS
+    The card elements are grouped with the standard "__" notation
+    __title, __text, __image-link, __link-list, __link-item
+    Note that __title and __text have --heading modifiers.
+    */
+
+  &__title {
+    @include font-size(l);
+    margin-top: 0;
+
+    &--link {
+      //This indicates that the card is a link to another webpage.
+      &::after {
+        //This adds and styles an arrow icon after the title text.
+        font-family: fontello;
+        content: "\e801";
+        left: 8px;
+        position: relative;
+        transition: left 0.4s;
+        font-size: 90%;
+      }
+    }
+
+    &--heading {
+      //Increase the size of heading card titles.
+      @include font-size(xxxl);
+      margin-top: 0;
+    }
+  }
+
+  &__text {
+    @include font-size(m);
+    margin-bottom: $grid / 2;
+
+    &--heading {
+      font-family: $font-primary;
+      margin-bottom: $grid;
+
+      @include font-size(m);
+  
+      @include media-query(sm){
+        @include font-size(l);
+      }
+  
+      @include media-query(md){
+        //For large devices, give the text a right hand margin.
+        width: 70%;
+      }
+    }
+  }
+
+  &__image-link {
+    //For the image link card, add a noticable state change on keyboard focus.
     &:focus {
       > div {
         background-color: rgba(255, 255, 255, 0.75);
@@ -26,45 +79,38 @@
     }
   }
 
-  &__title {
-    @include font-size(l);
-    margin-top: 0;
+  &__link-list {
+    //Reset the list style and break out of the card padding for full width link effect.
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: -$grid;
+    margin-left: -$grid;
+    margin-right: -$grid;
 
-    &--link {
-      &::after{
-        font-family: fontello;
-        content: "\e801";
-        left: 8px;
-        position: relative;
-        transition: left 0.4s;
-        font-size: 90%;
-      }
+    > a:hover {
+      //The a contains the ul item and has priority for text-decoration styling.
+      text-decoration: none;
     }
   }
 
-  &__title--heading {
-    @include font-size(xxxl);
-    margin-top: 0;
-  }
+  &__link-item {
+    padding: $grid / 2;
+    padding-left: $grid;
+    border-top: 1px solid $color-light-grey;
 
-  &__text {
-    @include font-size(m);
-    margin-bottom: $grid / 2;
-  }
-
-  &__text--heading {
-    font-family: $font-primary;
-    margin-bottom: $grid;
-    @include font-size(m);
-
-    @include media-query(sm){
-      @include font-size(l);
-    }
-
-    @include media-query(md){
-      width: 70%;
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+      font-weight: bold;
     }
   }
+
+  /** MODIFIERS
+    The default card styling has three main modifications.
+    image, heading, attraction
+    The .card--attraction class works without the .card class, unlike .image and .heading, which require it.
+    How individual cards are put together is seen in the style-guide.html file.
+    */
 
   &--image {
     background-color: $color-white;
@@ -78,59 +124,61 @@
       min-height: 250px;
     }
 
-  }
-
-  &--image__cover {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.8));
-    transition: background-color 0.3s linear;
-    padding: $grid;
-    border-radius: $card-border-radius;
-
-    min-height: 220px;
-    @include media-query(md){
-      min-height: 250px;
-    }
-
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-
-    > h3 {
-      margin-bottom: 0;
-    }
-  }
-
-  &--heading__cover {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.8));
-    padding: $grid $grid $grid $grid;
-    min-height: 280px;
-
-    @include media-query(sm){
-      min-height: 340px;
+    &__cover {
       background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.8));
-      padding-left: $grid * 2;
-      padding-right: $grid * 2;
-    }
-    @include media-query(md){
-      min-height: 380px;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.85));
-      padding-bottom: $grid * 2;
-      padding-left: $grid * 3;
-      padding-right: $grid * 3;
+      transition: background-color 0.3s linear;
+      padding: $grid;
+      border-radius: $card-border-radius;
+  
+      min-height: 220px;
+      @include media-query(md){
+        min-height: 250px;
+      }
+  
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+  
+      > h3 {
+        margin-bottom: 0;
+      }
     }
 
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-
-    > h1 {
-      margin-bottom: 0;
+    &__link-cover {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+      }
     }
   }
 
-  &--image__link-cover {
-    &:hover{
-      background-color: rgba(255, 255, 255, 0.4);
+  &--heading {
+    &__cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+
+      background-image: linear-gradient(rgba(0, 0, 0, 0.0),rgba(0, 0, 0, 0.8));
+      padding: $grid $grid $grid $grid;
+      min-height: 280px;
+
+      @include media-query(sm){
+        min-height: 340px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.8));
+        padding-left: $grid * 2;
+        padding-right: $grid * 2;
+      }
+
+      @include media-query(md){
+        min-height: 380px;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.85));
+        padding-bottom: $grid * 2;
+        padding-left: $grid * 3;
+        padding-right: $grid * 3;
+      }
+
+      > h1 {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -148,47 +196,46 @@
         left: 20px;
       }
     }
-  }
 
-  &--attraction__link {
-    &:focus {
-      .card--attraction__image {
-        box-shadow: inset 0px 0px 300px 200px rgba(0,0,0,0.65);
-        border-top: 3px solid $color-black;
-        border-left: 3px solid $color-black;
-        border-right: 3px solid $color-black;
-      }
-      .card--attraction__content {
-        border-bottom: 3px solid $color-black;
-        border-left: 3px solid $color-black;
-        border-right: 3px solid $color-black;
-      }
-      .card__title--link::after {
-        left: 20px;
+    &__link {
+      &:focus {
+        .card--attraction__image {
+          box-shadow: inset 0px 0px 300px 200px rgba(0,0,0,0.65);
+          border-top: 3px solid $color-black;
+          border-left: 3px solid $color-black;
+          border-right: 3px solid $color-black;
+        }
+        .card--attraction__content {
+          border-bottom: 3px solid $color-black;
+          border-left: 3px solid $color-black;
+          border-right: 3px solid $color-black;
+        }
+        .card__title--link::after {
+          left: 20px;
+        }
       }
     }
-  }
 
-  &--attraction__image {
-    height: 100px;
-
-    @include media-query(sm){
-      height: 120px;
+    &__image {
+      height: 100px;
+  
+      @include media-query(sm){
+        height: 120px;
+      }
+  
+      @include media-query(md){
+        height: 150px;
+      }
+      
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-top-right-radius: $card-border-radius;
+      border-top-left-radius: $card-border-radius;
+      padding: 0;
     }
-
-    @include media-query(md){
-      height: 150px;
+    &__content {
+      padding: $grid;
     }
-    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-top-right-radius: $card-border-radius;
-    border-top-left-radius: $card-border-radius;
-    padding: 0;
-  }
-
-  &--attraction__content {
-    padding: $grid;
   }
 }
