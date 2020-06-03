@@ -14,4 +14,26 @@
     }
 
   }
+
+  &__map {
+    background-color: $color-grey;
+  }
+
+  &__map-description {
+    text-align: center;
+    padding: 2 * $grid;
+    margin-top: 0;
+    @include font-size(l);
+    color: $color-white;
+  }
+
+  &__interactive-map {
+    display: flex;
+
+  }
+
+  &__temp-map {
+    margin-right: auto;
+    margin-left: auto;
+  }
 }

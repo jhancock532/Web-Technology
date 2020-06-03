@@ -54,12 +54,12 @@ var finalDropdownMenuLink = dropdownMenuItems.children[dropdownMenuItems.childre
 dropdownMenuButton.addEventListener('click', toggleMenuVisibility);
 dropdownMenuButton.addEventListener('keydown', menuButtonKeydown);
 finalDropdownMenuLink.addEventListener('keydown', lastLinkButtonKeydown);
-var homepage_map_container = document.getElementById("landing-hero__map-container");
+var homepage_map_container = document.getElementById("landing-page-hero__map-container");
 
 if (homepage_map_container){
   var latitude = 51.453749;
   var longitude = -2.591873;
-  var homepage_map = L.map('landing-hero__map-container', { zoomControl: false }).setView([latitude, longitude], 14);
+  var homepage_map = L.map('landing-page-hero__map-container', { zoomControl: false }).setView([latitude, longitude], 14);
 
   L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg', {
       attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.',

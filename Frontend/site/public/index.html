@@ -2,10 +2,14 @@
 
 {% block body %}
 
-{% include "includes/collections/landing-hero.html" %}
+{% include "includes/collections/landing-page-hero.html" %}
 
-{% include "includes/collections/landing-map.html" %}
-
+<div class="landing-page__map">
+  <p class="landing-page__map-description"> Explore the different attractions Bristol has to offer through our interactive site. Select a region of Bristol in the below map to begin! </p>
+  <div class="landing-page__interactive-map">
+    <img class="landing-page__temp-map" src="images/suspension-bridge.svg"/>
+  </div>
+</div>
 
 <div class="landing-page__attractions">
   <div class="card landing-page__attractions--introduction-card">        
@@ -19,38 +23,6 @@
   </div>
 </div>
 
-
 {% include "includes/collections/footer.html" %}
-
-<!--
-
-<div class="explore-map">
-  <img class="explore-map_image" src="images/united-kingdom.svg">
-</div>
--->
-
-<!-- Top of the Fold Content - Splashscreen Image and Title Section
-<div class="hero">
-  <div class="hero_title">Bristol Creative Map</div>
-  <div class="hero_tagline">The vibrant city of Bristol is largely unexplored by its student population, what will convince students stuck studying to explore the city?</div>
-</div>
- -->
-
-<!-- Tagline introduction and three suggested links -->
-
-<!-- Two Cards of Relevant Content -->
-
-
-<!-- Ideally we want to do some cool stuff with the server, like
-<h1>Posts</h1>
-<ul>
-{% for item in items %}
-  <li>{{ item.title }}</li>
-{% else %}
-  <li>This would display if the 'item' collection were empty</li>
-{% endfor %}
-</ul>
--->
-
 
 {% endblock %}
