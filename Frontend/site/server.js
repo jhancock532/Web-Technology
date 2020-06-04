@@ -27,7 +27,10 @@ app.use('/javascript', express.static(path.join(__dirname, 'public/javascript'))
 // ** Server Responses to URLs **
 
 app.get('/', function(req, res) {
-  addXHTML(res);
+  //addXHTML(res);
+  //BEFORE SUBMISSION >>> Use .xhtml for this file name!
+  //It makes the SVG file for the map work with xhtml parsing, but development is terrible with xhtml files in vscode.
+  //See the following source - https://dh.obdurodon.org/svg-embedding.xhtml
   res.render('index.html', {
     INCLUDE_MAP: true, //INCLUDE_MAP includes the Leaflet.js JavaScript file when serving the webpage.
     title: WEBSITE_TITLE,

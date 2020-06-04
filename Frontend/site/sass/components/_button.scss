@@ -4,6 +4,7 @@
   border-width: 2px;
   transition: color 0.5s, background-color 0.5s;
   border-radius: $button-border-radius;
+  cursor: pointer;
 
   //Button Sizes
   &--tag {

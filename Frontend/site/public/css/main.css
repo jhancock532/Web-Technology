@@ -72,6 +72,9 @@ $media-query-breakpoints: (
 /** Link Tab Border 
  * Adds a clear border to the current link that is being tabbed over.
  */
+html {
+  scroll-behavior: smooth; }
+
 body {
   margin: 0;
   background: #FBFBFB; }
@@ -318,7 +321,8 @@ a {
   border-style: solid;
   border-width: 2px;
   transition: color 0.5s, background-color 0.5s;
-  border-radius: 3px; }
+  border-radius: 3px;
+  cursor: pointer; }
   .button--tag {
     padding: 2px 4px 4px 4px;
     line-height: 2.7;
@@ -555,10 +559,67 @@ a {
     .card--attraction__content {
       padding: 20px; }
 
-.bristol-map {
-  height: 100%; }
-  .bristol-map > img {
-    width: 100%; }
+.interactive-map {
+  display: flex;
+  position: relative;
+  width: 100%;
+  vertical-align: middle;
+  overflow: hidden; }
+  .interactive-map__region {
+    fill: #FBFBFB; }
+    .interactive-map__region:hover {
+      fill: #9BC53D;
+      cursor: pointer; }
+  .interactive-map__text {
+    font-family: CrimsonPro, Georgia, Times, serif;
+    fill: #060B0A;
+    pointer-events: none; }
+  .interactive-map__background {
+    fill: #BDCACA; }
+  .interactive-map__svg {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 550px;
+    top: 0;
+    left: 0; }
+
+#interactive-map--harbourside-text {
+  font-size: 14px; }
+
+#interactive-map--city-centre-text {
+  font-size: 13px; }
+
+#interactive-map--temple-meads-text {
+  font-size: 13px; }
+
+#interactive-map--arnos-vale-text {
+  font-size: 14px; }
+
+#interactive-map--harbourside:hover ~ #interactive-map--harbourside-text {
+  fill: #FBFBFB;
+  font-weight: bold; }
+
+#interactive-map--southville:hover ~ #interactive-map--southville-text {
+  fill: #FBFBFB;
+  font-weight: bold; }
+
+#interactive-map--city-centre:hover ~ #interactive-map--city-centre-text {
+  fill: #FBFBFB; }
+
+#interactive-map--temple-meads:hover ~ #interactive-map--temple-meads-text {
+  fill: #FBFBFB; }
+
+#interactive-map--arnos-vale:hover ~ #interactive-map--arnos-vale-text {
+  fill: #FBFBFB; }
+
+#interactive-map--stokes-croft:hover ~ #interactive-map--stokes-croft-text {
+  fill: #FBFBFB;
+  font-weight: bold; }
+
+#interactive-map--clifton:hover ~ #interactive-map--clifton-text {
+  fill: #FBFBFB;
+  font-weight: bold; }
 
 .dropdown {
   position: relative;
@@ -679,21 +740,26 @@ a {
   .landing-page__attractions--introduction-card {
     grid-column: 2; }
 
-.landing-page__map {
-  background-color: #404e4d; }
+.landing-page__map-section {
+  background-color: #404e4d;
+  min-height: 100vh; }
 
 .landing-page__map-description {
   text-align: center;
-  padding: 40px;
   margin-top: 0;
+  margin-bottom: 0;
   font-size: 22px;
-  color: #FBFBFB; }
+  color: #FBFBFB;
+  padding: 40px 20px; }
   @media (min-width: 900px) {
     .landing-page__map-description {
       font-size: 24px; } }
   @media (min-width: 1200px) {
     .landing-page__map-description {
       font-size: 25px; } }
+  @media (min-width: 900px) {
+    .landing-page__map-description {
+      padding: 40px; } }
 
 .landing-page__interactive-map {
   display: flex; }

@@ -7,29 +7,33 @@
     @include media-query(md){
       grid-template-columns: 1fr 1fr 1fr;
     }
-    
 
     &--introduction-card {
       grid-column: 2;
     }
-
   }
 
-  &__map {
+  &__map-section {
     background-color: $color-grey;
+    min-height: 100vh;
   }
 
   &__map-description {
     text-align: center;
-    padding: 2 * $grid;
+    
     margin-top: 0;
+    margin-bottom: 0;
     @include font-size(l);
     color: $color-white;
+    padding: 2 * $grid 1 * $grid;
+
+    @include media-query(md){
+      padding: 2 * $grid;
+    }
   }
 
   &__interactive-map {
     display: flex;
-
   }
 
   &__temp-map {

@@ -29,7 +29,7 @@ gulp.task('sass', function () {
 
 gulp.task('watch', function() {
   gulp.watch(sassFilePath, gulp.series(['sass']));
-  gulp.watch(jsFilePath, gulp.series['scripts']);
+  gulp.watch(jsFilePath, gulp.series(['scripts']));
 })
 
 gulp.task('default', gulp.series(['sass', 'scripts', 'watch']));

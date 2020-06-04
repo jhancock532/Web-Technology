@@ -68,3 +68,24 @@ if (homepage_map_container){
       zoomOffset: 0,
   }).addTo(homepage_map);
 }
+
+function loadRegionContent(region){
+  console.log(region);
+}
+
+var region_arnos_vale = document.getElementById("interactive-map--arnos-vale");
+var region_temple_meads = document.getElementById("interactive-map--temple-meads");
+var region_southville = document.getElementById("interactive-map--southville");
+var region_harbourside = document.getElementById("interactive-map--harbourside");
+var region_city_centre = document.getElementById("interactive-map--city-centre");
+var region_clifton = document.getElementById("interactive-map--clifton");
+var region_stokes_croft = document.getElementById("interactive-map--stokes-croft");
+
+region_arnos_vale.addEventListener('click', function() { loadRegionContent("Arnos Vale")}, false);
+region_temple_meads.addEventListener('click', function() { loadRegionContent("Temple Meads")}, false);
+region_southville.addEventListener('click', function() { loadRegionContent("Southville")}, false);
+region_harbourside.addEventListener('click', function() { loadRegionContent("Harbourside")}, false);
+region_city_centre.addEventListener('click', function() { loadRegionContent("City Centre")}, false);
+region_clifton.addEventListener('click', function() { loadRegionContent("Clifton")}, false);
+region_stokes_croft.addEventListener('click', function() { loadRegionContent("Stokes Croft")}, false);
+

@@ -1,0 +1,85 @@
+.interactive-map {
+  display: flex;
+	position: relative;
+	width: 100%;
+	vertical-align: middle; 
+	overflow: hidden;
+
+  &__region {
+    fill: $color-white;
+    &:hover {
+      fill: $color-primary;
+      cursor: pointer;
+    }
+  }
+
+  &__text {
+    font-family: $font-primary;
+    fill: $color-black;
+
+    pointer-events: none; //from https://coderwall.com/p/qa0hga/ignore-hover-events-with-css
+    //Enables the mouse to phase through the text and activate the region hover effect instead.
+  }
+
+  &__background {
+    fill: $color-light-grey;
+  }
+
+  &__svg {
+    display: block;
+    //flex-direction: reverse; //https://stackoverflow.com/questions/4502633/how-to-affect-other-elements-when-one-element-is-hovered
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 550px;
+    top: 0;
+    left: 0;
+  }
+}
+
+#interactive-map--harbourside-text {
+  font-size: 14px;
+}
+
+#interactive-map--city-centre-text {
+  font-size: 13px;
+}
+
+#interactive-map--temple-meads-text {
+  font-size: 13px;
+}
+
+#interactive-map--arnos-vale-text {
+  font-size: 14px;
+}
+
+#interactive-map--harbourside:hover ~ #interactive-map--harbourside-text {
+  fill: $color-white;
+  font-weight: bold;
+}
+
+#interactive-map--southville:hover ~ #interactive-map--southville-text {
+  fill: $color-white;
+  font-weight: bold;
+}
+
+#interactive-map--city-centre:hover ~ #interactive-map--city-centre-text {
+  fill: $color-white;
+}
+
+#interactive-map--temple-meads:hover ~ #interactive-map--temple-meads-text {
+  fill: $color-white;
+}
+
+#interactive-map--arnos-vale:hover ~ #interactive-map--arnos-vale-text {
+  fill: $color-white;
+}
+
+#interactive-map--stokes-croft:hover ~ #interactive-map--stokes-croft-text {
+  fill: $color-white;
+  font-weight: bold;
+}
+
+#interactive-map--clifton:hover ~ #interactive-map--clifton-text {
+  fill: $color-white;
+  font-weight: bold;
+}
