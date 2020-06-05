@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
+    babel = require('gulp-babel'),
     uglify = require('gulp-uglify');
 
 sass.compiler = require('node-sass');
@@ -17,6 +18,9 @@ gulp.task('scripts', function() {
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest(jsDestination))
     .pipe(rename('scripts.min.js'))
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
     .pipe(uglify())
     .pipe(gulp.dest(jsDestination));
 });

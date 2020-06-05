@@ -45,6 +45,9 @@
       "type": "component",
       "repeatable": true,
       "component": "coordinates.map-coordinates"
+    },
+    "region": {
+      "type": "string"
     }
   }
 }
