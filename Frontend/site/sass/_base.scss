@@ -57,6 +57,10 @@ a {
   background: $color-secondary;
 }
 
+.link{
+  font-family: $font-primary;
+}
+
 .link-white {
   color: $color-white;
   &:hover {
@@ -66,6 +70,19 @@ a {
     color: $color-white;
     &:hover {
       color: $color-white;
+    }
+  }
+}
+
+.link-primary {
+  color: $color-primary-dark;
+  &:hover {
+    color: $color-primary-dark;
+  }
+  &:visited {
+    color: $color-primary-dark;
+    &:hover {
+      color: $color-primary-dark;
     }
   }
 }
