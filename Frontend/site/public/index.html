@@ -57,10 +57,10 @@
   <div class="landing-page__explore-content">
 
     <!-- Choice Card One -->
-    <div class="card landing-page__choice-card"> 
+    <div class="card landing-page__choice-card" id="choice-card--1"> 
       <h3 class="card__title">Begin Your Journey</h3>
       <p class="card__text">Choose one of the below attraction categories to start your trip.</p>
-      <ul class="card__link-list" id="choice-card--1">
+      <ul class="card__link-list" id="choice-card-list--1">
         <a href="/"><li class="card__link-item">1</li></a>
         <a href="/"><li class="card__link-item">2</li></a>
         <a href="/"><li class="card__link-item">3</li></a>
@@ -68,22 +68,22 @@
     </div>
 
     <!-- Attraction Card One -->
-    <div class="card--attraction landing-page__attraction-card">
+    <div class="card--attraction landing-page__attraction-card" id="attraction-card--1">
       <div class="card--attraction__image" id="attraction-card--image-1" style="background-image: url('/images/demo-placeholder.jpg');">
       </div>
       <div class="card--attraction__content">
         <h3 class="card__title card__title--underline" id="attraction-card--title-1">Card Attraction</h3>
         <p class="card__text" id="attraction-card--tagline-1">This is a basic card element.</p>
-        <a href="#" class="link-primary link card__link-explore" id="attraction-card--explore-link-1"> View More ... </a>
-        <a href="#" class="card--image__explore-button button button--large button--primary" id="attraction-card--continue-button-1"> Continue </a>
+        <a href="#" class="link-primary link card__link-explore" id="attraction-card--explore-link-1">Learn more about this attraction</a>
+        <a href="#choice-card--2" onclick="displayNextChoiceCard(2);" class="card--image__explore-button button button--large button--primary" id="attraction-card--continue-button-1"> Continue </a>
       </div>
     </div>
 
     <!-- Choice Card Two -->
-    <div class="card landing-page__choice-card"> 
+    <div class="card landing-page__choice-card" id="choice-card--2"> 
       <h3 class="card__title">Continue Your Journey</h3>
       <p class="card__text">Another attraction category from the nearby area.</p>
-      <ul class="card__link-list" id="choice-card--2">
+      <ul class="card__link-list" id="choice-card-list--2">
         <a href="/"><li class="card__link-item">1</li></a>
         <a href="/"><li class="card__link-item">2</li></a>
         <a href="/"><li class="card__link-item">3</li></a>
@@ -91,22 +91,22 @@
     </div>
 
     <!-- Attraction Card Two -->
-    <div class="card--attraction landing-page__attraction-card">
+    <div class="card--attraction landing-page__attraction-card" id="attraction-card--2">
       <div class="card--attraction__image" id="attraction-card--image-2" style="background-image: url('/images/demo-placeholder.jpg');">
       </div>
       <div class="card--attraction__content">
         <h3 class="card__title card__title--underline" id="attraction-card--title-2">Card Attraction</h3>
         <p class="card__text" id="attraction-card--tagline-2">This is a basic card element.</p>
         <a href="#" class="link-primary link card__link-explore" id="attraction-card--explore-link-2"> View More ... </a>
-        <a href="#" class="card--image__explore-button button button--large button--primary" id="attraction-card--continue-button-2"> Continue </a>
+        <a href="#choice-card--3" onclick="displayNextChoiceCard(3);" class="card--image__explore-button button button--large button--primary" id="attraction-card--continue-button-2"> Continue </a>
       </div>
     </div>
 
     <!-- Choice Card Three -->
-    <div class="card landing-page__choice-card"> 
+    <div class="card landing-page__choice-card" id="choice-card--3"> 
       <h3 class="card__title">One Last Stop...</h3>
       <p class="card__text">Finish off the journey with your last stop...</p>
-      <ul class="card__link-list" id="choice-card--3">
+      <ul class="card__link-list" id="choice-card-list--3">
         <a href="/"><li class="card__link-item">1</li></a>
         <a href="/"><li class="card__link-item">2</li></a>
         <a href="/"><li class="card__link-item">3</li></a>
@@ -114,7 +114,7 @@
     </div>
 
     <!-- Attraction Card Three -->
-    <div class="card--attraction landing-page__attraction-card">
+    <div class="card--attraction landing-page__attraction-card" id="attraction-card--3">
       <div class="card--attraction__image" id="attraction-card--image-3" style="background-image: url('/images/demo-placeholder.jpg');">
       </div>
       <div class="card--attraction__content">

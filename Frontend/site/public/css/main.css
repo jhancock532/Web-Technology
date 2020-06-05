@@ -851,13 +851,19 @@ a {
     .landing-page__explore-content {
       grid-template-columns: 1fr 1fr 1fr; } }
 
-@media (min-width: 900px) {
-  .landing-page__choice-card {
-    grid-column: 1 / 3; } }
+.landing-page__choice-card {
+  display: none; }
+  @media (min-width: 900px) {
+    .landing-page__choice-card {
+      margin-top: 40px;
+      grid-column: 1 / 3; } }
 
-@media (min-width: 900px) {
-  .landing-page__attraction-card {
-    grid-column: 2 / 4; } }
+.landing-page__attraction-card {
+  display: none; }
+  @media (min-width: 900px) {
+    .landing-page__attraction-card {
+      margin-top: 40px;
+      grid-column: 2 / 4; } }
 
 .landing-page-hero__map {
   z-index: -1;

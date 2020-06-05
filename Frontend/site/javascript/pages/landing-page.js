@@ -16,8 +16,6 @@ if (landingPageMapContainer){
 
 //Landing Page Explore Section Code
 let attractions;
-let attractionsVisited = 0;
-
 let landingPageExploreContainer = document.getElementById('landing-page__explore-section');
 
 function getSubcategoryChoices(){
@@ -41,21 +39,54 @@ function getSubcategoryChoices(){
   return subcategoryChoices;
 }
 
-function fillInChoiceCard(choiceCardNum){
-  let subcategoryChoices = getSubcategoryChoices();
+function displayNextChoiceCard(choiceCardNum){
+  fillInChoiceCard(choiceCardNum);
 
-  //Depending on choiceCardNum get the document elements we wish to edit
-  
-  for (let [key, value] of Object.entries(subcategoryChoices)){
-    let subcategoryText = document.createElement("P"); 
-    subcategoryText.innerHTML = key;
-    landingPageExploreContainer.appendChild(subcategoryText);
-  }
-
+  let choiceCardToShowId = "choice-card--" + choiceCardNum.toString();
+  document.getElementById(choiceCardToShowId).style.display = "block";
 }
 
-function fillInAttractionCard(attraction){
-  //attraction.visited = true;
+function fillInChoiceCard(choiceCardNum){
+  let subcategoryChoices = getSubcategoryChoices();
+  let choiceCardListId = "choice-card-list--" + choiceCardNum.toString();
+  let choiceCardList = document.getElementById(choiceCardListId);
+
+  choiceCardList.innerHTML = "";
+
+  for (let i = 0; i < 3; i++){
+    let buttonHTML = '';
+    buttonHTML += '<a href="#attraction-card--' + choiceCardNum + '" onclick="fillInAttractionCard(' + choiceCardNum + ', ';
+    buttonHTML += Object.entries(subcategoryChoices)[i][1].toString(); //The index in 'attractions' of the subcategory attraction.
+    buttonHTML += ')"><li class="card__link-item">'
+    buttonHTML += Object.entries(subcategoryChoices)[i][0].toString(); //The name of the subcategory.
+    buttonHTML += '</li></a>';
+
+    choiceCardList.innerHTML += buttonHTML;
+  }
+}
+
+function fillInAttractionCard(cardNum, attractionNum){
+  let attractionCardToShowId = "attraction-card--" + cardNum.toString();
+  document.getElementById(attractionCardToShowId).style.display = "block";
+
+  let attraction = attractions[attractionNum];
+
+  let attractionCardImageId = "attraction-card--image-" + cardNum.toString();
+  let attractionCardTitleId = "attraction-card--title-" + cardNum.toString();
+  let attractionCardTaglineId = "attraction-card--tagline-" + cardNum.toString();
+  let attractionCardExploreLinkId = "attraction-card--explore-link-" + cardNum.toString();
+
+  let attractionCardImage = document.getElementById(attractionCardImageId);
+  let attractionCardTitle = document.getElementById(attractionCardTitleId);
+  let attractionCardTagline = document.getElementById(attractionCardTaglineId);
+  let attractionCardExploreLink = document.getElementById(attractionCardExploreLinkId);
+
+  attractionCardTitle.innerHTML = attraction.name;
+  attractionCardTagline.innerHTML = attraction.tagline;
+  attractionCardImage.style.backgroundImage = "url('http://localhost:1337" + attraction.image[0].url + "')";
+  attractionCardExploreLink.href = "http://localhost:3000/attractions/" + attraction.id;
+
+  attraction.visited = true;
 }
 
 function loadRegionContent(region){
@@ -73,6 +104,7 @@ function loadRegionContent(region){
     }
 
     fillInChoiceCard(1);
+    document.getElementById("choice-card--1").style.display = "block";
   });
 
   landingPageExploreContainer.scrollIntoView({ 
@@ -96,6 +128,5 @@ if (region_arnos_vale){
   region_city_centre.addEventListener('click', function() { loadRegionContent("City Centre")}, false);
   region_clifton.addEventListener('click', function() { loadRegionContent("Clifton")}, false);
   region_stokes_croft.addEventListener('click', function() { loadRegionContent("Stokes Croft")}, false);
-  
 }
 

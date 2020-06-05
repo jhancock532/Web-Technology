@@ -96,13 +96,19 @@
   }
 
   &__choice-card {
+    display: none;
+
     @include media-query(md){
+      margin-top: 2 * $grid;
       grid-column: 1 / 3;
     }
   }
 
   &__attraction-card {
+    display: none;
+
     @include media-query(md){
+      margin-top: 2 * $grid;
       grid-column: 2 / 4;
     }
   }
