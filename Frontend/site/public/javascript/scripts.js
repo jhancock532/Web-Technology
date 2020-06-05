@@ -100,8 +100,7 @@ function getSubcategoryChoices(){
 function fillInChoiceCard(choiceCardNum){
   let subcategoryChoices = getSubcategoryChoices();
 
-  //Depending on choiceCardNum get the document elements we wish to edit.
-
+  //Depending on choiceCardNum get the document elements we wish to edit
   
   for (let [key, value] of Object.entries(subcategoryChoices)){
     let subcategoryText = document.createElement("P"); 
