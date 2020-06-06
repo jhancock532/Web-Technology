@@ -51,79 +51,107 @@
   </div>
 </div>
 
+<div class="landing-page__explore-section-hider" id="landing-page__explore-section-hider"></div>
+
 <div class="landing-page__explore-section" id="landing-page__explore-section">
 
   <div class="landing-page__explore-margin-left"></div>
-  <div class="landing-page__explore-content">
+  <div class="landing-page__explore-content" id="landing-page__explore-content-container">
 
     <!-- Choice Card One -->
-    <div class="card landing-page__choice-card" id="choice-card--1"> 
-      <h3 class="card__title">Begin Your Journey</h3>
-      <p class="card__text">Choose one of the below attraction categories to start your trip.</p>
-      <ul class="card__link-list" id="choice-card-list--1">
-        <a href="/"><li class="card__link-item">1</li></a>
-        <a href="/"><li class="card__link-item">2</li></a>
-        <a href="/"><li class="card__link-item">3</li></a>
-      </ul>
+    <div class="landing-page__choice-card" id="choice-card--1">
+      <div class="card"> 
+        <h3 class="card__title">Begin Your Journey</h3>
+        <p class="card__text">Choose one of the below attraction categories to start your trip.</p>
+        <ul class="card__link-list" id="choice-card-list--1">
+          <a href="/"><li class="card__link-item">1</li></a>
+          <a href="/"><li class="card__link-item">2</li></a>
+          <a href="/"><li class="card__link-item">3</li></a>
+        </ul>
+      </div>
     </div>
 
     <!-- Attraction Card One -->
-    <div class="card--attraction landing-page__attraction-card" id="attraction-card--1">
-      <div class="card--attraction__image" id="attraction-card--image-1" style="background-image: url('/images/demo-placeholder.jpg');">
-      </div>
-      <div class="card--attraction__content">
-        <h3 class="card__title card__title--underline" id="attraction-card--title-1">Card Attraction</h3>
-        <p class="card__text" id="attraction-card--tagline-1">This is a basic card element.</p>
-        <a href="#" class="link-primary link card__link-explore" id="attraction-card--explore-link-1">Learn more about this attraction</a>
-        <a href="#choice-card--2" onclick="displayNextChoiceCard(2);" class="card--image__explore-button button button--large button--primary" id="attraction-card--continue-button-1"> Continue </a>
+    <div class="landing-page__attraction-card"  id="attraction-card--1">
+      <div class="card--attraction">
+        <div class="card--attraction__image" id="attraction-card--image-1" style="background-image: url('/images/demo-placeholder.jpg');">
+        </div>
+        <div class="card--attraction__content">
+          <h3 class="card__title card__title--underline" id="attraction-card--title-1">Card Attraction</h3>
+          <p class="card__text" id="attraction-card--tagline-1">This is a basic card element.</p>
+          <a href="#" class="link-primary link card__link-explore" id="attraction-card--explore-link-1">Learn more about this attraction</a>
+          <a href="#choice-card--2" onclick="displayNextChoiceCard(2);" class="card--image__explore-button button button--large button--primary" id="attraction-card--continue-button-1"> Continue </a>
+        </div>
       </div>
     </div>
 
     <!-- Choice Card Two -->
-    <div class="card landing-page__choice-card" id="choice-card--2"> 
-      <h3 class="card__title">Continue Your Journey</h3>
-      <p class="card__text">Another attraction category from the nearby area.</p>
-      <ul class="card__link-list" id="choice-card-list--2">
-        <a href="/"><li class="card__link-item">1</li></a>
-        <a href="/"><li class="card__link-item">2</li></a>
-        <a href="/"><li class="card__link-item">3</li></a>
-      </ul>
+    <div class="landing-page__choice-card" id="choice-card--2">
+      <div class="card"> 
+        <h3 class="card__title">Continue Your Journey</h3>
+        <p class="card__text">Another attraction category from the nearby area.</p>
+        <ul class="card__link-list" id="choice-card-list--2">
+          <a href="/"><li class="card__link-item">1</li></a>
+          <a href="/"><li class="card__link-item">2</li></a>
+          <a href="/"><li class="card__link-item">3</li></a>
+        </ul>
+      </div>
     </div>
 
     <!-- Attraction Card Two -->
-    <div class="card--attraction landing-page__attraction-card" id="attraction-card--2">
-      <div class="card--attraction__image" id="attraction-card--image-2" style="background-image: url('/images/demo-placeholder.jpg');">
-      </div>
-      <div class="card--attraction__content">
-        <h3 class="card__title card__title--underline" id="attraction-card--title-2">Card Attraction</h3>
-        <p class="card__text" id="attraction-card--tagline-2">This is a basic card element.</p>
-        <a href="#" class="link-primary link card__link-explore" id="attraction-card--explore-link-2"> View More ... </a>
-        <a href="#choice-card--3" onclick="displayNextChoiceCard(3);" class="card--image__explore-button button button--large button--primary" id="attraction-card--continue-button-2"> Continue </a>
+    <div class="landing-page__attraction-card"  id="attraction-card--2">
+      <div class="card--attraction">
+        <div class="card--attraction__image" id="attraction-card--image-2" style="background-image: url('/images/demo-placeholder.jpg');">
+        </div>
+        <div class="card--attraction__content">
+          <h3 class="card__title card__title--underline" id="attraction-card--title-2">Card Attraction</h3>
+          <p class="card__text" id="attraction-card--tagline-2">This is a basic card element.</p>
+          <a href="#" class="link-primary link card__link-explore" id="attraction-card--explore-link-2"> Learn more about this attraction </a>
+          <a href="#choice-card--3" onclick="displayNextChoiceCard(3);" class="card--image__explore-button button button--large button--primary" id="attraction-card--continue-button-2"> Continue </a>
+        </div>
       </div>
     </div>
 
     <!-- Choice Card Three -->
-    <div class="card landing-page__choice-card" id="choice-card--3"> 
-      <h3 class="card__title">One Last Stop...</h3>
-      <p class="card__text">Finish off the journey with your last stop...</p>
-      <ul class="card__link-list" id="choice-card-list--3">
-        <a href="/"><li class="card__link-item">1</li></a>
-        <a href="/"><li class="card__link-item">2</li></a>
-        <a href="/"><li class="card__link-item">3</li></a>
-      </ul>
+    <div class="landing-page__choice-card" id="choice-card--3">
+      <div class="card"> 
+        <h3 class="card__title">One Last Stop...</h3>
+        <p class="card__text">Finish off the journey with your last stop...</p>
+        <ul class="card__link-list" id="choice-card-list--3">
+          <a href="/"><li class="card__link-item">1</li></a>
+          <a href="/"><li class="card__link-item">2</li></a>
+          <a href="/"><li class="card__link-item">3</li></a>
+        </ul>
+      </div>
     </div>
 
     <!-- Attraction Card Three -->
-    <div class="card--attraction landing-page__attraction-card" id="attraction-card--3">
-      <div class="card--attraction__image" id="attraction-card--image-3" style="background-image: url('/images/demo-placeholder.jpg');">
+    <div class="landing-page__attraction-card"  id="attraction-card--3">
+      <div class="card--attraction">
+        <div class="card--attraction__image" id="attraction-card--image-3" style="background-image: url('/images/demo-placeholder.jpg');">
+        </div>
+        <div class="card--attraction__content">
+          <h3 class="card__title card__title--underline" id="attraction-card--title-3">Card Attraction</h3>
+          <p class="card__text" id="attraction-card--tagline-3">This is a basic card element.</p>
+          <a href="#" class="link-primary link card__link-explore" id="attraction-card--explore-link-3"> Learn more about this attraction </a>
+          
+          <a href="#adventure-end-card" class="card--image__explore-button button button--large button--primary" id="attraction-card--finish-button"> Finish </a>
+  
+        </div>
       </div>
-      <div class="card--attraction__content">
-        <h3 class="card__title card__title--underline" id="attraction-card--title-3">Card Attraction</h3>
-        <p class="card__text" id="attraction-card--tagline-3">This is a basic card element.</p>
-        <a href="#" class="link-primary link card__link-explore" id="attraction-card--explore-link-3"> View More ... </a>
-        <!--
-        <a href="#" class="card--image__explore-button button button--large button--primary" id="attraction-card--continue-button-3"> Continue </a>
-        -->
+    </div>
+
+    <!-- End of Adventure Element -->
+    <div class="landing-page__adventure-end-card" id="adventure-end-card">
+      <div class="card">
+        <h3 class="card__title card--adventure__title">You've reached the end of this adventure.</h3>
+        <p class="card__text card--adventure__subtitle">But there is plenty more to explore...</p>
+        <p class="card__text">This website has grouped attractions into subcategories which have been sorted under the following three headings. Why not have a look?</p>
+        <p class="card--adventure__links">
+          <a class="card--adventure__link" href="/food-and-drink">Food and Drink</a>
+          <a class="card--adventure__link" href="/culture-and-heritage">Culture and Heritage</a>
+          <a class="card--adventure__link" href="/events-and-spaces">Events and Spaces</a>
+        </p>
       </div>
     </div>
 

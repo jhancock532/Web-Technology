@@ -2,6 +2,7 @@
   display: grid;
   gap: $grid;
   grid-template-columns: 1fr;
+  background-color: $color-light-black;
 
   @include media-query(sm){
     grid-template-columns: 1fr 1fr;
@@ -58,6 +59,7 @@
   &__text {
     padding: 0px $grid $grid $grid;
     margin-top: -$grid;
+    color: $color-white;
 
     &--small, a {
       @include font-size(s);

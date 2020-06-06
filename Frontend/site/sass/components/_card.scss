@@ -271,7 +271,42 @@
 
   }
 
+  &--adventure {
+    &__title {
+      @include media-query(md){
+        @include font-size(xl);
+      }
+    }
 
+    &__subtitle {
+      @include font-size(l);
+      font-style: italic;
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      @include media-query(sm){
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+    }
+
+    &__link {
+      padding: $grid / 2;
+      @include font-size(l);
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      @include media-query(sm){
+        padding: 0;
+      }
+    }
+  }
 
 
 }
