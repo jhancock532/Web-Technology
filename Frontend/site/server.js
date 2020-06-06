@@ -13,6 +13,7 @@ const WEBSITE_TITLE = "Explore Bristol";
 let app = express();
 let port = 3000;
 let root = __dirname + "/public";
+let siteURL = "http://localhost:3000";
 
 nunjucks.configure(root, {
   autoescape: true,
@@ -31,9 +32,11 @@ app.get('/', function(req, res) {
   //BEFORE SUBMISSION >>> Use .xhtml for this file name!
   //It makes the SVG file for the map work with xhtml parsing, but development is terrible with xhtml files in vscode.
   //See the following source - https://dh.obdurodon.org/svg-embedding.xhtml
+
   res.render('index.html', {
     INCLUDE_MAP: true, //INCLUDE_MAP includes the Leaflet.js JavaScript file when serving the webpage.
     title: WEBSITE_TITLE,
+    shareURL: encodeURI(siteURL + req.url),
   });
 });
 
@@ -42,6 +45,7 @@ app.get('/style-guide', function(req, res) {
   res.render('style-guide.html', {
     INCLUDE_MAP: true,
     title: WEBSITE_TITLE + " - Style Guide",
+    shareURL: encodeURI(siteURL + req.url),
   });
 });
 
@@ -57,6 +61,7 @@ app.get('/culture-and-heritage', function(req, res) {
       res.render('culture-and-heritage.html', {
         data: api_res.body,
         title: WEBSITE_TITLE + " - Culture & Heritage",
+        shareURL: encodeURI(siteURL + req.url),
       });
     });
 });
@@ -74,6 +79,7 @@ app.get('/food-and-drink', function(req, res) {
       res.render('food-and-drink.html', {
         data: api_res.body,
         title: WEBSITE_TITLE + " - Food & Drink",
+        shareURL: encodeURI(siteURL + req.url),
       })
     });
 });
@@ -91,6 +97,7 @@ app.get('/events-and-spaces', function(req, res) {
       res.render('events-and-spaces.html', {
         data: api_res.body,
         title: WEBSITE_TITLE + " - Events & Spaces",
+        shareURL: encodeURI(siteURL + req.url),
       })
     });
 });
@@ -109,6 +116,7 @@ app.get('/subcategories/:id', function(req, res) {
       res.render('subcategory.html', {
         data: api_res.body,
         title: WEBSITE_TITLE + " - " + api_res.body.name,
+        shareURL: encodeURI(siteURL + req.url),
       })
   });
   
@@ -139,6 +147,7 @@ app.get('/attractions/:id', function(req, res) {
         description: descriptionHtml,
         INCLUDE_MAP: true,
         title: WEBSITE_TITLE + " - " + api_res.body.name,
+        shareURL: encodeURI(siteURL + req.url),
       })
   });
   

@@ -1,12 +1,13 @@
 <div class="footer">
   <div class="footer__social-media">
-    {% include "includes/components/footer-social-icons.html" %}
-  </div>
-  <div class="footer__social-media-cta">
-
+    <div class="footer__social-media-items">
+      {% include "includes/components/footer-social-icons.html" %}
+    </div>
+    <p class="footer__social-media-cta-text text-white">Share this webpage on social media <img class="footer__social-media-share-arrow" src="/images/share-arrow.svg"/></p>
   </div>
   <div class="footer__logo">
-    <img src="/images/logo-800x300.png"/>
+    <img class="footer__logo--large" src="/images/logo-800x300.png"/>
+    <img class="footer__logo--small" src="/images/logo-600x300.png"/>
   </div>
   <div class="footer__text">
     <p class="footer__text--small">Our privacy policy is linked on our <a class="text-white" href="/privacy">privacy page</a>. Other legal information can be found on our <a class="text-white" href="/legal">legal page</a>.</p> 
