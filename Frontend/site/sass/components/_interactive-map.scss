@@ -11,6 +11,10 @@
       fill: $color-primary;
       cursor: pointer;
     }
+
+    &:focus {
+      fill: $color-primary;
+    }
   }
 
   &__text {
@@ -80,6 +84,38 @@
 }
 
 #interactive-map--clifton:hover ~ #interactive-map--clifton-text {
+  fill: $color-white;
+  font-weight: bold;
+}
+
+#interactive-map--harbourside:focus ~ #interactive-map--harbourside-text {
+  fill: $color-white;
+  font-weight: bold;
+}
+
+#interactive-map--southville:focus ~ #interactive-map--southville-text {
+  fill: $color-white;
+  font-weight: bold;
+}
+
+#interactive-map--city-centre:focus ~ #interactive-map--city-centre-text {
+  fill: $color-white;
+}
+
+#interactive-map--temple-meads:focus ~ #interactive-map--temple-meads-text {
+  fill: $color-white;
+}
+
+#interactive-map--arnos-vale:focus ~ #interactive-map--arnos-vale-text {
+  fill: $color-white;
+}
+
+#interactive-map--stokes-croft:focus ~ #interactive-map--stokes-croft-text {
+  fill: $color-white;
+  font-weight: bold;
+}
+
+#interactive-map--clifton:focus ~ #interactive-map--clifton-text {
   fill: $color-white;
   font-weight: bold;
 }

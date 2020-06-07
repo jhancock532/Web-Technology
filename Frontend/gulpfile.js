@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
     babel = require('gulp-babel'),
+    autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify');
 
 sass.compiler = require('node-sass');
@@ -28,6 +29,9 @@ gulp.task('scripts', function() {
 gulp.task('sass', function () {
   return gulp.src(sassFilePath)
     .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({
+        cascade: false
+    }))
     .pipe(gulp.dest('./site/public/css/'));
 });
 

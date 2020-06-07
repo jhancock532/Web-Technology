@@ -1,63 +1,7 @@
-var attraction_map_container = document.getElementById("map-container");
-
-if (attraction_map_container){
-
-  var latitude = parseFloat(document.getElementById("attraction__latitude").textContent); 
-  var longitude = parseFloat(document.getElementById("attraction__longitude").textContent); 
-
-  var attraction_map = L.map('map-container').setView([latitude, longitude], 16);
-
-  //https://b.tile.openstreetmap.org/{z}/{x}/{y}.png //Donation based, should be used for testing purposes only. 
-  //https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg //Creative commons, should be used with attribute.
-  
-  L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg', {
-      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-      maxZoom: 18,
-      tileSize: 256,
-      zoomOffset: 0,
-  }).addTo(attraction_map);
-  
-  L.marker([latitude, longitude]).addTo(attraction_map);
-}
-
-
-//Hello world two!
-console.log("carousel");
-var dropdownActive = false;
-
-function toggleMenuVisibility(){
-  if (dropdownActive){
-    dropdownActive = false;
-    dropdownMenuItems.style.display = 'none';
-  } else {
-    dropdownActive = true;
-    dropdownMenuItems.style.display = 'block';
-  }
-}
-
-function menuButtonKeydown(event){
-  if (event.keyCode != 9) {
-    toggleMenuVisibility();
-  }
-}
-
-function lastLinkButtonKeydown(event){
-  if (event.keyCode == 9){
-    toggleMenuVisibility();
-  }
-}
-
-var dropdownMenuButton = document.getElementById('dropdown-menu-button');
-var dropdownMenuItems = document.getElementById('dropdown-menu-items');
-var finalDropdownMenuLink = dropdownMenuItems.children[dropdownMenuItems.children.length-1];
-
-dropdownMenuButton.addEventListener('click', toggleMenuVisibility);
-dropdownMenuButton.addEventListener('keydown', menuButtonKeydown);
-finalDropdownMenuLink.addEventListener('keydown', lastLinkButtonKeydown);
 //Landing Page Hero Map Code
 let landingPageMapContainer = document.getElementById("landing-page-hero__map-container");
 
-if (landingPageMapContainer){
+if (landingPageMapContainer){ //if this is the landing page
   let latitude = 51.453749;
   let longitude = -2.591873;
   let landingPageMap = L.map('landing-page-hero__map-container', { zoomControl: false }).setView([latitude, longitude], 14);
@@ -74,8 +18,6 @@ if (landingPageMapContainer){
 let attractions;
 let landingPageExploreContainer = document.getElementById('landing-page__explore-section');
 let attractionsVisited = 0;
-
-
 
 function getSubcategoryChoices(){
   let subcategoryChoices = {};
@@ -126,7 +68,7 @@ function fillInChoiceCard(choiceCardNum){
 
   for (let i = 0; i < numSubcategoriesToChooseFrom; i++){
     let buttonHTML = '';
-    buttonHTML += '<a href="#attraction-card--' + choiceCardNum + '" onclick="fillInAttractionCard(' + choiceCardNum + ', ';
+    buttonHTML += '<a tabindex="0" id="choice-card--' + choiceCardNum + '-subcategory-list-item--' + i + '" href="#attraction-card--' + choiceCardNum + '" onclick="fillInAttractionCard(' + choiceCardNum + ', ';
     buttonHTML += Object.entries(subcategoryChoices)[i][1].toString(); //The index in 'attractions' of the subcategory attraction.
     buttonHTML += ')"><li class="card__link-item">'
     buttonHTML += Object.entries(subcategoryChoices)[i][0].toString(); //The name of the subcategory.
@@ -184,6 +126,9 @@ function loadRegionContent(region){
 
     fillInChoiceCard(1);
     document.getElementById("choice-card--1").style.display = "block";
+
+    let elementToFocusOn = 'choice-card--1-subcategory-list-item--0';
+    document.getElementById(elementToFocusOn).focus();
   });
 
   exploreSectionHider.style.display = "none";
@@ -204,7 +149,7 @@ let finishButton = document.getElementById('attraction-card--finish-button');
 let adventureEndCard = document.getElementById('adventure-end-card');
 let exploreSectionHider = document.getElementById('landing-page__explore-section-hider');
 
-if (region_arnos_vale){
+if (region_arnos_vale) { //check if the current page is the landing page
   region_arnos_vale.addEventListener('click', function() { loadRegionContent("Arnos Vale")}, false);
   region_temple_meads.addEventListener('click', function() { loadRegionContent("Temple Meads")}, false);
   region_southville.addEventListener('click', function() { loadRegionContent("Southville")}, false);
@@ -213,5 +158,71 @@ if (region_arnos_vale){
   region_clifton.addEventListener('click', function() { loadRegionContent("Clifton")}, false);
   region_stokes_croft.addEventListener('click', function() { loadRegionContent("Stokes Croft")}, false);
   finishButton.addEventListener('click', function() { adventureEndCard.style.display = "block";}, false);
+
+  region_arnos_vale.addEventListener('keypress', function() { loadRegionContent("Arnos Vale")}, false);
+  region_temple_meads.addEventListener('keypress', function() { loadRegionContent("Temple Meads")}, false);
+  region_southville.addEventListener('keypress', function() { loadRegionContent("Southville")}, false);
+  region_harbourside.addEventListener('keypress', function() { loadRegionContent("Harbourside")}, false);
+  region_city_centre.addEventListener('keypress', function() { loadRegionContent("City Centre")}, false);
+  region_clifton.addEventListener('keypress', function() { loadRegionContent("Clifton")}, false);
+  region_stokes_croft.addEventListener('keypress', function() { loadRegionContent("Stokes Croft")}, false);
+  finishButton.addEventListener('keypress', function() { adventureEndCard.style.display = "block";}, false);
 }
 
+
+var attraction_map_container = document.getElementById("map-container");
+
+if (attraction_map_container){
+
+  var latitude = parseFloat(document.getElementById("attraction__latitude").textContent); 
+  var longitude = parseFloat(document.getElementById("attraction__longitude").textContent); 
+
+  var attraction_map = L.map('map-container').setView([latitude, longitude], 16);
+
+  //https://b.tile.openstreetmap.org/{z}/{x}/{y}.png //Donation based, should be used for testing purposes only. 
+  //https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg //Creative commons, should be used with attribute.
+  
+  L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg', {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+      maxZoom: 18,
+      tileSize: 256,
+      zoomOffset: 0,
+  }).addTo(attraction_map);
+  
+  L.marker([latitude, longitude]).addTo(attraction_map);
+}
+
+
+//Hello world two!
+console.log("carousel");
+var dropdownActive = false;
+
+function toggleMenuVisibility(){
+  if (dropdownActive){
+    dropdownActive = false;
+    dropdownMenuItems.style.display = 'none';
+  } else {
+    dropdownActive = true;
+    dropdownMenuItems.style.display = 'block';
+  }
+}
+
+function menuButtonKeydown(event){
+  if (event.keyCode != 9) {
+    toggleMenuVisibility();
+  }
+}
+
+function lastLinkButtonKeydown(event){
+  if (event.keyCode == 9){
+    toggleMenuVisibility();
+  }
+}
+
+var dropdownMenuButton = document.getElementById('dropdown-menu-button');
+var dropdownMenuItems = document.getElementById('dropdown-menu-items');
+var finalDropdownMenuLink = dropdownMenuItems.children[dropdownMenuItems.children.length-1];
+
+dropdownMenuButton.addEventListener('click', toggleMenuVisibility);
+dropdownMenuButton.addEventListener('keydown', menuButtonKeydown);
+finalDropdownMenuLink.addEventListener('keydown', lastLinkButtonKeydown);

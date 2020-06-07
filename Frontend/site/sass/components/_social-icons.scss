@@ -3,6 +3,10 @@
   border-radius: 10px;
   cursor: pointer;
 
+  &:focus {
+    outline: $button-border-radius solid $color-white;
+  }
+
   &--small {
     width: 40px;
     height: 40px;

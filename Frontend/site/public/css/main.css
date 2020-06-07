@@ -483,6 +483,11 @@ a {
     margin-right: -20px; }
     .card__link-list > a:hover {
       text-decoration: none; }
+    .card__link-list > a:focus {
+      color: #FBFBFB;
+      font-weight: bold; }
+      .card__link-list > a:focus > li {
+        background-color: #9BC53D; }
   .card__link-item {
     padding: 10px;
     padding-left: 20px;
@@ -517,7 +522,7 @@ a {
       min-height: 220px;
       display: flex;
       flex-direction: column;
-      justify-content: end; }
+      justify-content: flex-end; }
       @media (min-width: 900px) {
         .card--image__cover {
           min-height: 250px; } }
@@ -533,7 +538,7 @@ a {
       margin-top: 20px;
       display: flex;
       flex-direction: column;
-      justify-content: end;
+      justify-content: flex-end;
       text-align: center;
       font-weight: bold;
       font-size: 22px;
@@ -547,7 +552,7 @@ a {
   .card--heading__cover {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
     padding: 20px 20px 20px 20px;
     min-height: 280px; }
@@ -637,6 +642,8 @@ a {
     @media (min-width: 1200px) {
       .card--adventure__link {
         font-size: 25px; } }
+    .card--adventure__link:focus {
+      outline: 3px solid #060B0A; }
     .card--adventure__link:last-child {
       padding-bottom: 0; }
     @media (min-width: 600px) {
@@ -654,6 +661,8 @@ a {
     .interactive-map__region:hover {
       fill: #9BC53D;
       cursor: pointer; }
+    .interactive-map__region:focus {
+      fill: #9BC53D; }
   .interactive-map__text {
     font-family: CrimsonPro, Georgia, Times, serif;
     fill: #060B0A;
@@ -702,6 +711,31 @@ a {
   font-weight: bold; }
 
 #interactive-map--clifton:hover ~ #interactive-map--clifton-text {
+  fill: #FBFBFB;
+  font-weight: bold; }
+
+#interactive-map--harbourside:focus ~ #interactive-map--harbourside-text {
+  fill: #FBFBFB;
+  font-weight: bold; }
+
+#interactive-map--southville:focus ~ #interactive-map--southville-text {
+  fill: #FBFBFB;
+  font-weight: bold; }
+
+#interactive-map--city-centre:focus ~ #interactive-map--city-centre-text {
+  fill: #FBFBFB; }
+
+#interactive-map--temple-meads:focus ~ #interactive-map--temple-meads-text {
+  fill: #FBFBFB; }
+
+#interactive-map--arnos-vale:focus ~ #interactive-map--arnos-vale-text {
+  fill: #FBFBFB; }
+
+#interactive-map--stokes-croft:focus ~ #interactive-map--stokes-croft-text {
+  fill: #FBFBFB;
+  font-weight: bold; }
+
+#interactive-map--clifton:focus ~ #interactive-map--clifton-text {
   fill: #FBFBFB;
   font-weight: bold; }
 
@@ -756,6 +790,8 @@ a {
   background-color: #FBFBFB;
   border-radius: 10px;
   cursor: pointer; }
+  .social-icons:focus {
+    outline: 3px solid #FBFBFB; }
   .social-icons--small {
     width: 40px;
     height: 40px; }
@@ -815,114 +851,114 @@ a {
   margin-top: 0;
   margin-bottom: 10px; }
 
-.landing-page {
-  /*
-  &__explore-margin-right {
-    //background-color: $color-grey;
-  }
-
-  &__explore-margin-left {
-    //background-color: $color-grey;
-  }
-  */ }
-  .landing-page__attractions {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr; }
-    @media (min-width: 900px) {
-      .landing-page__attractions {
-        grid-template-columns: 1fr 1fr 1fr; } }
-    .landing-page__attractions--introduction-card {
-      grid-column: 2; }
-  .landing-page__map-section {
-    background-color: #404e4d;
-    min-height: 100vh; }
-  .landing-page__map-description {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 22px;
-    color: #FBFBFB;
-    padding: 40px 20px; }
-    @media (min-width: 900px) {
-      .landing-page__map-description {
-        font-size: 24px; } }
-    @media (min-width: 1200px) {
-      .landing-page__map-description {
-        font-size: 25px; } }
-    @media (min-width: 900px) {
-      .landing-page__map-description {
-        width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 40px; } }
-  .landing-page__interactive-map {
-    display: grid; }
-    @media (min-width: 900px) {
-      .landing-page__interactive-map {
-        grid-template-columns: auto minmax(60px, 550px) auto; } }
-  .landing-page__svg-container {
-    display: none; }
-    @media (min-width: 900px) {
-      .landing-page__svg-container {
-        display: block; } }
-    @media (min-width: 900px) {
-      .landing-page__svg-container--bridge {
-        display: flex;
-        align-items: end;
-        padding-bottom: 40px; } }
-  .landing-page__balloon {
-    position: absolute;
-    overflow: hidden;
-    width: 20vw;
-    right: 3vw; }
-  .landing-page__suspension-bridge {
-    position: absolute;
-    overflow: hidden;
-    width: 40vw;
-    left: -8vw; }
+.landing-page__attractions {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; }
   @media (min-width: 900px) {
-    .landing-page__explore-section {
-      display: grid;
-      grid-template-columns: auto minmax(60px, 900px) auto; } }
-  .landing-page__explore-content {
+    .landing-page__attractions {
+      grid-template-columns: 1fr 1fr 1fr; } }
+  .landing-page__attractions--introduction-card {
+    grid-column: 2; }
+
+.landing-page__map-section {
+  background-color: #404e4d;
+  min-height: 100vh; }
+
+.landing-page__map-description {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 22px;
+  color: #FBFBFB;
+  padding: 40px 20px; }
+  @media (min-width: 900px) {
+    .landing-page__map-description {
+      font-size: 24px; } }
+  @media (min-width: 1200px) {
+    .landing-page__map-description {
+      font-size: 25px; } }
+  @media (min-width: 900px) {
+    .landing-page__map-description {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 40px; } }
+
+.landing-page__interactive-map {
+  display: grid; }
+  @media (min-width: 900px) {
+    .landing-page__interactive-map {
+      grid-template-columns: auto minmax(60px, 550px) auto; } }
+
+.landing-page__svg-container {
+  display: none; }
+  @media (min-width: 900px) {
+    .landing-page__svg-container {
+      display: block; } }
+  @media (min-width: 900px) {
+    .landing-page__svg-container--bridge {
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 40px; } }
+
+.landing-page__balloon {
+  position: absolute;
+  overflow: hidden;
+  width: 20vw;
+  right: 3vw; }
+
+.landing-page__suspension-bridge {
+  position: absolute;
+  overflow: hidden;
+  width: 40vw;
+  left: -8vw; }
+
+@media (min-width: 900px) {
+  .landing-page__explore-section {
     display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr;
-    padding: 0 20px 20px; }
-    @media (min-width: 600px) {
-      .landing-page__explore-content {
-        padding: 0 40px 40px; } }
-    @media (min-width: 900px) {
-      .landing-page__explore-content {
-        grid-template-columns: 1fr 1fr 1fr; } }
-  .landing-page__explore-section-hider {
-    margin-top: -20px; }
-    @media (min-width: 600px) {
-      .landing-page__explore-section-hider {
-        margin-top: -40px; } }
-  .landing-page__choice-card {
-    display: none; }
-    @media (min-width: 900px) {
-      .landing-page__choice-card {
-        padding-top: 40px;
-        grid-column: 1 / 3; } }
-    .landing-page__choice-card--error-message {
-      padding: 20px;
-      font-weight: bold; }
-  .landing-page__attraction-card {
-    display: none; }
-    @media (min-width: 900px) {
-      .landing-page__attraction-card {
-        padding-top: 40px;
-        grid-column: 2 / 4; } }
-  .landing-page__adventure-end-card {
-    display: none; }
-    @media (min-width: 900px) {
-      .landing-page__adventure-end-card {
-        padding-top: 40px;
-        grid-column: 1 / 4;
-        text-align: center; } }
+    grid-template-columns: auto minmax(60px, 900px) auto; } }
+
+.landing-page__explore-content {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  padding: 20px 20px 60px 20px; }
+  @media (min-width: 600px) {
+    .landing-page__explore-content {
+      padding: 20px 40px 60px 40px; } }
+  @media (min-width: 900px) {
+    .landing-page__explore-content {
+      grid-template-columns: 1fr 1fr 1fr; } }
+
+.landing-page__explore-section-hider {
+  margin-top: -80px; }
+
+.landing-page__choice-card {
+  display: none;
+  padding-top: 40px; }
+  @media (min-width: 900px) {
+    .landing-page__choice-card {
+      grid-column: 1 / 3; } }
+  .landing-page__choice-card--error-message {
+    padding: 20px;
+    font-weight: bold; }
+
+.landing-page__attraction-card {
+  display: none;
+  padding-top: 40px; }
+  @media (min-width: 900px) {
+    .landing-page__attraction-card {
+      grid-column: 2 / 4; } }
+
+.landing-page__adventure-end-card {
+  display: none;
+  padding-top: 40px; }
+  @media (min-width: 900px) {
+    .landing-page__adventure-end-card {
+      padding-top: 40px;
+      grid-column: 1 / 4;
+      text-align: center; } }
 
 .landing-page-hero__map {
   z-index: -1;
@@ -1055,6 +1091,7 @@ a {
   gap: 20px; }
   @media (min-width: 600px) {
     .style-guide {
+      grid-template-columns: -webkit-min-content auto;
       grid-template-columns: min-content auto;
       padding-right: 40px; } }
   .style-guide hr {
@@ -1083,6 +1120,7 @@ a {
         .style-guide__menu::before {
           content: ""; } }
   .style-guide__menu-sticky {
+    position: -webkit-sticky;
     position: sticky; }
   .style-guide__code-block {
     width: 100%;
@@ -1166,7 +1204,12 @@ a {
         padding-top: 40px;
         padding-left: 40px; } }
   .footer__social-media-cta-text {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    text-align: center;
+    white-space: nowrap; }
+    @media (min-width: 600px) {
+      .footer__social-media-cta-text {
+        text-align: left; } }
   .footer__social-media-share-arrow {
     max-height: 16px;
     padding-left: 2px; }
@@ -1182,10 +1225,14 @@ a {
     flex-wrap: wrap; }
     @media (min-width: 600px) {
       .footer__social-media-items {
-        gap: 20px;
         align-items: flex-start;
         align-content: flex-start;
-        justify-content: start; } }
+        justify-content: start; }
+        .footer__social-media-items > a {
+          margin-right: 20px;
+          margin-bottom: 20px; }
+          .footer__social-media-items > a:last-child {
+            margin-right: 0; } }
   .footer__logo {
     padding: 0px 20px;
     grid-row: 2; }

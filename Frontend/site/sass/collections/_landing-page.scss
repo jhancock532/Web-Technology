@@ -53,7 +53,7 @@
     &--bridge {
       @include media-query(md){
         display: flex;
-        align-items: end;
+        align-items: flex-end;
         padding-bottom: $grid * 2;
       }
     }
@@ -80,25 +80,14 @@
     }
   }
 
-  /*
-  &__explore-margin-right {
-    //background-color: $color-grey;
-  }
-
-  &__explore-margin-left {
-    //background-color: $color-grey;
-  }
-  */
-
   &__explore-content {
     display: grid;
     gap: $grid;
     grid-template-columns: 1fr;
-    padding: 0 $grid $grid;
-    //background-color: $color-grey;
+    padding: $grid $grid 3 * $grid $grid;
 
     @include media-query(sm){
-      padding: 0 2 * $grid 2 * $grid;
+      padding: $grid 2 * $grid 3 * $grid 2 * $grid;
     }
 
     @include media-query(md){
@@ -107,17 +96,14 @@
   }
 
   &__explore-section-hider {
-    margin-top: -$grid;
-    @include media-query(sm){
-      margin-top: 2* - $grid;
-    }
+    margin-top: -4 * $grid;
   }
 
   &__choice-card {
     display: none;
+    padding-top: 2 * $grid;
 
     @include media-query(md){
-      padding-top: 2 * $grid;
       grid-column: 1 / 3;
     }
 
@@ -129,15 +115,17 @@
 
   &__attraction-card {
     display: none;
+    padding-top: 2 * $grid;
 
     @include media-query(md){
-      padding-top: 2 * $grid;
       grid-column: 2 / 4;
     }
   }
 
   &__adventure-end-card {
     display: none;
+
+    padding-top: 2 * $grid;
 
     @include media-query(md){
       padding-top: 2 * $grid;
