@@ -3,6 +3,7 @@ const express = require("express");
 const nunjucks = require("nunjucks");
 const path = require("path");
 const superagent = require('superagent');
+const favicon = require('serve-favicon');
 const showdown  = require('showdown'),
       markdownConverter = new showdown.Converter();
 
@@ -20,6 +21,8 @@ nunjucks.configure(root, {
   express: app
 });
 
+app.use(favicon(path.join(__dirname, 'public/favicon', 'favicon.ico')));
+app.use('/favicon', express.static(path.join(__dirname, 'public/favicon')));
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use('/fonts', express.static(path.join(__dirname, 'public/fonts')));
