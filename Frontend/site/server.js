@@ -12,10 +12,10 @@ const DEBUG_LOG = true;
 const WEBSITE_TITLE = "Explore Bristol";
 
 const STRAPI_DEV_URL = "http://localhost:1337";
-const STRAPI_PROD_URL = "https://strapi-visit-bristol.herokuapp.com";
+const STRAPI_PROD_URL = "https://strapi-explore-bristol.herokuapp.com";
 
 const SITE_DEV_URL = "http://localhost:3000";
-const SITE_PROD_URL = "https://visit-bristol.herokuapp.com";
+const SITE_PROD_URL = "https://explore-bristol.herokuapp.com";
 
 let development = true;
 if (process.argv[2] == "production"){
