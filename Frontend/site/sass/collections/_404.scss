@@ -1,0 +1,15 @@
+.fourzerofour {
+  padding: $grid;
+
+  @include media-query(sm){
+    padding: 2 * $grid;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__text {
+    text-align: center;
+  }
+}

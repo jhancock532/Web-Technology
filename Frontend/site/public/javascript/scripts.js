@@ -193,8 +193,6 @@ if (attraction_map_container){
 }
 
 
-//Hello world two!
-console.log("carousel");
 var dropdownActive = false;
 
 function toggleMenuVisibility(){
