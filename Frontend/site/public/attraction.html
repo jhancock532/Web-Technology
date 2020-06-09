@@ -7,7 +7,7 @@
 <div class="attraction">
 
   <div class="attraction__header">
-    {% set backgroundImageUrl = ['http://localhost:1337', data.image[0].url] %}
+    {% set backgroundImageUrl = [strapiURL, data.image[0].url] %}
 
     <div class="card--image text-white style-guide__heading-card" style="background-image: url('{{ backgroundImageUrl | join }}');">
       <div class="card--heading__cover">

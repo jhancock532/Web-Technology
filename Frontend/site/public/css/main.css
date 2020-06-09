@@ -954,11 +954,16 @@ a {
 .landing-page__adventure-end-card {
   display: none;
   padding-top: 40px; }
-  @media (min-width: 900px) {
+  @media (min-width: 600px) {
     .landing-page__adventure-end-card {
       padding-top: 40px;
-      grid-column: 1 / 4;
       text-align: center; } }
+  @media (min-width: 900px) {
+    .landing-page__adventure-end-card {
+      grid-column: 1 / 4; } }
+
+.landing-page__hidden-url {
+  display: none; }
 
 .landing-page-hero__map {
   z-index: -1;

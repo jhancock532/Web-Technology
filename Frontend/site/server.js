@@ -11,10 +11,30 @@ const VERIFY_XHTML = true;
 const DEBUG_LOG = true;
 const WEBSITE_TITLE = "Explore Bristol";
 
+const STRAPI_DEV_URL = "http://localhost:1337";
+const STRAPI_PROD_URL = "";
+
+const SITE_DEV_URL = "http://localhost:3000";
+const SITE_PROD_URL = "";
+
+let development = true;
+if (process.argv[2] == "production"){
+  development = false;
+}
+
 let app = express();
 let port = 3000;
 let root = __dirname + "/public";
-let siteURL = "http://localhost:3000";
+let siteURL = "";
+let strapiURL = "";
+
+if (development) {
+  siteURL = SITE_DEV_URL;
+  strapiURL = STRAPI_DEV_URL;
+} else {
+  siteURL = SITE_PROD_URL;
+  strapiURL = STRAPI_PROD_URL;
+}
 
 nunjucks.configure(root, {
   autoescape: true,
@@ -32,14 +52,14 @@ app.use('/javascript', express.static(path.join(__dirname, 'public/javascript'))
 
 app.get('/', function(req, res) {
   addXHTML(res);
-  //Use .xhtml for this file name!
-  //It makes the SVG file for the map work with xhtml parsing, but development is terrible with xhtml files in vscode.
+  //Use .xhtml for this file name! It makes the SVG file for the map work with xhtml parsing
   //See the following source - https://dh.obdurodon.org/svg-embedding.xhtml
 
   res.render('index.xhtml', {
     INCLUDE_MAP: true, //INCLUDE_MAP includes the Leaflet.js JavaScript file when serving the webpage.
     title: WEBSITE_TITLE,
-    shareURL: encodeURI(siteURL + req.url),
+    shareURL: siteURL,
+    strapiURL: strapiURL,
   });
 });
 
@@ -49,11 +69,14 @@ app.get('/style-guide', function(req, res) {
     INCLUDE_MAP: true,
     title: WEBSITE_TITLE + " - Style Guide",
     shareURL: encodeURI(siteURL + req.url),
+    strapiURL: strapiURL,
   });
 });
 
 app.get('/culture-and-heritage', function(req, res) {
-  superagent.get('http://localhost:1337/categories/4')
+  let api_req = strapiURL + "/categories/4";
+
+  superagent.get(api_req)
     .end((err, api_res) => {
       if (err) { 
         return console.log(err); 
@@ -65,12 +88,15 @@ app.get('/culture-and-heritage', function(req, res) {
         data: api_res.body,
         title: WEBSITE_TITLE + " - Culture & Heritage",
         shareURL: encodeURI(siteURL + req.url),
+        strapiURL: strapiURL,
       });
     });
 });
 
 app.get('/food-and-drink', function(req, res) {
-  superagent.get('http://localhost:1337/categories/3')
+  let api_req = strapiURL + "/categories/3";
+
+  superagent.get(api_req)
     .end((err, api_res) => {
       if (err) { 
         return console.log(err); 
@@ -83,12 +109,15 @@ app.get('/food-and-drink', function(req, res) {
         data: api_res.body,
         title: WEBSITE_TITLE + " - Food & Drink",
         shareURL: encodeURI(siteURL + req.url),
+        strapiURL: strapiURL,
       })
     });
 });
 
 app.get('/events-and-spaces', function(req, res) {
-  superagent.get('http://localhost:1337/categories/5')
+  let api_req = strapiURL + "/categories/5";
+
+  superagent.get(api_req)
     .end((err, api_res) => {
       if (err) {
         return console.log(err); 
@@ -101,12 +130,13 @@ app.get('/events-and-spaces', function(req, res) {
         data: api_res.body,
         title: WEBSITE_TITLE + " - Events & Spaces",
         shareURL: encodeURI(siteURL + req.url),
+        strapiURL: strapiURL,
       })
     });
 });
 
 app.get('/subcategories/:id', function(req, res) {
-  let api_req = 'http://localhost:1337/subcategories/' + req.params['id'];
+  let api_req = strapiURL + '/subcategories/' + req.params['id'];
 
   superagent.get(api_req)
     .end((err, api_res) => {
@@ -114,6 +144,7 @@ app.get('/subcategories/:id', function(req, res) {
         res.render('404.html', {
           title: WEBSITE_TITLE + " - 404",
           shareURL: encodeURI(siteURL),
+          strapiURL: strapiURL,
         });
         return console.log(err); 
       }
@@ -124,6 +155,7 @@ app.get('/subcategories/:id', function(req, res) {
         data: api_res.body,
         title: WEBSITE_TITLE + " - " + api_res.body.name,
         shareURL: encodeURI(siteURL + req.url),
+        strapiURL: strapiURL,
       })
   });
   
@@ -131,7 +163,7 @@ app.get('/subcategories/:id', function(req, res) {
 
 app.get('/attractions/:id', function(req, res) {
 
-  let api_req = 'http://localhost:1337/attractions/' + req.params['id'];
+  let api_req = strapiURL + '/attractions/' + req.params['id'];
 
   log(api_req);
 
@@ -141,6 +173,7 @@ app.get('/attractions/:id', function(req, res) {
         res.render('404.html', {
           title: WEBSITE_TITLE + " - 404",
           shareURL: encodeURI(siteURL),
+          strapiURL: strapiURL,
         });
         return console.log(err);
       }
@@ -157,6 +190,7 @@ app.get('/attractions/:id', function(req, res) {
         INCLUDE_MAP: true,
         title: WEBSITE_TITLE + " - " + api_res.body.name,
         shareURL: encodeURI(siteURL + req.url),
+        strapiURL: strapiURL,
       })
   });
   
@@ -196,7 +230,6 @@ app.listen(port, () => console.log(`Website now listening on port ${port}!`));
 
 // When interrupt signal is detected at the terminal, we terminate the process.
 // This may not work as CTRL-C is has a default handler in Linux system, so it exits on terminal before getting detected by the server.
-
 process.on('SIGINT', () => {
   console.info('SIGINT signal received.');
   console.log('Closing http server.');

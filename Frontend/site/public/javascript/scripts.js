@@ -1,3 +1,57 @@
+var attraction_map_container = document.getElementById("map-container");
+
+if (attraction_map_container){
+
+  var latitude = parseFloat(document.getElementById("attraction__latitude").textContent); 
+  var longitude = parseFloat(document.getElementById("attraction__longitude").textContent); 
+
+  var attraction_map = L.map('map-container').setView([latitude, longitude], 16);
+
+  //https://b.tile.openstreetmap.org/{z}/{x}/{y}.png //Donation based, should be used for testing purposes only. 
+  //https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg //Creative commons, should be used with attribute.
+  
+  L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg', {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+      maxZoom: 18,
+      tileSize: 256,
+      zoomOffset: 0,
+  }).addTo(attraction_map);
+  
+  L.marker([latitude, longitude]).addTo(attraction_map);
+}
+
+
+var dropdownActive = false;
+
+function toggleMenuVisibility(){
+  if (dropdownActive){
+    dropdownActive = false;
+    dropdownMenuItems.style.display = 'none';
+  } else {
+    dropdownActive = true;
+    dropdownMenuItems.style.display = 'block';
+  }
+}
+
+function menuButtonKeydown(event){
+  if (event.keyCode != 9) {
+    toggleMenuVisibility();
+  }
+}
+
+function lastLinkButtonKeydown(event){
+  if (event.keyCode == 9){
+    toggleMenuVisibility();
+  }
+}
+
+var dropdownMenuButton = document.getElementById('dropdown-menu-button');
+var dropdownMenuItems = document.getElementById('dropdown-menu-items');
+var finalDropdownMenuLink = dropdownMenuItems.children[dropdownMenuItems.children.length-1];
+
+dropdownMenuButton.addEventListener('click', toggleMenuVisibility);
+dropdownMenuButton.addEventListener('keydown', menuButtonKeydown);
+finalDropdownMenuLink.addEventListener('keydown', lastLinkButtonKeydown);
 //Landing Page Hero Map Code
 let landingPageMapContainer = document.getElementById("landing-page-hero__map-container");
 
@@ -18,6 +72,7 @@ if (landingPageMapContainer){ //if this is the landing page
 let attractions;
 let landingPageExploreContainer = document.getElementById('landing-page__explore-section');
 let attractionsVisited = 0;
+let siteURL, strapiURL;
 
 function getSubcategoryChoices(){
   let subcategoryChoices = {};
@@ -97,10 +152,10 @@ function fillInAttractionCard(cardNum, attractionNum){
     let attractionCardTagline = document.getElementById(attractionCardTaglineId);
     let attractionCardExploreLink = document.getElementById(attractionCardExploreLinkId);
   
-    attractionCardTitle.innerHTML = attraction.name;
-    attractionCardTagline.innerHTML = attraction.tagline;
-    attractionCardImage.style.backgroundImage = "url('http://localhost:1337" + attraction.image[0].url + "')";
-    attractionCardExploreLink.href = "http://localhost:3000/attractions/" + attraction.id;
+    attractionCardTitle.innerText = attraction.name;
+    attractionCardTagline.innerText = attraction.tagline;
+    attractionCardImage.style.backgroundImage = "url('"+ strapiURL + attraction.image[0].url + "')";
+    attractionCardExploreLink.href = siteURL + "attractions/" + attraction.id;
   
     attraction.visited = true;
   }
@@ -112,13 +167,23 @@ function loadRegionContent(region){
     return;
   }
 
-  let request = 'http://localhost:1337/attractions?region=' + encodeURIComponent(region);
+  siteURL = siteURLContainer.innerHTML;
+  strapiURL = strapiURLContainer.innerHTML;
+
+  console.log(siteURL);
+  console.log(strapiURL);
+
+  let request = strapiURL + '/attractions?region=' + encodeURIComponent(region);
   //encodeURIComponent - https://stackoverflow.com/questions/12141251/how-can-i-replace-space-with-20-in-javascript
+
+  console.log(request);
 
   fetch(request)
   .then(response => response.json())
   .then(regionalAttractions => {
     attractions = regionalAttractions;
+
+    console.log(attractions);
 
     for (let i = 0; i < attractions.length; i++){
       attractions[i].visited = false;
@@ -149,6 +214,9 @@ let finishButton = document.getElementById('attraction-card--finish-button');
 let adventureEndCard = document.getElementById('adventure-end-card');
 let exploreSectionHider = document.getElementById('landing-page__explore-section-hider');
 
+let siteURLContainer = document.getElementById('landing-page__site-url');
+let strapiURLContainer = document.getElementById('landing-page__strapi-url');
+
 if (region_arnos_vale) { //check if the current page is the landing page
   region_arnos_vale.addEventListener('click', function() { loadRegionContent("Arnos Vale")}, false);
   region_temple_meads.addEventListener('click', function() { loadRegionContent("Temple Meads")}, false);
@@ -169,58 +237,3 @@ if (region_arnos_vale) { //check if the current page is the landing page
   finishButton.addEventListener('keypress', function() { adventureEndCard.style.display = "block";}, false);
 }
 
-
-var attraction_map_container = document.getElementById("map-container");
-
-if (attraction_map_container){
-
-  var latitude = parseFloat(document.getElementById("attraction__latitude").textContent); 
-  var longitude = parseFloat(document.getElementById("attraction__longitude").textContent); 
-
-  var attraction_map = L.map('map-container').setView([latitude, longitude], 16);
-
-  //https://b.tile.openstreetmap.org/{z}/{x}/{y}.png //Donation based, should be used for testing purposes only. 
-  //https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg //Creative commons, should be used with attribute.
-  
-  L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg', {
-      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-      maxZoom: 18,
-      tileSize: 256,
-      zoomOffset: 0,
-  }).addTo(attraction_map);
-  
-  L.marker([latitude, longitude]).addTo(attraction_map);
-}
-
-
-var dropdownActive = false;
-
-function toggleMenuVisibility(){
-  if (dropdownActive){
-    dropdownActive = false;
-    dropdownMenuItems.style.display = 'none';
-  } else {
-    dropdownActive = true;
-    dropdownMenuItems.style.display = 'block';
-  }
-}
-
-function menuButtonKeydown(event){
-  if (event.keyCode != 9) {
-    toggleMenuVisibility();
-  }
-}
-
-function lastLinkButtonKeydown(event){
-  if (event.keyCode == 9){
-    toggleMenuVisibility();
-  }
-}
-
-var dropdownMenuButton = document.getElementById('dropdown-menu-button');
-var dropdownMenuItems = document.getElementById('dropdown-menu-items');
-var finalDropdownMenuLink = dropdownMenuItems.children[dropdownMenuItems.children.length-1];
-
-dropdownMenuButton.addEventListener('click', toggleMenuVisibility);
-dropdownMenuButton.addEventListener('keydown', menuButtonKeydown);
-finalDropdownMenuLink.addEventListener('keydown', lastLinkButtonKeydown);

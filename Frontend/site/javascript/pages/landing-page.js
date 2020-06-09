@@ -18,6 +18,7 @@ if (landingPageMapContainer){ //if this is the landing page
 let attractions;
 let landingPageExploreContainer = document.getElementById('landing-page__explore-section');
 let attractionsVisited = 0;
+let siteURL, strapiURL;
 
 function getSubcategoryChoices(){
   let subcategoryChoices = {};
@@ -97,10 +98,10 @@ function fillInAttractionCard(cardNum, attractionNum){
     let attractionCardTagline = document.getElementById(attractionCardTaglineId);
     let attractionCardExploreLink = document.getElementById(attractionCardExploreLinkId);
   
-    attractionCardTitle.innerHTML = attraction.name;
-    attractionCardTagline.innerHTML = attraction.tagline;
-    attractionCardImage.style.backgroundImage = "url('http://localhost:1337" + attraction.image[0].url + "')";
-    attractionCardExploreLink.href = "http://localhost:3000/attractions/" + attraction.id;
+    attractionCardTitle.innerText = attraction.name;
+    attractionCardTagline.innerText = attraction.tagline;
+    attractionCardImage.style.backgroundImage = "url('"+ strapiURL + attraction.image[0].url + "')";
+    attractionCardExploreLink.href = siteURL + "attractions/" + attraction.id;
   
     attraction.visited = true;
   }
@@ -112,13 +113,23 @@ function loadRegionContent(region){
     return;
   }
 
-  let request = 'http://localhost:1337/attractions?region=' + encodeURIComponent(region);
+  siteURL = siteURLContainer.innerHTML;
+  strapiURL = strapiURLContainer.innerHTML;
+
+  console.log(siteURL);
+  console.log(strapiURL);
+
+  let request = strapiURL + '/attractions?region=' + encodeURIComponent(region);
   //encodeURIComponent - https://stackoverflow.com/questions/12141251/how-can-i-replace-space-with-20-in-javascript
+
+  console.log(request);
 
   fetch(request)
   .then(response => response.json())
   .then(regionalAttractions => {
     attractions = regionalAttractions;
+
+    console.log(attractions);
 
     for (let i = 0; i < attractions.length; i++){
       attractions[i].visited = false;
@@ -148,6 +159,9 @@ let region_stokes_croft = document.getElementById("interactive-map--stokes-croft
 let finishButton = document.getElementById('attraction-card--finish-button');
 let adventureEndCard = document.getElementById('adventure-end-card');
 let exploreSectionHider = document.getElementById('landing-page__explore-section-hider');
+
+let siteURLContainer = document.getElementById('landing-page__site-url');
+let strapiURLContainer = document.getElementById('landing-page__strapi-url');
 
 if (region_arnos_vale) { //check if the current page is the landing page
   region_arnos_vale.addEventListener('click', function() { loadRegionContent("Arnos Vale")}, false);

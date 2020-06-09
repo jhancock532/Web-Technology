@@ -7,7 +7,7 @@
 
   <div class="category__subcategories">
     {% for subcategory in data.subcategories %}
-      {% set backgroundImageUrl = ['http://localhost:1337', subcategory.cover_image[0].url] %}
+      {% set backgroundImageUrl = [strapiURL, subcategory.cover_image[0].url] %}
 
       <div class="card card--image text-white" style="background-image: url('{{ backgroundImageUrl | join }}');">
         <a class="link-white link-no-underline card__image-link" href="/subcategories/{{ subcategory.id }}">
