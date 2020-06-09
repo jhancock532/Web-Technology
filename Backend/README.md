@@ -6,7 +6,8 @@ or
 
 Windows / Legacy Method: Run `strapi develop` in the command line in this directory after having installed Strapi for CLI.
 
-# Temporary Access
+# Access to View Strapi Backend
+These credientals work for the local version of the site.
 
-test-admin
-9EMyXmfHvvJbUQs
+Username - test-admin
+Password - 9EMyXmfHvvJbUQs

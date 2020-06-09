@@ -3,7 +3,13 @@
 ### Running the Server
 
 ## npm start
+Runs the server on localhost:3000.
+
+## npm run dev
 This command will run the server with nodemon so that HTML file updates cause server refreshes.
+
+## npm run prod
+This command will run the server using the production URLs for Strapi and our Express frontend.
 
 ## gulp
 This command will watch for updates to sass and javascript files, preprocessing them accordingly.
@@ -40,26 +46,3 @@ Also do `npm install gulp-sass --save-dev` if this hasn't already been installed
 
 I haven't set this up yet, but in the future we can integrate with VSCode.
 https://code.visualstudio.com/docs/languages/css#_transpiling-sass-and-less-into-css
-
-# To Do List
-
-- Map of Bristol
-  - Inkscape SVG Creation
-  - HTML Component (With CSS?)
-  - JavaScript to make it trigger something
-
-- Card for Event / Location
-- Buttons for Cards
-
-- Restyle the dropdown button so that it uses :after with a CSS triangle for a cleaner look.
-- Fix the dropdown hovering effect.
-- Implement the dropdown javascript so that it operates on button click. Unique ids for dropdowns may be necessary.
-
-# For my MACS, 
-npm install somehow does not install [nunjucks] and [express] ... 
-- Have to run npm install nunjucks express manually.
-- Server does not close after running the command [ node server.js & ] , still running in the background 
-# Command to print only node processes 
-- ps -ef | grep node
-# Command to kill node processes with pid 
-- kill -9 pid
